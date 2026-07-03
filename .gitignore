@@ -1,0 +1,21 @@
+node_modules/
+android/build/
+android/app/build/
+android/.gradle/
+android/local.properties
+android/captures/
+android/app/keystore/*.keystore
+dist/
+
+# Raw photo source material (2GB+, originals live only locally — app uses compressed dishes/ copies)
+реальное меню/
+
+# Unused stray reference images dropped in project root (not referenced by index.html)
+1671904221_grizly-club-p-karakalpakskii-ornament-5.jpg
+71181f4341000bcd3c2d25abde6764a5-600x450.jpeg
+ANOR3495.jpg
+gol.jpg
+images.jpg
+j2ukvy---c2x1x50px50p-up--882fe2b0a21058ccebb58f81a69b980e.jpg
+Fifth_carpet_gul_from_flag_of_Turkmenistan.svg.png
+Fourth_carpet_gul_from_flag_of_Turkmenistan.svg
