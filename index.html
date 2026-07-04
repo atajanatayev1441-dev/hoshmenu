@@ -170,14 +170,15 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 .dc:hover .cp img{transform:scale(1.07)}
 .cp{position:relative;height:220px;background:rgba(20,14,4,.7);overflow:hidden}
-.cp img{width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .55s ease}
+.cp-bg{position:absolute;inset:-10px;z-index:0;background-size:cover;background-position:center;filter:blur(20px) brightness(.55) saturate(1.1);transform:scale(1.15)}
+.cp img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center;display:block;transition:transform .55s ease}
 .cp-ph{width:100%;height:100%;display:flex;align-items:center;justify-content:center}
 .cpg{
-  position:absolute;bottom:0;left:0;right:0;height:100%;pointer-events:none;
+  position:absolute;bottom:0;left:0;right:0;height:100%;pointer-events:none;z-index:2;
   background:linear-gradient(to top,rgba(9,7,2,.92) 0%,rgba(9,7,2,.4) 45%,transparent 75%)
 }
 .cbadge{
-  position:absolute;top:14px;left:14px;
+  position:absolute;top:14px;left:14px;z-index:3;
   background:rgba(8,6,2,.82);backdrop-filter:blur(10px);
   border:1px solid rgba(201,168,76,.35);color:var(--gold);
   font-size:9px;font-weight:500;letter-spacing:2px;padding:4px 10px;border-radius:4px
@@ -233,16 +234,17 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 #md::-webkit-scrollbar{display:none}
 #mo.open #md{transform:scale(1)}
 #mphoto{position:relative;height:280px;background:#1A1A1A;overflow:hidden;border-radius:24px 24px 0 0}
-#mphoto img{width:100%;height:100%;object-fit:contain;object-position:center;display:block}
-#mphoto-g{position:absolute;inset:0;background:linear-gradient(to top,#141414 0%,transparent 50%)}
+#mphoto-bg{position:absolute;inset:-10px;z-index:0;background-size:cover;background-position:center;filter:blur(24px) brightness(.55) saturate(1.1);transform:scale(1.15)}
+#mphoto img{position:relative;z-index:1;width:100%;height:100%;object-fit:contain;object-position:center;display:block}
+#mphoto-g{position:absolute;inset:0;z-index:2;background:linear-gradient(to top,#141414 0%,transparent 50%)}
 #mbadge{
-  position:absolute;top:16px;left:16px;background:rgba(12,12,12,.8);
+  position:absolute;top:16px;left:16px;z-index:3;background:rgba(12,12,12,.8);
   backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,.3);
   color:var(--gold);font-size:9px;font-weight:500;letter-spacing:2px;
   padding:4px 10px;border-radius:4px;display:none
 }
 #mclose{
-  position:absolute;top:16px;right:16px;width:36px;height:36px;
+  position:absolute;top:16px;right:16px;z-index:4;width:36px;height:36px;
   border-radius:50%;background:rgba(12,12,12,.8);backdrop-filter:blur(8px);
   border:1px solid rgba(201,168,76,.2);color:var(--text);
   display:flex;align-items:center;justify-content:center;transition:all .2s
@@ -784,6 +786,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 <div id="mo">
   <div id="md">
     <div id="mphoto">
+      <div id="mphoto-bg"></div>
       <img id="mphoto-img" src="" alt="">
       <div id="mphoto-g"></div>
       <div id="mbadge"></div>
@@ -1142,7 +1145,7 @@ function renderGrid(){
       el.innerHTML = `
         <div class="cp">
           ${d.photo
-            ? `<img src="${d.photo}" alt="${t(d.names)}" loading="lazy">`
+            ? `<div class="cp-bg" style="background-image:url('${d.photo}')"></div><img src="${d.photo}" alt="${t(d.names)}" loading="lazy">`
             : `<div class="cp-ph"><svg width="48" height="48" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1" viewBox="0 0 48 48"><ellipse cx="24" cy="30" rx="18" ry="4"/><path d="M6 30c0-9.94 8.06-18 18-18s18 8.06 18 18"/><path d="M18 18c0-3.31 2.69-6 6-6s6 2.69 6 6"/><rect x="20" y="10" width="8" height="4" rx="1"/></svg></div>`}
           <div class="cpg"></div>
           ${d.badge ? `<div class="cbadge">${d.badge}</div>` : ''}
@@ -1180,6 +1183,7 @@ function openModal(d){
   modalDish = d;
   $('mphoto-img').src = d.photo || '';
   $('mphoto-img').style.display = d.photo ? '' : 'none';
+  $('mphoto-bg').style.backgroundImage = d.photo ? `url('${d.photo}')` : '';
   if(d.badge){ $('mbadge').textContent = d.badge; $('mbadge').style.display = ''; }
   else $('mbadge').style.display = 'none';
   $('mname').textContent = t(d.names);
