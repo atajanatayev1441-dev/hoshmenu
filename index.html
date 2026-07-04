@@ -596,13 +596,12 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
   .tbtn{width:44px!important;height:44px!important}
   .ct{font-size:12px!important;letter-spacing:2.5px!important;padding:8px 4px 10px!important;min-height:44px!important}
   #cats{gap:24px!important}
-  #dish-grid{grid-template-columns:repeat(4,1fr)!important;gap:16px!important;padding:20px 24px!important}
-  .cb{padding:14px 15px 15px!important}
-  .cn{font-size:15px!important;line-height:1.3!important}
-  .cd{font-size:11px!important}
-  .cpr{font-size:19px!important}
-  .cpr span{font-size:10px!important}
-  .abtn{width:38px!important;height:38px!important;font-size:19px!important}
+  #dish-grid{grid-template-columns:repeat(3,1fr)!important;gap:18px!important;padding:20px 24px!important}
+  .cn{font-size:17px!important;line-height:1.3!important}
+  .cd{font-size:12px!important}
+  .cpr{font-size:24px!important}
+  .cpr span{font-size:11px!important}
+  .abtn{width:44px!important;height:44px!important;font-size:22px!important}
   #bnav{height:var(--bnav-h)!important}
   .nt{font-size:11px!important;gap:5px!important}
   .nt svg{width:18px!important;height:18px!important}
@@ -1186,7 +1185,7 @@ function openModal(d){
   if(d.badge){ $('mbadge').textContent = d.badge; $('mbadge').style.display = ''; }
   else $('mbadge').style.display = 'none';
   $('mname').textContent = t(d.names);
-  $('mdesc').textContent = t(d.full);
+  $('mdesc').textContent = t(d.full) || t(d.short);
   $('ming').textContent = t(d.ing);
   $('mprice').firstChild.textContent = d.price;
   $('mo').classList.add('open');
