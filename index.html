@@ -97,6 +97,19 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 .ct.on::after{transform:translateX(-50%) scaleX(1);opacity:1}
 @keyframes ct-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+#subcats{
+  display:none;flex-wrap:wrap;gap:10px;
+  padding:0 4px 18px;
+}
+#subcats.v{display:flex}
+.sct{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(245,240,232,.45);cursor:pointer;white-space:nowrap;
+  padding:7px 16px;border:1px solid rgba(201,168,76,.2);border-radius:20px;background:none;
+  transition:color .25s,border-color .25s,background .25s;
+}
+.sct:hover{color:rgba(245,240,232,.75);border-color:rgba(201,168,76,.4)}
+.sct.on{color:var(--gol2);border-color:var(--gold);background:rgba(201,168,76,.1)}
 #tbr{display:flex;align-items:center;gap:10px;flex-shrink:0}
 .tbtn{
   width:40px;height:40px;border-radius:10px;
@@ -754,7 +767,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 </header>
 
 <main id="main">
-  <div id="menu-content"><div id="dish-grid"></div></div>
+  <div id="menu-content"><div id="subcats"></div><div id="dish-grid"></div></div>
   <div id="promo">
     <div class="scr-title">Акции</div>
     <div class="promo-card"><div class="promo-tag">СКИДКА 15%</div><div class="promo-title">Счастливые часы</div><div class="promo-desc">Каждый день с 17:00 до 20:00 — скидка 15% на все напитки и закуски. Лучшее время для встречи с друзьями.</div></div>
@@ -865,7 +878,11 @@ const DC = [
   {id:'sides',names:{ru:'Гарниры',tk:'Garnirler',en:'Side Dishes'}},
   {id:'desserts',names:{ru:'Десерты',tk:'Süýjülikler',en:'Desserts'}},
   {id:'drinks',names:{ru:'Напитки',tk:'Içgiler',en:'Drinks'}},
-  {id:'bar',names:{ru:'Бар',tk:'Bar',en:'Bar'}},
+  {id:'bar',names:{ru:'Бар',tk:'Bar',en:'Bar'},subs:[
+    {id:'bar_tea',names:{ru:'Чай',tk:'Çaý',en:'Tea'}},
+    {id:'bar_coffee',names:{ru:'Кофе',tk:'Kofe',en:'Coffee'}},
+    {id:'bar_cocktails',names:{ru:'Коктейли',tk:'Kokteýller',en:'Cocktails'}},
+  ]},
 ];
 
 const DD = [
@@ -1026,6 +1043,7 @@ if(localStorage.getItem('hs_dd_version') !== DD_VERSION){
 }
 let lang = localStorage.getItem('hs_lang') || 'ru';
 let activeCat = 'popular';
+let activeSub = null;
 let cart = JSON.parse(localStorage.getItem('hs_cart') || '[]');
 let dishes = JSON.parse(localStorage.getItem('hs_dishes') || 'null') || JSON.parse(JSON.stringify(DD));
 DD.forEach(d => { if(!dishes.find(x => x.id === d.id)) dishes.push(JSON.parse(JSON.stringify(d))); });
@@ -1072,10 +1090,27 @@ function renderCats(){
     btn.className = 'ct' + (c.id === activeCat ? ' on' : '');
     btn.textContent = t(c.names);
     btn.style.animationDelay = (i * 0.06) + 's';
-    btn.onclick = () => { activeCat = c.id; renderCats(); renderGrid(); };
+    btn.onclick = () => { activeCat = c.id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); };
     wrap.appendChild(btn);
   });
   setTimeout(updateCatArrows, 50);
+}
+
+function renderSubcats(){
+  const wrap = $('subcats');
+  const cat = cats.find(c => c.id === activeCat);
+  if(!cat || !cat.subs || !cat.subs.length){
+    wrap.innerHTML = '';
+    wrap.classList.remove('v');
+    return;
+  }
+  wrap.classList.add('v');
+  const allBtn = `<button class="sct${activeSub===null?' on':''}" data-sub="">${lang==='tk'?'Ählisi':lang==='en'?'All':'Все'}</button>`;
+  const subBtns = cat.subs.map(s => `<button class="sct${activeSub===s.id?' on':''}" data-sub="${s.id}">${t(s.names)}</button>`).join('');
+  wrap.innerHTML = allBtn + subBtns;
+  wrap.querySelectorAll('[data-sub]').forEach(b => {
+    b.onclick = () => { activeSub = b.dataset.sub || null; renderSubcats(); renderGrid(); };
+  });
 }
 
 // ── GRID
@@ -1087,7 +1122,7 @@ function renderGrid(){
     const q = searchQuery.toLowerCase();
     const list = q
       ? dishes.filter(d => t(d.names).toLowerCase().includes(q) || t(d.short).toLowerCase().includes(q))
-      : dishes.filter(d => d.cat === activeCat);
+      : dishes.filter(d => d.cat === activeCat && (activeSub === null || d.sub === activeSub));
     if(!list.length){
       grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:60px 0;font-size:13px;font-weight:300;color:rgba(245,240,232,.25)">${q ? 'Ничего не найдено' : 'Блюда не найдены'}</div>`;
       grid.classList.remove('fade-out');
@@ -1351,6 +1386,12 @@ function renderSettingsBody(){
     if(form){
       form.querySelector('#ef-save').onclick = () => saveDishForm();
       form.querySelector('#ef-cancel').onclick = () => { editId = null; form.classList.remove('open'); };
+      form.querySelector('#ef-cat').onchange = e => {
+        const subOpts = subOptsFor(e.target.value, null);
+        const wrap = form.querySelector('#ef-sub-wrap');
+        wrap.style.display = subOpts ? '' : 'none';
+        wrap.querySelector('#ef-sub').innerHTML = subOpts;
+      };
       const upBtn = form.querySelector('.upl');
       const upIn = form.querySelector('#ef-photo-in');
       const upPre = form.querySelector('#ef-photo-pre');
@@ -1392,8 +1433,8 @@ function renderSettingsBody(){
         const cid = btn.dataset.delcat;
         if(dishes.some(d => d.cat === cid)){ toast('Сначала удалите блюда этой категории'); return; }
         cats = cats.filter(c => c.id !== cid);
-        if(activeCat === cid) activeCat = cats[0]?.id || '';
-        save(); renderCats(); renderGrid(); renderSettingsBody();
+        if(activeCat === cid) { activeCat = cats[0]?.id || ''; activeSub = null; }
+        save(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
         toast('Категория удалена');
       };
     });
@@ -1419,14 +1460,56 @@ function renderSettingsBody(){
       <div class="fg"><label class="fl">ПАРОЛЬ АДМИНИСТРАТОРА</label>
         <input class="fi" type="password" placeholder="admin123" readonly value="admin123">
       </div>
-      <button class="pri-btn" onclick="if(confirm('Сбросить все данные?')){localStorage.clear();location.reload()}">СБРОСИТЬ ДАННЫЕ</button>`;
+      <button class="pri-btn" onclick="if(confirm('Сбросить все данные?')){localStorage.clear();location.reload()}">СБРОСИТЬ ДАННЫЕ</button>
+      <div style="margin-top:28px;padding-top:20px;border-top:1px solid rgba(201,168,76,.1)">
+        <div style="font-size:13px;font-weight:300;color:rgba(245,240,232,.5);margin-bottom:12px">Перенос данных меню (для разработчика)</div>
+        <button class="sec-btn" id="export-btn" style="margin-bottom:10px">ВЫГРУЗИТЬ ДАННЫЕ МЕНЮ</button>
+        <textarea class="fta" id="export-out" readonly style="display:none;height:160px;font-size:10px" onclick="this.select()"></textarea>
+        <button class="pri-btn" id="export-copy-btn" style="display:none;margin-top:8px">СКОПИРОВАТЬ</button>
+        <div style="margin-top:20px">
+          <label class="fl">ЗАГРУЗИТЬ ДАННЫЕ (вставьте JSON)</label>
+          <textarea class="fta" id="import-in" style="height:120px;font-size:10px"></textarea>
+          <button class="pri-btn" id="import-btn" style="margin-top:8px">ЗАГРУЗИТЬ</button>
+        </div>
+      </div>`;
+    $('export-btn').onclick = () => {
+      const out = $('export-out');
+      out.value = JSON.stringify({dishes, cats}, null, 2);
+      out.style.display = 'block';
+      $('export-copy-btn').style.display = 'inline-block';
+      out.select();
+    };
+    $('export-copy-btn').onclick = () => {
+      const out = $('export-out');
+      out.select();
+      navigator.clipboard && navigator.clipboard.writeText(out.value).then(() => toast('Скопировано')).catch(() => document.execCommand('copy'));
+    };
+    $('import-btn').onclick = () => {
+      const raw = $('import-in').value.trim();
+      if(!raw){ toast('Вставьте JSON'); return; }
+      try{
+        const data = JSON.parse(raw);
+        if(!Array.isArray(data.dishes)) throw new Error('bad format');
+        dishes = data.dishes;
+        if(Array.isArray(data.cats)) cats = data.cats;
+        save(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
+        toast('Данные загружены');
+      }catch(e){ toast('Некорректный JSON'); }
+    };
     $('def-lang').onchange = e => { lang = e.target.value; save(); setLang(lang); };
   }
 }
 
+function subOptsFor(catId, curSub){
+  const cat = cats.find(c => c.id === catId);
+  if(!cat || !cat.subs || !cat.subs.length) return '';
+  return '<option value="">—</option>' + cat.subs.map(s => `<option value="${s.id}" ${curSub===s.id?'selected':''}>${s.names.ru}</option>`).join('');
+}
 function dishForm(id){
   const d = id ? dishes.find(x => x.id === id) : null;
   const catOpts = cats.map(c => `<option value="${c.id}" ${d&&d.cat===c.id?'selected':''}>${c.names.ru}</option>`).join('');
+  const curCat = d ? d.cat : (cats[0]?.id||'');
+  const subOpts = subOptsFor(curCat, d?d.sub:null);
   return `
     <div class="fr">
       <div class="fg"><label class="fl">НАЗВАНИЕ (RU)</label><input class="fi" id="ef-ru" value="${d?d.names.ru:''}"></div>
@@ -1437,6 +1520,7 @@ function dishForm(id){
       <div class="fg"><label class="fl">КАТЕГОРИЯ</label><select class="fse" id="ef-cat">${catOpts}</select></div>
       <div class="fg"><label class="fl">ЦЕНА (TMT)</label><input class="fi" id="ef-price" type="number" value="${d?d.price:''}"></div>
     </div>
+    <div class="fg" id="ef-sub-wrap" style="${subOpts?'':'display:none'}"><label class="fl">ПОДКАТЕГОРИЯ</label><select class="fse" id="ef-sub">${subOpts}</select></div>
     <div class="fg"><label class="fl">БЕЙДЖ (необязательно)</label><input class="fi" id="ef-badge" value="${d&&d.badge?d.badge:''}"></div>
     <div style="margin-bottom:4px">
       <div class="lang-tabs" id="desc-tabs">
@@ -1483,9 +1567,11 @@ function saveDishForm(){
   if(!nameRu || !price){ toast('Заполните название и цену'); return; }
   const preImg = $('ef-photo-pre');
   const photoVal = (preImg && preImg.style.display === 'block' && preImg.src.startsWith('data')) ? preImg.src : ($('ef-url').value.trim() || '');
+  const subEl = $('ef-sub');
   const data = {
     names:{ru:nameRu, en:$('ef-en').value.trim()||nameRu, tk:$('ef-tk').value.trim()||nameRu},
     cat:$('ef-cat').value,
+    sub:(subEl && subEl.value) || undefined,
     price,
     badge:$('ef-badge').value.trim()||undefined,
     short:{ru:$('ef-short-ru').value.trim(), tk:$('ef-short-tk').value.trim()||$('ef-short-ru').value.trim(), en:$('ef-short-en').value.trim()||$('ef-short-ru').value.trim()},
@@ -1517,6 +1603,7 @@ function setLang(l){
   document.querySelectorAll('.lb').forEach(b => b.classList.toggle('on', b.dataset.l === l));
   save();
   renderCats();
+  renderSubcats();
   renderGrid();
   renderCart();
 }
@@ -1573,6 +1660,7 @@ function initSplash(){
       document.querySelectorAll('.lb').forEach(x => x.classList.toggle('on', x.dataset.l === lang));
       save();
       renderCats();
+      renderSubcats();
       renderGrid();
       renderCart();
     };
@@ -1587,6 +1675,7 @@ function initSplash(){
 function init(){
   save();
   renderCats();
+  renderSubcats();
   renderGrid();
   renderCart();
   initSplash();
@@ -1662,8 +1751,8 @@ function init(){
     const dx = e.changedTouches[0].clientX - _tx;
     if(Math.abs(dx) < 55) return;
     const idx = cats.findIndex(c => c.id === activeCat);
-    if(dx < 0 && idx < cats.length - 1){ activeCat = cats[idx+1].id; renderCats(); renderGrid(); }
-    else if(dx > 0 && idx > 0){ activeCat = cats[idx-1].id; renderCats(); renderGrid(); }
+    if(dx < 0 && idx < cats.length - 1){ activeCat = cats[idx+1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); }
+    else if(dx > 0 && idx > 0){ activeCat = cats[idx-1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); }
   }, {passive:true});
 
   // keyboard
