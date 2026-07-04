@@ -870,175 +870,178 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 const ADMIN_PWD = 'admin123';
 
 const DC = [
-  {id:'popular',names:{ru:'Популярное',tk:'Meşhur',en:'Popular'}},
-  {id:'cold',names:{ru:'Холодные закуски',tk:'Sowuk naharlar',en:'Cold Starters'}},
-  {id:'hot',names:{ru:'Горячие закуски',tk:'Yssy naharlar',en:'Hot Starters'}},
-  {id:'soups',names:{ru:'Супы',tk:'Çorbalar',en:'Soups'}},
-  {id:'mains',names:{ru:'Основные блюда',tk:'Esasy naharlar',en:'Main Courses'}},
-  {id:'sides',names:{ru:'Гарниры',tk:'Garnirler',en:'Side Dishes'}},
-  {id:'desserts',names:{ru:'Десерты',tk:'Süýjülikler',en:'Desserts'}},
-  {id:'drinks',names:{ru:'Напитки',tk:'Içgiler',en:'Drinks'}},
-  {id:'bar',names:{ru:'Бар',tk:'Bar',en:'Bar'},subs:[
-    {id:'bar_tea',names:{ru:'Чай',tk:'Çaý',en:'Tea'}},
-    {id:'bar_coffee',names:{ru:'Кофе',tk:'Kofe',en:'Coffee'}},
-    {id:'bar_cocktails',names:{ru:'Коктейли',tk:'Kokteýller',en:'Cocktails'}},
-  ]},
+  {id:"popular",names:{ru:"Популярное",tk:"Meşhur",en:"Popular"}},
+  {id:"cat_1783078729822",names:{ru:"Горячие блюда",tk:"Gyzgyn naharlar",en:"Hot dishes"}},
+  {id:"cat_1783078799655",names:{ru:"Паста",tk:"Pastalar",en:"Pasta"}},
+  {id:"cat_1783078956100",names:{ru:"Пицца",tk:"Pizzalar",en:"Pizza"}},
+  {id:"cat_1783078999802",names:{ru:"Мучное",tk:"Hamyrly Naharlar",en:"Мучное"}},
+  {id:"cat_1783079094456",names:{ru:"Супы",tk:"Çorbalar",en:"Soupes"}},
+  {id:"cat_1783080127798",names:{ru:"Холодные закуски",tk:"Sowuk işdäaçarlar",en:"Cold appetizers"}},
+  {id:"cat_1783080178879",names:{ru:"Салаты",tk:"Işdäaçarlar",en:"Salads"}},
+  {id:"cat_1783080339599",names:{ru:"Суши - Роллы",tk:"Suşi - Rollar",en:"Sushi-Rolls"}},
+  {id:"cat_1783081135435",names:{ru:"Закуски",tk:"Zakuskalar",en:"Snacks"}},
+  {id:"cat_1783081177207",names:{ru:"Фаст-фуд",tk:"Fast-Food",en:"Fast-food"}},
+  {id:"cat_1783081220384",names:{ru:"Завтраки",tk:"Irdenlikler",en:"Breakfasts"}},
+  {id:"cat_1783081560588",names:{ru:"Пиде",tk:"Pideler",en:"Pide"}},
+  {id:"cat_1783081782485",names:{ru:"Стейк",tk:"Steýklar",en:"Steak"}},
+  {id:"cat_1783085260092",names:{ru:"Бар",tk:"Bar",en:"Bar"}},
 ];
 
 const DD = [
-  {id:1,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-2.jpg'},
-  {id:2,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-2b.jpg'},
-  {id:3,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-3.jpg'},
-  {id:4,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-3b.jpg'},
-  {id:5,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-4.jpg'},
-  {id:6,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-4b.jpg'},
-  {id:7,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-6.jpg'},
-  {id:8,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-7.jpg'},
-  {id:9,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-8.jpg'},
-  {id:10,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-10.jpg'},
-  {id:11,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-12.jpg'},
-  {id:12,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-13.jpg'},
-  {id:13,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-15.jpg'},
-  {id:14,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-17.jpg'},
-  {id:15,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-18.jpg'},
-  {id:16,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-19.jpg'},
-  {id:17,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-20.jpg'},
-  {id:18,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-21.jpg'},
-  {id:19,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-22.jpg'},
-  {id:20,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-23.jpg'},
-  {id:21,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-25.jpg'},
-  {id:22,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-26.jpg'},
-  {id:23,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-28.jpg'},
-  {id:24,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-29.jpg'},
-  {id:25,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-33.jpg'},
-  {id:26,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-34.jpg'},
-  {id:27,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-36.jpg'},
-  {id:28,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-37.jpg'},
-  {id:29,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-38.jpg'},
-  {id:30,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-40.jpg'},
-  {id:31,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-41.jpg'},
-  {id:32,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-44.jpg'},
-  {id:33,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-46.jpg'},
-  {id:34,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-48.jpg'},
-  {id:35,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-50.jpg'},
-  {id:36,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-52.jpg'},
-  {id:37,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-53.jpg'},
-  {id:38,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-54.jpg'},
-  {id:39,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-55.jpg'},
-  {id:40,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-56.jpg'},
-  {id:41,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-57.jpg'},
-  {id:42,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-59.jpg'},
-  {id:43,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-61.jpg'},
-  {id:44,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-63.jpg'},
-  {id:45,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-65.jpg'},
-  {id:46,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-67.jpg'},
-  {id:47,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-69.jpg'},
-  {id:48,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-70.jpg'},
-  {id:49,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-72.jpg'},
-  {id:50,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-74.jpg'},
-  {id:51,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-75.jpg'},
-  {id:52,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-77.jpg'},
-  {id:53,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-79.jpg'},
-  {id:54,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-81.jpg'},
-  {id:55,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-83.jpg'},
-  {id:56,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-84.jpg'},
-  {id:57,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-85.jpg'},
-  {id:58,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-87.jpg'},
-  {id:59,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-92.jpg'},
-  {id:60,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-94.jpg'},
-  {id:61,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-96.jpg'},
-  {id:62,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-97.jpg'},
-  {id:63,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-98.jpg'},
-  {id:64,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-99.jpg'},
-  {id:65,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-101.jpg'},
-  {id:66,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-103.jpg'},
-  {id:67,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-104.jpg'},
-  {id:68,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-105.jpg'},
-  {id:69,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-106.jpg'},
-  {id:70,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-107.jpg'},
-  {id:71,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-108.jpg'},
-  {id:72,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-109.jpg'},
-  {id:73,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-110.jpg'},
-  {id:74,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-111.jpg'},
-  {id:75,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-112.jpg'},
-  {id:76,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-113.jpg'},
-  {id:77,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-114.jpg'},
-  {id:78,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-115.jpg'},
-  {id:79,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-116.jpg'},
-  {id:80,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-117.jpg'},
-  {id:81,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-118.jpg'},
-  {id:82,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-119.jpg'},
-  {id:83,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-120.jpg'},
-  {id:84,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-122.jpg'},
-  {id:85,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-123.jpg'},
-  {id:86,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-124.jpg'},
-  {id:87,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-125.jpg'},
-  {id:88,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-126.jpg'},
-  {id:89,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-128.jpg'},
-  {id:90,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-129.jpg'},
-  {id:91,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-130.jpg'},
-  {id:92,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-131.jpg'},
-  {id:93,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-133.jpg'},
-  {id:94,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-134.jpg'},
-  {id:95,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-135.jpg'},
-  {id:96,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-137.jpg'},
-  {id:97,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-139.jpg'},
-  {id:98,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-140.jpg'},
-  {id:99,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-141.jpg'},
-  {id:100,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-142.jpg'},
-  {id:101,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-143.jpg'},
-  {id:102,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-144.jpg'},
-  {id:103,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-145.jpg'},
-  {id:104,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-146.jpg'},
-  {id:105,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-148.jpg'},
-  {id:106,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-149.jpg'},
-  {id:107,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-150.jpg'},
-  {id:108,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-151.jpg'},
-  {id:109,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-154.jpg'},
-  {id:110,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-155.jpg'},
-  {id:111,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-158.jpg'},
-  {id:112,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-159.jpg'},
-  {id:113,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-160.jpg'},
-  {id:114,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-161.jpg'},
-  {id:115,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-162.jpg'},
-  {id:116,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-163.jpg'},
-  {id:117,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-165.jpg'},
-  {id:118,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-168.jpg'},
-  {id:119,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-170.jpg'},
-  {id:120,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-172.jpg'},
-  {id:121,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-174.jpg'},
-  {id:122,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-177.jpg'},
-  {id:123,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-178.jpg'},
-  {id:124,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-180.jpg'},
-  {id:125,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-181.jpg'},
-  {id:126,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-182.jpg'},
-  {id:127,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-183.jpg'},
-  {id:128,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-184.jpg'},
-  {id:129,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-185.jpg'},
-  {id:130,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-186.jpg'},
-  {id:131,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-187.jpg'},
-  {id:132,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-189.jpg'},
-  {id:133,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-190.jpg'},
-  {id:134,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-191.jpg'},
-  {id:135,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-192.jpg'},
-  {id:136,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-193.jpg'},
-  {id:137,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-195.jpg'},
-  {id:138,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-196.jpg'},
-  {id:139,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-197.jpg'},
-  {id:140,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-201.jpg'},
-  {id:141,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-202.jpg'},
-  {id:142,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-203.jpg'},
-  {id:143,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-204.jpg'},
-  {id:144,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-206.jpg'},
-  {id:145,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-207.jpg'},
-  {id:146,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-208.jpg'},
-  {id:147,cat:'',names:{ru:'',tk:'',en:''},short:{ru:'',tk:'',en:''},full:{ru:'',tk:'',en:''},ing:{ru:'',tk:'',en:''},price:0,photo:'dishes/photo-209.jpg'},
+  {id:1,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-2.jpg"},
+  {id:2,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-2b.jpg"},
+  {id:3,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-3.jpg"},
+  {id:4,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-3b.jpg"},
+  {id:5,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-4.jpg"},
+  {id:6,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-4b.jpg"},
+  {id:7,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-6.jpg"},
+  {id:8,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-7.jpg"},
+  {id:9,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-8.jpg"},
+  {id:10,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-10.jpg"},
+  {id:11,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-12.jpg"},
+  {id:12,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-13.jpg"},
+  {id:13,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-15.jpg"},
+  {id:14,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-17.jpg"},
+  {id:15,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-18.jpg"},
+  {id:16,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-19.jpg"},
+  {id:17,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-20.jpg"},
+  {id:18,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-21.jpg"},
+  {id:19,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-22.jpg"},
+  {id:20,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-23.jpg"},
+  {id:21,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-25.jpg"},
+  {id:22,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-26.jpg"},
+  {id:23,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-28.jpg"},
+  {id:24,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-29.jpg"},
+  {id:25,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-33.jpg"},
+  {id:26,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-34.jpg"},
+  {id:27,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-36.jpg"},
+  {id:28,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-37.jpg"},
+  {id:29,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-38.jpg"},
+  {id:30,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-40.jpg"},
+  {id:31,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-41.jpg"},
+  {id:32,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-44.jpg"},
+  {id:33,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-46.jpg"},
+  {id:34,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-48.jpg"},
+  {id:35,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-50.jpg"},
+  {id:36,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-52.jpg"},
+  {id:37,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-53.jpg"},
+  {id:38,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-54.jpg"},
+  {id:39,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-55.jpg"},
+  {id:40,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-56.jpg"},
+  {id:41,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-57.jpg"},
+  {id:42,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-59.jpg"},
+  {id:43,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-61.jpg"},
+  {id:44,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-63.jpg"},
+  {id:45,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-65.jpg"},
+  {id:46,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-67.jpg"},
+  {id:47,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-69.jpg"},
+  {id:48,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-70.jpg"},
+  {id:49,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-72.jpg"},
+  {id:50,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-74.jpg"},
+  {id:51,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-75.jpg"},
+  {id:52,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-77.jpg"},
+  {id:53,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-79.jpg"},
+  {id:54,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-81.jpg"},
+  {id:55,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-83.jpg"},
+  {id:56,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-84.jpg"},
+  {id:57,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-85.jpg"},
+  {id:58,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-87.jpg"},
+  {id:59,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-92.jpg"},
+  {id:60,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-94.jpg"},
+  {id:61,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-96.jpg"},
+  {id:62,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-97.jpg"},
+  {id:63,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-98.jpg"},
+  {id:64,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-99.jpg"},
+  {id:65,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-101.jpg"},
+  {id:66,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-103.jpg"},
+  {id:67,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-104.jpg"},
+  {id:68,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-105.jpg"},
+  {id:69,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-106.jpg"},
+  {id:70,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-107.jpg"},
+  {id:71,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-108.jpg"},
+  {id:72,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-109.jpg"},
+  {id:73,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-110.jpg"},
+  {id:74,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-111.jpg"},
+  {id:75,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-112.jpg"},
+  {id:76,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-113.jpg"},
+  {id:77,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-114.jpg"},
+  {id:78,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-115.jpg"},
+  {id:79,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-116.jpg"},
+  {id:80,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-117.jpg"},
+  {id:81,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-118.jpg"},
+  {id:82,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-119.jpg"},
+  {id:83,cat:"cat_1783085260092",names:{ru:"Капучино",tk:"Kapuçino",en:"Capucinno"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:35,photo:"dishes/photo-120.jpg"},
+  {id:84,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-122.jpg"},
+  {id:85,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-123.jpg"},
+  {id:86,cat:"cat_1783085260092",names:{ru:"Флэт Уайт",tk:"Fleyt Waýt",en:"Флэт Уайт"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:45,photo:"dishes/photo-124.jpg"},
+  {id:87,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-125.jpg"},
+  {id:88,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-126.jpg"},
+  {id:89,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-128.jpg"},
+  {id:90,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-129.jpg"},
+  {id:91,cat:"cat_1783085260092",names:{ru:"Турецкий Чай",tk:"Turk Çaý",en:"Turkish Tea"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:10,photo:"dishes/photo-130.jpg"},
+  {id:92,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-131.jpg"},
+  {id:93,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-133.jpg"},
+  {id:94,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-134.jpg"},
+  {id:95,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-135.jpg"},
+  {id:96,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-137.jpg"},
+  {id:97,cat:"cat_1783085260092",names:{ru:"Горячий Шоколад",tk:"Gyzgyn Şokolad",en:"Hot Chocolate"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:55,photo:"dishes/photo-139.jpg"},
+  {id:98,cat:"cat_1783085260092",names:{ru:"Латте",tk:"Latte",en:"Latte"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:35,photo:"dishes/photo-140.jpg"},
+  {id:99,cat:"cat_1783085260092",names:{ru:"Ванильный Раф",tk:"Wanil Raf",en:"Vanile Raf"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:60,photo:"dishes/photo-141.jpg"},
+  {id:100,cat:"cat_1783085260092",names:{ru:"Матча Латте",tk:"Matça Latte",en:"Matcha Latte"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:45,photo:"dishes/photo-142.jpg"},
+  {id:101,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-143.jpg"},
+  {id:102,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-144.jpg"},
+  {id:103,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-145.jpg"},
+  {id:104,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-146.jpg"},
+  {id:105,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-148.jpg"},
+  {id:106,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-149.jpg"},
+  {id:107,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-150.jpg"},
+  {id:108,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-151.jpg"},
+  {id:109,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-154.jpg"},
+  {id:110,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-155.jpg"},
+  {id:111,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-158.jpg"},
+  {id:112,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-159.jpg"},
+  {id:113,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-160.jpg"},
+  {id:114,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-161.jpg"},
+  {id:115,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-162.jpg"},
+  {id:116,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-163.jpg"},
+  {id:117,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-165.jpg"},
+  {id:118,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-168.jpg"},
+  {id:119,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-170.jpg"},
+  {id:120,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-172.jpg"},
+  {id:121,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-174.jpg"},
+  {id:122,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-177.jpg"},
+  {id:123,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-178.jpg"},
+  {id:124,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-180.jpg"},
+  {id:125,cat:"cat_1783085260092",names:{ru:"Лимонад Смородина Мята",tk:"Limonad Smorodina Narpyzly",en:"Лимонад Смородина Мята"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:50,photo:"dishes/photo-181.jpg"},
+  {id:126,cat:"cat_1783085260092",names:{ru:"Лимонад Апельсин Лайм",tk:"Limonad Pyrtkal Laým",en:"Лимонад Апельсин Лайм"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:55,photo:"dishes/photo-182.jpg"},
+  {id:127,cat:"cat_1783085260092",names:{ru:"Лимонад Манго Маракуйя",tk:"Limonad Mango Marakuya",en:"Лимонад Манго Маракуйя"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:50,photo:"dishes/photo-183.jpg"},
+  {id:128,cat:"cat_1783078729822",names:{ru:"Фрикасе в сливочном соусе",tk:"Frikase Slivoçny Sousda",en:"Фрикасе в сливочном соусе"},short:{ru:"Фрикасе — традиционное блюдо французской кухни, представляющее собой нежное рагу из белого мяса,быстро обжаренное и тушеное в густом сливочном или сметанном соусе. Оно отличается бархатистой текстурой, мягкостью и часто дополняется грибами, луком или овощами",tk:"Фрикасе — традиционное блюдо французской кухни, представляющее собой нежное рагу из белого мяса,быстро обжаренное и тушеное в густом сливочном или сметанном соусе. Оно отличается бархатистой текстурой, мягкостью и часто дополняется грибами, луком или овощами",en:"Фрикасе — традиционное блюдо французской кухни, представляющее собой нежное рагу из белого мяса,быстро обжаренное и тушеное в густом сливочном или сметанном соусе. Оно отличается бархатистой текстурой, мягкостью и часто дополняется грибами, луком или овощами"},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:80,photo:"dishes/photo-184.jpg"},
+  {id:129,cat:"cat_1783085260092",names:{ru:"Ананасовый Джус",tk:"Ananas Juýs",en:"Pineapple Juice"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:75,photo:"dishes/photo-185.jpg"},
+  {id:130,cat:"cat_1783085260092",names:{ru:"Вишневый Джус",tk:"Ulje Juýs",en:"Strawberry Juice"},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:65,photo:"dishes/photo-186.jpg"},
+  {id:131,cat:"cat_1783085260092",names:{ru:"Джус Киви",tk:"Kiwi Juýs",en:"Juice Qiwi"},short:{ru:"Сок киви обладает минеральными солями, углеводами, дубильными веществами, ферментами.",tk:"Сок киви обладает минеральными солями, углеводами, дубильными веществами, ферментами.",en:"Сок киви обладает минеральными солями, углеводами, дубильными веществами, ферментами."},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:60,photo:"dishes/photo-187.jpg"},
+  {id:132,cat:"cat_1783085260092",names:{ru:"Айс Матча",tk:"Buzly Matça",en:"Айс Матча"},short:{ru:"Айс матча — это освежающий холодный напиток на основе японского порошкового чая, разведенного в воде или растительном/коровьем молоке со льдом. Он обладает мягким травянисто-сливочным вкусом и дает ровный заряд бодрости благодаря сочетанию кофеина и L-теанина.",tk:"Айс матча — это освежающий холодный напиток на основе японского порошкового чая, разведенного в воде или растительном/коровьем молоке со льдом. Он обладает мягким травянисто-сливочным вкусом и дает ровный заряд бодрости благодаря сочетанию кофеина и L-теанина.",en:"Айс матча — это освежающий холодный напиток на основе японского порошкового чая, разведенного в воде или растительном/коровьем молоке со льдом. Он обладает мягким травянисто-сливочным вкусом и дает ровный заряд бодрости благодаря сочетанию кофеина и L-теанина."},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:50,photo:"dishes/photo-189.jpg"},
+  {id:133,cat:"cat_1783085260092",names:{ru:"Айс Абрикосовое Матча",tk:"Айс Абрикосовое Матча",en:"Айс Абрикосовое Матча"},short:{ru:"Айс абрикос матча— это освежающий, многогранный напиток, сочетающий землистую терпкость японского зеленого чая, сладкую фруктовую кислинку и прохладу льда. Он соединяет традиционный азиатский вкус и современный подход к бодрящим холодным напиткам",tk:"Айс абрикос матча— это освежающий, многогранный напиток, сочетающий землистую терпкость японского зеленого чая, сладкую фруктовую кислинку и прохладу льда. Он соединяет традиционный азиатский вкус и современный подход к бодрящим холодным напиткам",en:"Айс абрикос матча— это освежающий, многогранный напиток, сочетающий землистую терпкость японского зеленого чая, сладкую фруктовую кислинку и прохладу льда. Он соединяет традиционный азиатский вкус и современный подход к бодрящим холодным напиткам"},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:60,photo:"dishes/photo-190.jpg"},
+  {id:134,cat:"cat_1783085260092",names:{ru:"Айс Клубичное Матча",tk:"Iced Strawberry Matcha Latte",en:"Iced Strawberry Matcha Latte"},short:{ru:"Айс Клубничная Матча — это освежающий двухслойный напиток, соединяющий сладкое ягодное пюре или сироп, нежное молоко и насыщенный японский зеленый чай матча. Благодаря контрасту ярко-красного и нежно-зеленого оттенков, напиток очень популярен в кофейнях, особенно в жаркое время года.",tk:"Айс Клубничная Матча — это освежающий двухслойный напиток, соединяющий сладкое ягодное пюре или сироп, нежное молоко и насыщенный японский зеленый чай матча. Благодаря контрасту ярко-красного и нежно-зеленого оттенков, напиток очень популярен в кофейнях, особенно в жаркое время года.",en:"Айс Клубничная Матча — это освежающий двухслойный напиток, соединяющий сладкое ягодное пюре или сироп, нежное молоко и насыщенный японский зеленый чай матча. Благодаря контрасту ярко-красного и нежно-зеленого оттенков, напиток очень популярен в кофейнях, особенно в жаркое время года."},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:55,photo:"dishes/photo-191.jpg"},
+  {id:135,cat:"cat_1783081220384",names:{ru:"Омлет с Ветчиной",tk:"Vetçinaly Omlet",en:"Омлет с Ветчиной"},short:{ru:"Омлет с ветчиной — это сытное и пышное блюдо из взбитых яиц с молоком и кусочками ветчины. Обладает нежной текстурой и насыщенным мясным вкусом, часто дополняется сыром, овощами или зеленью. Идеально подходит для классического завтрака",tk:"Омлет с ветчиной — это сытное и пышное блюдо из взбитых яиц с молоком и кусочками ветчины. Обладает нежной текстурой и насыщенным мясным вкусом, часто дополняется сыром, овощами или зеленью. Идеально подходит для классического завтрака",en:"Омлет с ветчиной — это сытное и пышное блюдо из взбитых яиц с молоком и кусочками ветчины. Обладает нежной текстурой и насыщенным мясным вкусом, часто дополняется сыром, овощами или зеленью. Идеально подходит для классического завтрака"},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:35,photo:"dishes/photo-192.jpg"},
+  {id:136,cat:"cat_1783081220384",names:{ru:"Круассан с Ветчиной",tk:"Vetçinaly Kruassan",en:"Ham Croissant"},short:{ru:"Круассан с ветчиной — это популярный сытный сэндвич на основе классического французского слоеного теста, дополненный ломтиками мясной ветчины, полутвердым сыром (например, Эмменталь или Гауда) и легким соусом. Подается теплым в качестве аппетитного завтрака или полноценного",tk:"Круассан с ветчиной — это популярный сытный сэндвич на основе классического французского слоеного теста, дополненный ломтиками мясной ветчины, полутвердым сыром (например, Эмменталь или Гауда) и легким соусом. Подается теплым в качестве аппетитного завтрака или полноценного",en:"Круассан с ветчиной — это популярный сытный сэндвич на основе классического французского слоеного теста, дополненный ломтиками мясной ветчины, полутвердым сыром (например, Эмменталь или Гауда) и легким соусом. Подается теплым в качестве аппетитного завтрака или полноценного"},full:{ru:"",tk:"",en:""},ing:{ru:"Круассан \nЛистья Салата\nВетчина \nСыр",tk:"Круассан \nЛистья Салата\nВетчина \nСыр",en:"Круассан \nЛистья Салата\nВетчина \nСыр"},price:45,photo:"dishes/photo-193.jpg"},
+  {id:137,cat:"cat_1783085260092",names:{ru:"Айс Американо",tk:"Buzly Americano",en:"Ice Americano"},short:{ru:"Айс американо — это освежающий кофейный напиток, состоящий из порции эспрессо, холодной воды и кубиков льда. Он обладает мягким, сбалансированным вкусом классического кофе, отлично бодрит и спасает от жары, сохраняя при этом всю насыщенность кофейных зерен",tk:"Айс американо — это освежающий кофейный напиток, состоящий из порции эспрессо, холодной воды и кубиков льда. Он обладает мягким, сбалансированным вкусом классического кофе, отлично бодрит и спасает от жары, сохраняя при этом всю насыщенность кофейных зерен",en:"Айс американо — это освежающий кофейный напиток, состоящий из порции эспрессо, холодной воды и кубиков льда. Он обладает мягким, сбалансированным вкусом классического кофе, отлично бодрит и спасает от жары, сохраняя при этом всю насыщенность кофейных зерен"},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:40,photo:"dishes/photo-195.jpg"},
+  {id:138,cat:"cat_1783085260092",names:{ru:"Айс Латте",tk:"Buzly Latte",en:"Ice Latte"},short:{ru:"Айс-латте — это популярный кофейный напиток, представляющий собой классический латте со льдом. Для его приготовления в высокий стакан засыпают лёд, добавляют холодное молоко и вливают порцию свежего эспрессо",tk:"Айс-латте — это популярный кофейный напиток, представляющий собой классический латте со льдом. Для его приготовления в высокий стакан засыпают лёд, добавляют холодное молоко и вливают порцию свежего эспрессо",en:"Айс-латте — это популярный кофейный напиток, представляющий собой классический латте со льдом. Для его приготовления в высокий стакан засыпают лёд, добавляют холодное молоко и вливают порцию свежего эспрессо"},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:40,photo:"dishes/photo-196.jpg"},
+  {id:139,cat:"cat_1783085260092",names:{ru:"Айс Испанский Латте",tk:"Buzly Spain Latte",en:"Ice Spanish Latte"},short:{ru:"Айс испанский латте (Spanish Iced Latte) — это освежающий кофейный напиток, в котором классический рецепт айс-латте дополняется сгущенным молоком. Именно сгущенка придает напитку характерную бархатистую текстуру, глубокую сладость и насыщенный сливочный вкус.",tk:"Айс испанский латте (Spanish Iced Latte) — это освежающий кофейный напиток, в котором классический рецепт айс-латте дополняется сгущенным молоком. Именно сгущенка придает напитку характерную бархатистую текстуру, глубокую сладость и насыщенный сливочный вкус.",en:"Айс испанский латте (Spanish Iced Latte) — это освежающий кофейный напиток, в котором классический рецепт айс-латте дополняется сгущенным молоком. Именно сгущенка придает напитку характерную бархатистую текстуру, глубокую сладость и насыщенный сливочный вкус."},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:45,photo:"dishes/photo-197.jpg"},
+  {id:140,cat:"",names:{ru:"",tk:"",en:""},short:{ru:"",tk:"",en:""},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:0,photo:"dishes/photo-201.jpg"},
+  {id:141,cat:"cat_1783085260092",names:{ru:"Фраппучинно",tk:"Frappuccino",en:"Frappuccino"},short:{ru:"Фраппучи́но — холодный кофейный напиток, продающийся в мировой сети кофеен Starbucks. Название «фраппучино» получено путём сложения слов «фраппе» и «капучино».",tk:"Фраппучи́но — холодный кофейный напиток, продающийся в мировой сети кофеен Starbucks. Название «фраппучино» получено путём сложения слов «фраппе» и «капучино».",en:"Фраппучи́но — холодный кофейный напиток, продающийся в мировой сети кофеен Starbucks. Название «фраппучино» получено путём сложения слов «фраппе» и «капучино»."},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:55,photo:"dishes/photo-202.jpg"},
+  {id:142,cat:"cat_1783085260092",names:{ru:"Глясе",tk:"Glisse",en:"Glasse"},short:{ru:"Глясе - охлаждённый кофе с молоком или охлаждённый горячий шоколад, в которые добавляются взбитые сливки и ликёр. В упрощённом варианте это охлаждённый чёрный кофе с мороженым",tk:"Глясе - охлаждённый кофе с молоком или охлаждённый горячий шоколад, в которые добавляются взбитые сливки и ликёр. В упрощённом варианте это охлаждённый чёрный кофе с мороженым",en:"Глясе - охлаждённый кофе с молоком или охлаждённый горячий шоколад, в которые добавляются взбитые сливки и ликёр. В упрощённом варианте это охлаждённый чёрный кофе с мороженым"},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:55,photo:"dishes/photo-203.jpg"},
+  {id:143,cat:"cat_1783085260092",names:{ru:"Апельсиновый Фрэш",tk:"Pyrtykal Freş",en:"Orange Fresh"},short:{ru:"",tk:"",en:""},full:{ru:"Апельсиновый фреш — это 100% натуральный свежевыжатый сок из спелых цитрусов без добавления сахара и консервантов",tk:"Апельсиновый фреш — это 100% натуральный свежевыжатый сок из спелых цитрусов без добавления сахара и консервантов",en:"Апельсиновый фреш — это 100% натуральный свежевыжатый сок из спелых цитрусов без добавления сахара и консервантов"},ing:{ru:"",tk:"",en:""},price:70,photo:"dishes/photo-204.jpg"},
+  {id:144,cat:"cat_1783085260092",names:{ru:"Мокровный Фрэш",tk:"Käşir Freş",en:"Carrot Fresh"},short:{ru:"Морковный фреш — это свежевыжатый овощной напиток с характерным сладковатым вкусом, легкой землистой нотой и высокой концентрацией полезных веществ. Он считается природным источником бета-каротина (витамина A), витаминов группы B, C, K, калия и железа, которые поддерживают здоровье глаз, кожи и иммунитета.",tk:"Морковный фреш — это свежевыжатый овощной напиток с характерным сладковатым вкусом, легкой землистой нотой и высокой концентрацией полезных веществ. Он считается природным источником бета-каротина (витамина A), витаминов группы B, C, K, калия и железа, которые поддерживают здоровье глаз, кожи и иммунитета.",en:"Морковный фреш — это свежевыжатый овощной напиток с характерным сладковатым вкусом, легкой землистой нотой и высокой концентрацией полезных веществ. Он считается природным источником бета-каротина (витамина A), витаминов группы B, C, K, калия и железа, которые поддерживают здоровье глаз, кожи и иммунитета."},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:30,photo:"dishes/photo-206.jpg"},
+  {id:145,cat:"cat_1783085260092",names:{ru:"Яблочный Фрэш",tk:"Almaly Freş",en:"Apple Fresh"},short:{ru:"Яблочный фреш — это 100% натуральный свежевыжатый сок, который отличается бодрящим кисло-сладким вкусом. Он богат витаминами группы B, а также железом и пектинами, которые способствуют пищеварению.",tk:"Яблочный фреш — это 100% натуральный свежевыжатый сок, который отличается бодрящим кисло-сладким вкусом. Он богат витаминами группы B, а также железом и пектинами, которые способствуют пищеварению.",en:"Яблочный фреш — это 100% натуральный свежевыжатый сок, который отличается бодрящим кисло-сладким вкусом. Он богат витаминами группы B, а также железом и пектинами, которые способствуют пищеварению."},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:70,photo:"dishes/photo-207.jpg"},
+  {id:146,cat:"cat_1783085260092",names:{ru:"Бамбл",tk:"Bambl",en:"Bumble"},short:{ru:"Бамбл — это бодрящий кофейный коктейль со льдом, в состав которого входят эспрессо, свежевыжатый апельсиновый сок и карамельный сироп. Свое название (от англ. bumblebee — шмель) напиток получил из-за полосатой черно-оранжевой расцветки, которая получается при аккуратном добавлении ингредиентов слоями",tk:"Бамбл — это бодрящий кофейный коктейль со льдом, в состав которого входят эспрессо, свежевыжатый апельсиновый сок и карамельный сироп. Свое название (от англ. bumblebee — шмель) напиток получил из-за полосатой черно-оранжевой расцветки, которая получается при аккуратном добавлении ингредиентов слоями",en:"Бамбл — это бодрящий кофейный коктейль со льдом, в состав которого входят эспрессо, свежевыжатый апельсиновый сок и карамельный сироп. Свое название (от англ. bumblebee — шмель) напиток получил из-за полосатой черно-оранжевой расцветки, которая получается при аккуратном добавлении ингредиентов слоями"},full:{ru:"",tk:"",en:""},ing:{ru:"",tk:"",en:""},price:50,photo:"dishes/photo-208.jpg"},
+  {id:147,cat:"cat_1783081135435",names:{ru:"Капрезе",tk:"Kapreze",en:"Caprese"},short:{ru:"Капрезе — это традиционная итальянская закуска (антипасто) родом с острова Капри. Она состоит всего из нескольких свежих ингредиентов: сочных помидоров, белой моцареллы, зелёных листьев базилика и оливкового масла. Цветовая гамма блюда символизирует национальный флаг Италии.",tk:"Капрезе — это традиционная итальянская закуска (антипасто) родом с острова Капри. Она состоит всего из нескольких свежих ингредиентов: сочных помидоров, белой моцареллы, зелёных листьев базилика и оливкового масла. Цветовая гамма блюда символизирует национальный флаг Италии.",en:"Капрезе — это традиционная итальянская закуска (антипасто) родом с острова Капри. Она состоит всего из нескольких свежих ингредиентов: сочных помидоров, белой моцареллы, зелёных листьев базилика и оливкового масла. Цветовая гамма блюда символизирует национальный флаг Италии."},full:{ru:"Капрезе — это знаменитая легкая холодная закуска из Италии, которая состоит из спелых томатов, мягкого сыра моцарелла, свежего зеленого базилика и оливкового масла. Блюдо относится к категории антипасто (традиционная итальянская закуска). Его главная фишка заключается в цвете: ингредиенты повторяют цвета национального флага Италии — красный, белый и зеленый.",tk:"Капрезе — это знаменитая легкая холодная закуска из Италии, которая состоит из спелых томатов, мягкого сыра моцарелла, свежего зеленого базилика и оливкового масла. Блюдо относится к категории антипасто (традиционная итальянская закуска). Его главная фишка заключается в цвете: ингредиенты повторяют цвета национального флага Италии — красный, белый и зеленый.",en:"Капрезе — это знаменитая легкая холодная закуска из Италии, которая состоит из спелых томатов, мягкого сыра моцарелла, свежего зеленого базилика и оливкового масла. Блюдо относится к категории антипасто (традиционная итальянская закуска). Его главная фишка заключается в цвете: ингредиенты повторяют цвета национального флага Италии — красный, белый и зеленый."},ing:{ru:"Спелые томаты \nСыр моцарелла \nСвежий зеленый базилик\nОливковое масло",tk:"Спелые томаты \nСыр моцарелла \nСвежий зеленый базилик\nОливковое масло",en:"Спелые томаты \nСыр моцарелла \nСвежий зеленый базилик\nОливковое масло"},price:50,photo:"dishes/photo-209.jpg"},
 ];
 
 // State
-const DD_VERSION = '2';
+const DD_VERSION = '3';
 if(localStorage.getItem('hs_dd_version') !== DD_VERSION){
   localStorage.removeItem('hs_dishes');
+  localStorage.removeItem('hs_cats');
   localStorage.setItem('hs_dd_version', DD_VERSION);
 }
 let lang = localStorage.getItem('hs_lang') || 'ru';
@@ -1051,6 +1054,9 @@ let cats = JSON.parse(localStorage.getItem('hs_cats') || 'null') || JSON.parse(J
 let adminOk = false;
 let adminTab = 'dishes';
 let editId = null;
+let editCatId = null;
+let formSubs = [];
+let formCatName = {ru:'', en:'', tk:''};
 let navTab = 'menu';
 let modalDish = null;
 let searchQuery = '';
@@ -1348,6 +1354,27 @@ function bindDishRows(){
   $('sbody').querySelectorAll('[data-del]').forEach(b => { b.onclick = () => { if(confirm('Удалить блюдо?')){ dishes = dishes.filter(d=>d.id!==+b.dataset.del); save(); renderSettingsBody(); renderGrid(); } }; });
 }
 let dishSearchQ = '';
+function renderSubEditorRows(){
+  return formSubs.map((s,i) => `
+    <div class="fr" style="align-items:flex-end;gap:8px;margin-bottom:8px">
+      <div class="fg" style="flex:1;margin-bottom:0"><label class="fl">RU</label><input class="fi sub-ru" data-i="${i}" value="${s.names.ru}"></div>
+      <div class="fg" style="flex:1;margin-bottom:0"><label class="fl">EN</label><input class="fi sub-en" data-i="${i}" value="${s.names.en}"></div>
+      <div class="fg" style="flex:1;margin-bottom:0"><label class="fl">TK</label><input class="fi sub-tk" data-i="${i}" value="${s.names.tk}"></div>
+      <button class="ib d" data-rmsub="${i}">✕</button>
+    </div>`).join('');
+}
+function syncSubsFromDOM(){
+  const rows = document.getElementById('cat-subs-rows');
+  if(rows){
+    rows.querySelectorAll('.sub-ru').forEach(el => { const i = +el.dataset.i; if(formSubs[i]) formSubs[i].names.ru = el.value; });
+    rows.querySelectorAll('.sub-en').forEach(el => { const i = +el.dataset.i; if(formSubs[i]) formSubs[i].names.en = el.value; });
+    rows.querySelectorAll('.sub-tk').forEach(el => { const i = +el.dataset.i; if(formSubs[i]) formSubs[i].names.tk = el.value; });
+  }
+  const ruEl = document.getElementById('cat-ru');
+  if(ruEl){
+    formCatName = { ru: ruEl.value, en: document.getElementById('cat-en').value, tk: document.getElementById('cat-tk').value };
+  }
+}
 function renderSettingsBody(){
   const body = $('sbody');
   if(adminTab === 'dishes'){
@@ -1405,6 +1432,7 @@ function renderSettingsBody(){
       };
     }
   } else if(adminTab === 'cats'){
+    const editingCat = editCatId ? cats.find(c => c.id === editCatId) : null;
     body.innerHTML = `
       <div style="font-size:13px;font-weight:300;color:rgba(245,240,232,.5);margin-bottom:20px">Категории меню</div>
       ${cats.map((c,i) => `
@@ -1412,41 +1440,86 @@ function renderSettingsBody(){
           <span style="font-size:12px;color:var(--muted);width:20px;flex-shrink:0">${i+1}</span>
           <div style="flex:1;min-width:0">
             <div style="font-family:'Playfair Display',serif;font-size:15px;margin-bottom:2px">${c.names.ru}</div>
-            <div style="font-size:11px;color:var(--muted);letter-spacing:.5px">${c.names.en} · ${c.names.tk}</div>
+            <div style="font-size:11px;color:var(--muted);letter-spacing:.5px">${c.names.en} · ${c.names.tk}${c.subs&&c.subs.length?' · '+c.subs.length+' подкат.':''}</div>
           </div>
+          <button class="ib" data-editcat="${c.id}" title="Редактировать" style="margin-right:4px">
+            <svg width="12" height="12" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
           <button class="ib d" data-delcat="${c.id}" title="Удалить">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
           </button>
         </div>`).join('')}
-      <div class="edit-form open" style="margin-top:24px">
-        <div class="ef-title">Новая категория</div>
+      <div class="edit-form open" style="margin-top:24px" id="cat-form">
+        <div class="ef-title">${editingCat ? 'Редактировать категорию' : 'Новая категория'}</div>
         <div class="fr">
-          <div class="fg"><label class="fl">НАЗВАНИЕ (RU)</label><input class="fi" id="cat-ru" placeholder="Горячие блюда"></div>
-          <div class="fg"><label class="fl">НАЗВАНИЕ (EN)</label><input class="fi" id="cat-en" placeholder="Hot dishes"></div>
+          <div class="fg"><label class="fl">НАЗВАНИЕ (RU)</label><input class="fi" id="cat-ru" placeholder="Горячие блюда" value="${formCatName.ru}"></div>
+          <div class="fg"><label class="fl">НАЗВАНИЕ (EN)</label><input class="fi" id="cat-en" placeholder="Hot dishes" value="${formCatName.en}"></div>
         </div>
-        <div class="fg"><label class="fl">НАЗВАНИЕ (TK)</label><input class="fi" id="cat-tk" placeholder="Yssy naharlar"></div>
-        <div class="s-btns"><button class="pri-btn" id="cat-add-btn">ДОБАВИТЬ КАТЕГОРИЮ</button></div>
+        <div class="fg"><label class="fl">НАЗВАНИЕ (TK)</label><input class="fi" id="cat-tk" placeholder="Yssy naharlar" value="${formCatName.tk}"></div>
+        <div style="margin-top:16px">
+          <label class="fl">ПОДКАТЕГОРИИ (необязательно)</label>
+          <div id="cat-subs-rows" style="margin-top:8px">${renderSubEditorRows()}</div>
+          <button class="sec-btn" id="cat-add-sub-btn" style="margin-top:4px">+ ПОДКАТЕГОРИЯ</button>
+        </div>
+        <div class="s-btns" style="margin-top:16px">
+          <button class="pri-btn" id="cat-save-btn">${editingCat ? 'СОХРАНИТЬ' : 'ДОБАВИТЬ КАТЕГОРИЮ'}</button>
+          ${editingCat ? '<button class="sec-btn" id="cat-cancel-btn">ОТМЕНА</button>' : ''}
+        </div>
       </div>`;
 
+    body.querySelectorAll('[data-editcat]').forEach(btn => {
+      btn.onclick = () => {
+        const c = cats.find(x => x.id === btn.dataset.editcat);
+        editCatId = c.id;
+        formSubs = (c.subs || []).map(s => ({id:s.id, names:{...s.names}}));
+        formCatName = {...c.names};
+        renderSettingsBody();
+        setTimeout(() => { const f = $('cat-form'); f && f.scrollIntoView({behavior:'smooth', block:'start'}); }, 10);
+      };
+    });
     body.querySelectorAll('[data-delcat]').forEach(btn => {
       btn.onclick = () => {
         const cid = btn.dataset.delcat;
         if(dishes.some(d => d.cat === cid)){ toast('Сначала удалите блюда этой категории'); return; }
         cats = cats.filter(c => c.id !== cid);
         if(activeCat === cid) { activeCat = cats[0]?.id || ''; activeSub = null; }
+        if(editCatId === cid){ editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; }
         save(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
         toast('Категория удалена');
       };
     });
-
-    $('cat-add-btn').onclick = () => {
+    body.querySelectorAll('[data-rmsub]').forEach(btn => {
+      btn.onclick = () => {
+        syncSubsFromDOM();
+        formSubs.splice(+btn.dataset.rmsub, 1);
+        renderSettingsBody();
+      };
+    });
+    $('cat-add-sub-btn').onclick = () => {
+      syncSubsFromDOM();
+      formSubs.push({id:'sub_'+Date.now()+'_'+formSubs.length, names:{ru:'',en:'',tk:''}});
+      renderSettingsBody();
+    };
+    const catCancelBtn = $('cat-cancel-btn');
+    if(catCancelBtn) catCancelBtn.onclick = () => { editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; renderSettingsBody(); };
+    $('cat-save-btn').onclick = () => {
+      syncSubsFromDOM();
       const ru = $('cat-ru').value.trim();
       if(!ru){ toast('Введите название на RU'); return; }
       const en = $('cat-en').value.trim() || ru;
       const tk = $('cat-tk').value.trim() || ru;
-      cats.push({ id:'cat_'+Date.now(), names:{ru, en, tk} });
-      save(); renderCats(); renderSettingsBody();
-      toast('Категория добавлена');
+      const subs = formSubs
+        .filter(s => s.names.ru.trim())
+        .map(s => ({id:s.id, names:{ru:s.names.ru.trim(), en:s.names.en.trim()||s.names.ru.trim(), tk:s.names.tk.trim()||s.names.ru.trim()}}));
+      if(editCatId){
+        Object.assign(cats.find(c => c.id === editCatId), {names:{ru,en,tk}, subs});
+        toast('Категория обновлена');
+      } else {
+        cats.push({ id:'cat_'+Date.now(), names:{ru, en, tk}, subs });
+        toast('Категория добавлена');
+      }
+      editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''};
+      save(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
     };
   } else {
     body.innerHTML = `
@@ -1709,6 +1782,7 @@ function init(){
   $('pwd-in').onkeydown = e => { if(e.key==='Enter') $('pwd-ok').click(); };
   document.querySelectorAll('.stab').forEach(b => b.onclick = () => {
     adminTab = b.dataset.t;
+    editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''};
     document.querySelectorAll('.stab').forEach(x => x.classList.remove('on'));
     b.classList.add('on');
     renderSettingsBody();
