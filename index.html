@@ -1150,6 +1150,52 @@ function save(){
   localStorage.setItem('hs_lang', lang);
 }
 
+// ── CROSS-DEVICE MENU SYNC
+let menuServerVersion = 0;
+let menuSyncing = false;
+async function syncMenuToServer(){
+  try{
+    const res = await fetch('/api/menu', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({dishes, cats})
+    });
+    const data = await res.json();
+    if(data && data.version) menuServerVersion = data.version;
+  }catch(e){ console.warn('menu sync failed', e); }
+}
+async function loadMenuFromServer(){
+  try{
+    const res = await fetch('/api/menu');
+    const data = await res.json();
+    if(data && Array.isArray(data.dishes) && Array.isArray(data.cats)){
+      dishes = data.dishes;
+      cats = data.cats;
+      menuServerVersion = data.version || 0;
+      renderCats(); renderSubcats(); renderGrid(); renderCart();
+    }
+  }catch(e){ console.warn('menu load failed, using local copy', e); }
+}
+function startMenuPolling(){
+  setInterval(async () => {
+    if(menuSyncing) return;
+    try{
+      const res = await fetch('/api/menu');
+      const data = await res.json();
+      if(data && data.version && data.version !== menuServerVersion){
+        menuSyncing = true;
+        dishes = data.dishes;
+        cats = data.cats;
+        menuServerVersion = data.version;
+        save();
+        renderCats(); renderSubcats(); renderGrid(); renderCart();
+        if($('so').classList.contains('open')) renderSettingsBody();
+        menuSyncing = false;
+      }
+    }catch(e){}
+  }, 4000);
+}
+
 function toast(msg){
   const el = $('toast');
   el.textContent = msg;
@@ -1432,7 +1478,7 @@ function dishRowsHtml(list){
 }
 function bindDishRows(){
   $('sbody').querySelectorAll('[data-edit]').forEach(b => { b.onclick = () => { editId = +b.dataset.edit; renderSettingsBody(); setTimeout(() => { $('edit-form').classList.add('open'); $('edit-form').scrollIntoView({behavior:'smooth', block:'start'}); },10); }; });
-  $('sbody').querySelectorAll('[data-del]').forEach(b => { b.onclick = () => { if(confirm('Удалить блюдо?')){ dishes = dishes.filter(d=>d.id!==+b.dataset.del); save(); renderSettingsBody(); renderGrid(); } }; });
+  $('sbody').querySelectorAll('[data-del]').forEach(b => { b.onclick = () => { if(confirm('Удалить блюдо?')){ dishes = dishes.filter(d=>d.id!==+b.dataset.del); save(); syncMenuToServer(); renderSettingsBody(); renderGrid(); } }; });
 }
 let dishSearchQ = '';
 function renderSubEditorRows(){
@@ -1547,7 +1593,7 @@ function renderSettingsBody(){
         cats = cats.filter(c => c.id !== cid);
         if(activeCat === cid) { activeCat = cats[0]?.id || ''; activeSub = null; }
         if(editCatId === cid){ editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; }
-        save(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
+        save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
         toast('Категория удалена');
       };
     });
@@ -1628,7 +1674,7 @@ function renderSettingsBody(){
         if(!Array.isArray(data.dishes)) throw new Error('bad format');
         dishes = data.dishes;
         if(Array.isArray(data.cats)) cats = data.cats;
-        save(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
+        save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
         toast('Данные загружены');
       }catch(e){ toast('Некорректный JSON'); }
     };
@@ -1755,6 +1801,7 @@ function saveDishForm(){
   else { data.id = Date.now(); dishes.push(data); }
   editId = null;
   save();
+  syncMenuToServer();
   if($('so').classList.contains('open')) renderSettingsBody();
   renderGrid();
   toast('Сохранено');
@@ -1869,6 +1916,8 @@ function init(){
   renderGrid();
   renderCart();
   initSplash();
+  loadMenuFromServer();
+  startMenuPolling();
 
   // quick edit (temporary card-level editing)
   $('qe-close').onclick = closeQuickEdit;
