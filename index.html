@@ -1628,7 +1628,7 @@ function renderSettingsBody(){
         toast('Категория добавлена');
       }
       editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''};
-      save(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
+      save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
     };
   } else {
     body.innerHTML = `
