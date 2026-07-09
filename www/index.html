@@ -1164,6 +1164,12 @@ async function syncMenuToServer(){
     if(data && data.version) menuServerVersion = data.version;
   }catch(e){ console.warn('menu sync failed', e); }
 }
+function ensureActiveCat(){
+  if(!cats.find(c => c.id === activeCat)){
+    activeCat = cats[0]?.id || null;
+    activeSub = null;
+  }
+}
 async function loadMenuFromServer(){
   try{
     const res = await fetch('/api/menu');
@@ -1172,6 +1178,7 @@ async function loadMenuFromServer(){
       dishes = data.dishes;
       cats = data.cats;
       menuServerVersion = data.version || 0;
+      ensureActiveCat();
       renderCats(); renderSubcats(); renderGrid(); renderCart();
     }
   }catch(e){ console.warn('menu load failed, using local copy', e); }
@@ -1188,6 +1195,7 @@ function startMenuPolling(){
         cats = data.cats;
         menuServerVersion = data.version;
         save();
+        ensureActiveCat();
         renderCats(); renderSubcats(); renderGrid(); renderCart();
         const editForm = document.getElementById('edit-form');
         const formActive = adminTab === 'cats' || (editForm && editForm.classList.contains('open'));
@@ -1913,6 +1921,7 @@ function initSiteGate(){
 function init(){
   initSiteGate();
   save();
+  ensureActiveCat();
   renderCats();
   renderSubcats();
   renderGrid();
