@@ -1189,7 +1189,9 @@ function startMenuPolling(){
         menuServerVersion = data.version;
         save();
         renderCats(); renderSubcats(); renderGrid(); renderCart();
-        if($('so').classList.contains('open')) renderSettingsBody();
+        const editForm = document.getElementById('edit-form');
+        const formActive = adminTab === 'cats' || (editForm && editForm.classList.contains('open'));
+        if($('so').classList.contains('open') && !formActive) renderSettingsBody();
         menuSyncing = false;
       }
     }catch(e){}
