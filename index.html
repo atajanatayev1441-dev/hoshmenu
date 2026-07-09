@@ -1144,10 +1144,14 @@ const $ = id => document.getElementById(id);
 const t = obj => obj[lang] || obj.ru || Object.values(obj)[0];
 
 function save(){
-  localStorage.setItem('hs_dishes', JSON.stringify(dishes));
-  localStorage.setItem('hs_cats', JSON.stringify(cats));
-  localStorage.setItem('hs_cart', JSON.stringify(cart));
-  localStorage.setItem('hs_lang', lang);
+  try{
+    localStorage.setItem('hs_dishes', JSON.stringify(dishes));
+    localStorage.setItem('hs_cats', JSON.stringify(cats));
+    localStorage.setItem('hs_cart', JSON.stringify(cart));
+    localStorage.setItem('hs_lang', lang);
+  }catch(e){
+    console.warn('local cache save failed (quota?), server sync unaffected', e);
+  }
 }
 
 // ── CROSS-DEVICE MENU SYNC
