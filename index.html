@@ -145,8 +145,38 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 #main::-webkit-scrollbar{width:4px}
 #main::-webkit-scrollbar-thumb{background:rgba(201,168,76,.2);border-radius:2px}
-#dish-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:24px;transition:opacity .2s ease,transform .22s ease}
+#dish-grid{display:none;grid-template-columns:repeat(4,1fr);gap:16px;padding:24px;transition:opacity .2s ease,transform .22s ease}
 #dish-grid.fade-out{opacity:0;transform:translateY(10px);pointer-events:none}
+
+/* CATEGORY CARDS (landing screen) */
+#cat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px}
+.cat-card{
+  position:relative;aspect-ratio:1.35;border-radius:18px;overflow:hidden;cursor:pointer;
+  background:rgba(14,10,4,.52);border:1px solid var(--bd);
+  display:flex;align-items:flex-end;padding:16px;
+  background-size:cover;background-position:center;
+  animation:ct-in .5s cubic-bezier(.25,1,.35,1) both;
+  transition:transform .25s,border-color .25s;
+}
+.cat-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,.4)}
+.cat-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(12,12,12,0) 30%,rgba(12,12,12,.88) 100%);
+}
+.cat-card-name{
+  position:relative;z-index:1;font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-weight:600;letter-spacing:1px;color:var(--text);line-height:1.25;
+}
+.cat-card-count{position:relative;z-index:1;font-size:11px;color:rgba(245,240,232,.5);margin-top:2px}
+#cat-back-btn{
+  display:none;align-items:center;gap:6px;margin:0 24px 4px;padding:9px 16px;
+  border-radius:20px;border:1px solid rgba(201,168,76,.25);background:transparent;
+  color:var(--gol2);cursor:pointer;font-size:11px;letter-spacing:1.5px;
+  transition:background .2s,border-color .2s;
+}
+#cat-back-btn:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.45)}
+@media (max-width:900px){#cat-cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){#cat-cards{grid-template-columns:repeat(2,1fr);gap:10px;padding:14px}.cat-card{border-radius:14px;padding:12px}.cat-card-name{font-size:14px}}
 
 /* CARD — glassmorphic */
 .dc{
@@ -497,6 +527,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
   display:inline-flex;align-items:center;justify-content:center;transition:all .2s
 }
 .ib:hover{background:rgba(201,168,76,.1);color:var(--gold)}
+.ib:disabled{opacity:.2;pointer-events:none}
 .ib.d{border-color:rgba(255,100,100,.15)}
 .ib.d:hover{background:rgba(255,100,100,.08);color:rgba(255,100,100,.7);border-color:rgba(255,100,100,.3)}
 .s-btns{display:flex;gap:12px;margin-top:20px}
@@ -854,7 +885,12 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 </header>
 
 <main id="main">
-  <div id="menu-content"><div id="subcats"></div><div id="dish-grid"></div></div>
+  <div id="menu-content">
+    <div id="cat-cards"></div>
+    <button id="cat-back-btn"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>ВСЕ КАТЕГОРИИ</button>
+    <div id="subcats"></div>
+    <div id="dish-grid"></div>
+  </div>
   <div id="promo">
     <div class="scr-title">Акции</div>
     <div class="promo-card"><div class="promo-tag">СКИДКА 15%</div><div class="promo-title">Счастливые часы</div><div class="promo-desc">Каждый день с 17:00 до 20:00 — скидка 15% на все напитки и закуски. Лучшее время для встречи с друзьями.</div></div>
@@ -1138,6 +1174,7 @@ if(localStorage.getItem('hs_dd_version') !== DD_VERSION){
 let lang = localStorage.getItem('hs_lang') || 'ru';
 let activeCat = 'popular';
 let activeSub = null;
+let catsScreenOpen = true;
 let cart = JSON.parse(localStorage.getItem('hs_cart') || '[]');
 let dishes = JSON.parse(localStorage.getItem('hs_dishes') || 'null') || JSON.parse(JSON.stringify(DD));
 DD.forEach(d => { if(!dishes.find(x => x.id === d.id)) dishes.push(JSON.parse(JSON.stringify(d))); });
@@ -1241,8 +1278,47 @@ function updateCatArrows(){
 
 function updateGridArrows(){
   const idx = cats.findIndex(c => c.id === activeCat);
-  $('grid-arr-l').classList.toggle('vis', idx > 0);
-  $('grid-arr-r').classList.toggle('vis', idx >= 0 && idx < cats.length - 1);
+  $('grid-arr-l').classList.toggle('vis', !catsScreenOpen && idx > 0);
+  $('grid-arr-r').classList.toggle('vis', !catsScreenOpen && idx >= 0 && idx < cats.length - 1);
+}
+
+function enterCategory(id){
+  activeCat = id;
+  activeSub = null;
+  catsScreenOpen = false;
+  renderCats(); renderSubcats(); renderGrid();
+  updateStageVisibility();
+}
+
+function exitToCategories(){
+  catsScreenOpen = true;
+  renderCats();
+  updateStageVisibility();
+}
+
+function updateStageVisibility(){
+  const showCards = catsScreenOpen && !searchQuery;
+  $('cat-cards').style.display = showCards ? 'grid' : 'none';
+  $('cat-back-btn').style.display = (!catsScreenOpen && !searchQuery) ? 'inline-flex' : 'none';
+  $('subcats').style.display = showCards ? 'none' : '';
+  $('dish-grid').style.display = showCards ? 'none' : 'grid';
+  updateGridArrows();
+}
+
+function renderCatCards(){
+  const wrap = $('cat-cards');
+  wrap.innerHTML = '';
+  cats.forEach((c, i) => {
+    const count = dishes.filter(d => d.cat === c.id).length;
+    const photo = dishes.find(d => d.cat === c.id && d.photo)?.photo || '';
+    const card = document.createElement('div');
+    card.className = 'cat-card';
+    card.style.animationDelay = (i * 0.05) + 's';
+    if(photo) card.style.backgroundImage = `url('${photo}')`;
+    card.innerHTML = `<div><div class="cat-card-name">${t(c.names)}</div><div class="cat-card-count">${count} ${count===1?'блюдо':'блюд'}</div></div>`;
+    card.onclick = () => enterCategory(c.id);
+    wrap.appendChild(card);
+  });
 }
 
 function renderCats(){
@@ -1250,12 +1326,13 @@ function renderCats(){
   wrap.innerHTML = '';
   cats.forEach((c, i) => {
     const btn = document.createElement('button');
-    btn.className = 'ct' + (c.id === activeCat ? ' on' : '');
+    btn.className = 'ct' + (c.id === activeCat && !catsScreenOpen ? ' on' : '');
     btn.textContent = t(c.names);
     btn.style.animationDelay = (i * 0.06) + 's';
-    btn.onclick = () => { activeCat = c.id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); };
+    btn.onclick = () => enterCategory(c.id);
     wrap.appendChild(btn);
   });
+  renderCatCards();
   updateGridArrows();
   setTimeout(updateCatArrows, 50);
 }
@@ -1587,6 +1664,12 @@ function renderSettingsBody(){
             <div style="font-family:'Playfair Display',serif;font-size:15px;margin-bottom:2px">${c.names.ru}</div>
             <div style="font-size:11px;color:var(--muted);letter-spacing:.5px">${c.names.en} · ${c.names.tk}${c.subs&&c.subs.length?' · '+c.subs.length+' подкат.':''}</div>
           </div>
+          <button class="ib" data-catup="${c.id}" title="Выше" style="margin-right:2px" ${i===0?'disabled':''}>
+            <svg width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+          </button>
+          <button class="ib" data-catdown="${c.id}" title="Ниже" style="margin-right:4px" ${i===cats.length-1?'disabled':''}>
+            <svg width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
           <button class="ib" data-editcat="${c.id}" title="Редактировать" style="margin-right:4px">
             <svg width="12" height="12" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
           </button>
@@ -1612,6 +1695,22 @@ function renderSettingsBody(){
         </div>
       </div>`;
 
+    body.querySelectorAll('[data-catup]').forEach(btn => {
+      btn.onclick = () => {
+        const idx = cats.findIndex(c => c.id === btn.dataset.catup);
+        if(idx <= 0) return;
+        [cats[idx-1], cats[idx]] = [cats[idx], cats[idx-1]];
+        save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
+      };
+    });
+    body.querySelectorAll('[data-catdown]').forEach(btn => {
+      btn.onclick = () => {
+        const idx = cats.findIndex(c => c.id === btn.dataset.catdown);
+        if(idx < 0 || idx >= cats.length - 1) return;
+        [cats[idx+1], cats[idx]] = [cats[idx], cats[idx+1]];
+        save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
+      };
+    });
     body.querySelectorAll('[data-editcat]').forEach(btn => {
       btn.onclick = () => {
         const c = cats.find(x => x.id === btn.dataset.editcat);
@@ -1966,9 +2065,12 @@ function init(){
   renderSubcats();
   renderGrid();
   renderCart();
+  updateStageVisibility();
   initSplash();
   loadMenuFromServer();
   startMenuPolling();
+
+  $('cat-back-btn').onclick = exitToCategories;
 
   // quick edit (temporary card-level editing)
   $('qe-close').onclick = closeQuickEdit;
@@ -2032,10 +2134,10 @@ function init(){
   const searchBar = $('search-bar');
   const searchIn  = $('search-in');
   function openSearch(){ searchBar.classList.add('open'); searchIn.focus(); }
-  function closeSearch(){ searchBar.classList.remove('open'); searchQuery = ''; searchIn.value = ''; renderGrid(); }
+  function closeSearch(){ searchBar.classList.remove('open'); searchQuery = ''; searchIn.value = ''; renderGrid(); updateStageVisibility(); }
   $('search-btn').onclick = openSearch;
   $('search-cls').onclick = closeSearch;
-  searchIn.oninput = () => { searchQuery = searchIn.value.trim(); renderGrid(); };
+  searchIn.oninput = () => { searchQuery = searchIn.value.trim(); renderGrid(); updateStageVisibility(); };
 
   // category arrows
   $('grid-arr-l').onclick = () => {
