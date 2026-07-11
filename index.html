@@ -34,6 +34,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 #logo img{height:44px;flex-shrink:0}
 #cats-wrap{flex:1;overflow:hidden;display:flex;justify-content:center;padding:0 12px;position:relative}
+#cats,.cat-arrow{display:none!important}
 #search-bar{
   position:absolute;inset:0;display:flex;align-items:center;gap:12px;
   padding:0 16px;background:rgba(12,12,12,.98);
@@ -112,7 +113,8 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 @keyframes ct-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 #subcats{
   display:none;flex-wrap:wrap;gap:10px;
-  padding:0 4px 18px;
+  padding:16px 16px 18px;
+  justify-content:center;
 }
 #subcats.v{display:flex}
 .sct{
@@ -427,58 +429,6 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 #pwd-ok:hover{background:var(--gol2)}
 
-/* SITE GATE */
-#sitegate{
-  position:fixed;inset:0;background:#0C0C0C;z-index:9999;
-  display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;
-}
-#sitegate.h{display:none}
-#sg-lbl{font-size:11px;letter-spacing:3px;color:rgba(245,240,232,.4);font-family:'Inter',sans-serif}
-.gate-in{
-  background:rgba(201,168,76,.05);border:1px solid rgba(201,168,76,.2);
-  border-radius:10px;color:var(--text);font-family:'Inter',sans-serif;
-  font-size:16px;padding:14px 20px;width:260px;text-align:center;
-  outline:none;letter-spacing:4px;transition:border-color .2s
-}
-.gate-in:focus{border-color:rgba(201,168,76,.5)}
-.gate-err{font-size:12px;color:rgba(255,100,100,.6);min-height:18px;font-family:'Inter',sans-serif}
-.gate-btn{
-  padding:14px 40px;background:var(--gold);color:#0C0C0C;
-  font-size:11px;font-weight:600;letter-spacing:3px;
-  border:none;border-radius:10px;transition:all .2s
-}
-.gate-btn:hover{background:var(--gol2)}
-
-/* QUICK EDIT (temporary) */
-#qe-overlay{
-  position:fixed;inset:0;background:rgba(0,0,0,.92);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  z-index:500;display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;transition:opacity .2s
-}
-#qe-overlay.open{opacity:1;pointer-events:all}
-#qe-panel{
-  background:var(--bg-card);border:1px solid rgba(201,168,76,.2);
-  border-radius:24px;width:100%;max-width:520px;max-height:90vh;
-  margin:0 20px;overflow-y:auto;position:relative;scrollbar-width:none
-}
-#qe-panel::-webkit-scrollbar{display:none}
-#qe-hdr{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid rgba(201,168,76,.1);position:sticky;top:0;background:var(--bg-card);z-index:1}
-#qe-title{font-size:13px;font-weight:500;letter-spacing:2px;color:rgba(245,240,232,.6)}
-#qe-close{
-  width:32px;height:32px;border-radius:8px;background:rgba(201,168,76,.06);
-  border:1px solid var(--bd);color:rgba(245,240,232,.5);
-  display:flex;align-items:center;justify-content:center;transition:all .2s
-}
-#qe-close:hover{background:rgba(201,168,76,.12);color:var(--text)}
-#qe-body{padding:20px 24px 24px}
-.card-edit-btn{
-  position:absolute;top:14px;right:14px;z-index:4;width:30px;height:30px;
-  background:rgba(8,6,2,.82);backdrop-filter:blur(10px);
-  border:1px solid rgba(201,168,76,.35);color:var(--gold);border-radius:8px;
-  display:flex;align-items:center;justify-content:center;transition:all .2s
-}
-.card-edit-btn:hover{background:rgba(201,168,76,.15)}
 
 #scontent{flex:1;display:flex;flex-direction:column;overflow:hidden}
 #scontent.h{display:none}
@@ -726,47 +676,11 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 
 /* ── МОБИЛЬНЫЙ ≤767px ── */
 @media(max-width:767px){
-  /* Топбар = 2 строки: [лого + кнопки] / [категории] */
-  :root{--topbar-h:104px;--bnav-h:54px}
-  #topbar{
-    height:auto!important;flex-wrap:wrap!important;
-    padding:0!important;align-items:stretch!important;gap:0!important;
-  }
-  #logo{
-    height:56px!important;display:flex!important;align-items:center!important;
-    padding:0 14px!important;flex-shrink:0!important;
-  }
+  :root{--topbar-h:60px;--bnav-h:54px}
+  #topbar{height:var(--topbar-h)!important;padding:0 14px!important}
   #logo img{height:34px!important}
-  #tbr{
-    height:56px!important;display:flex!important;align-items:center!important;
-    padding:0 8px!important;
-  }
+  #tbr{height:100%!important;display:flex!important;align-items:center!important}
   .tbtn{width:38px!important;height:38px!important}
-  /* Категории — полная ширина, 2-я строка */
-  #cats-wrap{
-    order:10!important;flex:0 0 100%!important;width:100%!important;
-    height:48px!important;padding:0 36px!important;
-    justify-content:flex-start!important;
-    border-top:1px solid rgba(201,168,76,.1)!important;
-    background:rgba(12,12,12,.98)!important;
-  }
-  #cats{gap:8px!important;height:48px!important;padding:0 2px!important}
-  /* Пилл-чипы для категорий */
-  .ct{
-    font-size:9px!important;letter-spacing:1.6px!important;
-    padding:5px 12px!important;min-height:30px!important;
-    background:rgba(255,255,255,.04)!important;
-    border-radius:30px!important;
-    border:1px solid rgba(201,168,76,.12)!important;
-    white-space:nowrap!important;color:rgba(245,240,232,.5)!important;
-  }
-  .ct.on{
-    background:rgba(201,168,76,.13)!important;
-    border-color:rgba(201,168,76,.4)!important;
-    color:var(--gol2)!important;
-  }
-  .ct::after{display:none!important}
-  .cat-arrow{width:32px!important}
   /* Сетка блюд */
   #main{top:var(--topbar-h)!important;bottom:var(--bnav-h)!important}
   #dish-grid{grid-template-columns:repeat(2,1fr)!important;gap:10px!important;padding:10px!important}
@@ -807,25 +721,6 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 </style>
 </head>
 <body>
-
-<!-- SITE GATE -->
-<div id="sitegate">
-  <div id="sg-lbl">ВВЕДИТЕ ПАРОЛЬ ДЛЯ ВХОДА</div>
-  <input id="sg-in" class="gate-in" type="password" placeholder="••••••••">
-  <div id="sg-err" class="gate-err"></div>
-  <button id="sg-ok" class="gate-btn">ВОЙТИ</button>
-</div>
-
-<!-- QUICK EDIT (temporary card-level editing) -->
-<div id="qe-overlay">
-  <div id="qe-panel">
-    <div id="qe-hdr">
-      <div id="qe-title">Редактировать блюдо</div>
-      <button id="qe-close"><svg width="16" height="16" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-    </div>
-    <div id="qe-body"></div>
-  </div>
-</div>
 
 <!-- SPLASH -->
 <div id="splash">
@@ -1185,6 +1080,7 @@ let editId = null;
 let editCatId = null;
 let formSubs = [];
 let formCatName = {ru:'', en:'', tk:''};
+let formCatPhoto = '';
 let navTab = 'menu';
 let modalDish = null;
 let searchQuery = '';
@@ -1310,7 +1206,7 @@ function renderCatCards(){
   wrap.innerHTML = '';
   cats.forEach((c, i) => {
     const count = dishes.filter(d => d.cat === c.id).length;
-    const photo = dishes.find(d => d.cat === c.id && d.photo)?.photo || '';
+    const photo = c.photo || dishes.find(d => d.cat === c.id && d.photo)?.photo || '';
     const card = document.createElement('div');
     card.className = 'cat-card';
     card.style.animationDelay = (i * 0.05) + 's';
@@ -1381,9 +1277,6 @@ function renderGrid(){
             : `<div class="cp-ph"><svg width="48" height="48" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1" viewBox="0 0 48 48"><ellipse cx="24" cy="30" rx="18" ry="4"/><path d="M6 30c0-9.94 8.06-18 18-18s18 8.06 18 18"/><path d="M18 18c0-3.31 2.69-6 6-6s6 2.69 6 6"/><rect x="20" y="10" width="8" height="4" rx="1"/></svg></div>`}
           <div class="cpg"></div>
           ${d.badge ? `<div class="cbadge">${d.badge}</div>` : ''}
-          <button class="card-edit-btn" data-editcard="${d.id}" title="Редактировать">
-            <svg width="14" height="14" stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          </button>
         </div>
         <div class="cb">
           <div class="cn">${t(d.names)}</div>
@@ -1393,9 +1286,8 @@ function renderGrid(){
             <button class="abtn" data-id="${d.id}">+</button>
           </div>
         </div>`;
-      el.onclick = e => { if(!e.target.closest('.abtn') && !e.target.closest('.card-edit-btn')) openModal(d); };
+      el.onclick = e => { if(!e.target.closest('.abtn')) openModal(d); };
       el.querySelector('.abtn').onclick = e => { e.stopPropagation(); addToCart(d.id); };
-      el.querySelector('.card-edit-btn').onclick = e => { e.stopPropagation(); openQuickEdit(d.id); };
       grid.appendChild(el);
     });
     grid.classList.remove('fade-out');
@@ -1684,6 +1576,7 @@ function renderSettingsBody(){
           <div class="fg"><label class="fl">НАЗВАНИЕ (EN)</label><input class="fi" id="cat-en" placeholder="Hot dishes" value="${formCatName.en}"></div>
         </div>
         <div class="fg"><label class="fl">НАЗВАНИЕ (TK)</label><input class="fi" id="cat-tk" placeholder="Yssy naharlar" value="${formCatName.tk}"></div>
+        <div class="fg"><label class="fl">ФОТО КАТЕГОРИИ (URL, необязательно)</label><input class="fi" id="cat-photo" placeholder="https://..." value="${formCatPhoto}"></div>
         <div style="margin-top:16px">
           <label class="fl">ПОДКАТЕГОРИИ (необязательно)</label>
           <div id="cat-subs-rows" style="margin-top:8px">${renderSubEditorRows()}</div>
@@ -1717,6 +1610,7 @@ function renderSettingsBody(){
         editCatId = c.id;
         formSubs = (c.subs || []).map(s => ({id:s.id, names:{...s.names}}));
         formCatName = {...c.names};
+        formCatPhoto = c.photo || '';
         renderSettingsBody();
         setTimeout(() => { const f = $('cat-form'); f && f.scrollIntoView({behavior:'smooth', block:'start'}); }, 10);
       };
@@ -1727,7 +1621,7 @@ function renderSettingsBody(){
         if(dishes.some(d => d.cat === cid)){ toast('Сначала удалите блюда этой категории'); return; }
         cats = cats.filter(c => c.id !== cid);
         if(activeCat === cid) { activeCat = cats[0]?.id || ''; activeSub = null; }
-        if(editCatId === cid){ editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; }
+        if(editCatId === cid){ editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; formCatPhoto = ''; }
         save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
         toast('Категория удалена');
       };
@@ -1745,24 +1639,25 @@ function renderSettingsBody(){
       renderSettingsBody();
     };
     const catCancelBtn = $('cat-cancel-btn');
-    if(catCancelBtn) catCancelBtn.onclick = () => { editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; renderSettingsBody(); };
+    if(catCancelBtn) catCancelBtn.onclick = () => { editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; formCatPhoto = ''; renderSettingsBody(); };
     $('cat-save-btn').onclick = () => {
       syncSubsFromDOM();
       const ru = $('cat-ru').value.trim();
       if(!ru){ toast('Введите название на RU'); return; }
       const en = $('cat-en').value.trim() || ru;
       const tk = $('cat-tk').value.trim() || ru;
+      const photo = $('cat-photo').value.trim();
       const subs = formSubs
         .filter(s => s.names.ru.trim())
         .map(s => ({id:s.id, names:{ru:s.names.ru.trim(), en:s.names.en.trim()||s.names.ru.trim(), tk:s.names.tk.trim()||s.names.ru.trim()}}));
       if(editCatId){
-        Object.assign(cats.find(c => c.id === editCatId), {names:{ru,en,tk}, subs});
+        Object.assign(cats.find(c => c.id === editCatId), {names:{ru,en,tk}, subs, photo:photo||undefined});
         toast('Категория обновлена');
       } else {
-        cats.push({ id:'cat_'+Date.now(), names:{ru, en, tk}, subs });
+        cats.push({ id:'cat_'+Date.now(), names:{ru, en, tk}, subs, photo:photo||undefined });
         toast('Категория добавлена');
       }
-      editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''};
+      editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; formCatPhoto = '';
       save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
     };
   } else {
@@ -1857,20 +1752,6 @@ function bindDishFormHandlers(root, onSaved, onCancel){
     };
     r.readAsDataURL(f);
   };
-}
-// ── QUICK EDIT (temporary card-level editing)
-function openQuickEdit(id){
-  editId = id;
-  if(!$('so').classList.contains('open')) $('sbody').innerHTML = '';
-  const body = $('qe-body');
-  body.innerHTML = dishForm(id);
-  bindDishFormHandlers(body, closeQuickEdit, closeQuickEdit);
-  $('qe-overlay').classList.add('open');
-}
-function closeQuickEdit(){
-  $('qe-overlay').classList.remove('open');
-  $('qe-body').innerHTML = '';
-  editId = null;
 }
 function dishForm(id){
   const d = id ? dishes.find(x => x.id === id) : null;
@@ -2040,25 +1921,7 @@ function initSplash(){
 }
 
 // ── INIT
-function initSiteGate(){
-  const SITE_PWD = 'hoslounge102938';
-  const gate = $('sitegate');
-  if(localStorage.getItem('hs_site_ok') === '1'){
-    gate.classList.add('h');
-  }
-  $('sg-ok').onclick = () => {
-    if($('sg-in').value === SITE_PWD){
-      localStorage.setItem('hs_site_ok', '1');
-      gate.classList.add('h');
-    } else {
-      $('sg-err').textContent = 'Неверный пароль';
-    }
-  };
-  $('sg-in').onkeydown = e => { if(e.key==='Enter') $('sg-ok').click(); };
-}
-
 function init(){
-  initSiteGate();
   save();
   ensureActiveCat();
   renderCats();
@@ -2071,9 +1934,6 @@ function init(){
   startMenuPolling();
 
   $('cat-back-btn').onclick = exitToCategories;
-
-  // quick edit (temporary card-level editing)
-  $('qe-close').onclick = closeQuickEdit;
 
   // cart
   $('cart-btn').onclick = openCart;
@@ -2104,7 +1964,7 @@ function init(){
   $('pwd-in').onkeydown = e => { if(e.key==='Enter') $('pwd-ok').click(); };
   document.querySelectorAll('.stab').forEach(b => b.onclick = () => {
     adminTab = b.dataset.t;
-    editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''};
+    editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; formCatPhoto = '';
     document.querySelectorAll('.stab').forEach(x => x.classList.remove('on'));
     b.classList.add('on');
     renderSettingsBody();
