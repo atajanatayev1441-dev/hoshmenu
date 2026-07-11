@@ -1113,11 +1113,24 @@ const t = obj => obj[lang] || obj.ru || Object.values(obj)[0];
 
 // ── NATIVE APP SUPPORT (offline-capable Android build) ──
 const IS_NATIVE_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
-const API_BASE = IS_NATIVE_APP ? 'https://hoscoffee.ru' : '';
-function apiUrl(path){ return API_BASE + path; }
+// Primary domain first, then the Railway-provided fallback domain in case hoscoffee.ru gets blocked/unreachable.
+const API_BASES = IS_NATIVE_APP ? ['https://hoscoffee.ru', 'https://hoshmenu-production.up.railway.app'] : [''];
+let activeApiBase = API_BASES[0];
+async function apiFetch(path, opts){
+  const order = [activeApiBase, ...API_BASES.filter(b => b !== activeApiBase)];
+  let lastErr;
+  for(const base of order){
+    try{
+      const res = await fetch(base + path, opts);
+      activeApiBase = base;
+      return res;
+    }catch(e){ lastErr = e; }
+  }
+  throw lastErr;
+}
 function photoUrl(p){
   if(!p || !IS_NATIVE_APP || p.startsWith('http') || p.startsWith('data:')) return p;
-  return API_BASE + '/' + p.replace(/^\//,'');
+  return activeApiBase + '/' + p.replace(/^\//,'');
 }
 
 function save(){
@@ -1136,7 +1149,7 @@ let menuServerVersion = 0;
 let menuSyncing = false;
 async function syncMenuToServer(){
   try{
-    const res = await fetch(apiUrl('/api/menu'), {
+    const res = await apiFetch('/api/menu', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({dishes, cats})
@@ -1153,7 +1166,7 @@ function ensureActiveCat(){
 }
 async function loadMenuFromServer(){
   try{
-    const res = await fetch(apiUrl('/api/menu'));
+    const res = await apiFetch('/api/menu');
     const data = await res.json();
     if(data && Array.isArray(data.dishes) && Array.isArray(data.cats)){
       dishes = data.dishes;
@@ -1168,7 +1181,7 @@ function startMenuPolling(){
   setInterval(async () => {
     if(menuSyncing) return;
     try{
-      const res = await fetch(apiUrl('/api/menu'));
+      const res = await apiFetch('/api/menu');
       const data = await res.json();
       if(data && data.version && data.version !== menuServerVersion){
         menuSyncing = true;
