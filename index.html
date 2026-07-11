@@ -51,6 +51,19 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 .cat-arrow:hover{color:#fff;opacity:1}
 #cat-arr-l{left:0;background:linear-gradient(90deg,rgba(12,12,12,.95) 50%,transparent)}
 #cat-arr-r{right:0;background:linear-gradient(270deg,rgba(12,12,12,.95) 50%,transparent)}
+.grid-arrow{
+  position:fixed;top:50%;transform:translateY(-50%);z-index:6;
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,.25);
+  background:rgba(12,12,12,.7);color:var(--gol2);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;opacity:0;pointer-events:none;
+  transition:opacity .25s,color .2s,background .2s;
+}
+.grid-arrow.vis{opacity:.55;pointer-events:all}
+.grid-arrow.vis:hover{opacity:1;color:#fff;background:rgba(12,12,12,.9)}
+#grid-arr-l{left:14px}
+#grid-arr-r{right:14px}
+@media (max-width:640px){.grid-arrow{width:32px;height:32px}#grid-arr-l{left:8px}#grid-arr-r{right:8px}}
 #search-in{
   flex:1;background:transparent;border:none;
   border-bottom:1px solid rgba(201,168,76,.25);
@@ -853,6 +866,8 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
     <div class="scr-sub">HOŞ Lounge — пространство для тех, кто ценит вкус, атмосферу и безупречный сервис. Мы сочетаем традиции восточного гостеприимства с современной авторской кухней.<br><br>Открыты ежедневно с 12:00 до 00:00.<br>Бронирование: +993 12 000 000</div>
   </div>
 </main>
+<button id="grid-arr-l" class="grid-arrow" title="Предыдущая категория"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+<button id="grid-arr-r" class="grid-arrow" title="Следующая категория"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
 
 <!-- MODAL -->
 <div id="mo">
@@ -1224,6 +1239,12 @@ function updateCatArrows(){
   $('cat-arr-r').classList.toggle('vis', c.scrollLeft < c.scrollWidth - c.clientWidth - 8);
 }
 
+function updateGridArrows(){
+  const idx = cats.findIndex(c => c.id === activeCat);
+  $('grid-arr-l').classList.toggle('vis', idx > 0);
+  $('grid-arr-r').classList.toggle('vis', idx >= 0 && idx < cats.length - 1);
+}
+
 function renderCats(){
   const wrap = $('cats');
   wrap.innerHTML = '';
@@ -1235,6 +1256,7 @@ function renderCats(){
     btn.onclick = () => { activeCat = c.id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); };
     wrap.appendChild(btn);
   });
+  updateGridArrows();
   setTimeout(updateCatArrows, 50);
 }
 
@@ -2015,17 +2037,16 @@ function init(){
   $('search-cls').onclick = closeSearch;
   searchIn.oninput = () => { searchQuery = searchIn.value.trim(); renderGrid(); };
 
-  // swipe categories
-  let _tx = 0;
-  $('main').addEventListener('touchstart', e => { _tx = e.touches[0].clientX; }, {passive:true});
-  $('main').addEventListener('touchend', e => {
-    if(searchQuery) return;
-    const dx = e.changedTouches[0].clientX - _tx;
-    if(Math.abs(dx) < 55) return;
+  // category arrows
+  $('grid-arr-l').onclick = () => {
     const idx = cats.findIndex(c => c.id === activeCat);
-    if(dx < 0 && idx < cats.length - 1){ activeCat = cats[idx+1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); }
-    else if(dx > 0 && idx > 0){ activeCat = cats[idx-1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); }
-  }, {passive:true});
+    if(idx > 0){ activeCat = cats[idx-1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); updateGridArrows(); }
+  };
+  $('grid-arr-r').onclick = () => {
+    const idx = cats.findIndex(c => c.id === activeCat);
+    if(idx < cats.length - 1){ activeCat = cats[idx+1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); updateGridArrows(); }
+  };
+  updateGridArrows();
 
   // keyboard
   document.onkeydown = e => {
