@@ -35,6 +35,12 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 #logo img{height:44px;flex-shrink:0}
 #cats-wrap{flex:1;overflow:hidden;display:flex;justify-content:center;padding:0 12px;position:relative}
 #cats,.cat-arrow{display:none!important}
+#topbar-title{
+  font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;letter-spacing:3px;
+  text-transform:uppercase;color:rgba(245,240,232,.55);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;
+  pointer-events:none;transition:opacity .2s;
+}
 #search-bar{
   position:absolute;inset:0;display:flex;align-items:center;gap:12px;
   padding:0 16px;background:rgba(12,12,12,.98);
@@ -171,7 +177,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 .cat-card-count{position:relative;z-index:1;font-size:11px;color:rgba(245,240,232,.5);margin-top:2px}
 #cat-back-btn{
-  display:none;align-items:center;gap:6px;margin:0 24px 4px;padding:9px 16px;
+  display:none;align-items:center;gap:6px;margin:20px 24px 10px;padding:9px 16px;
   border-radius:20px;border:1px solid rgba(201,168,76,.25);background:transparent;
   color:var(--gol2);cursor:pointer;font-size:11px;letter-spacing:1.5px;
   transition:background .2s,border-color .2s;
@@ -747,6 +753,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 <header id="topbar">
   <div id="logo"><img src="hosnewlogo.jpg" alt="HOŞ Lounge"></div>
   <div id="cats-wrap">
+    <div id="topbar-title"></div>
     <button id="cat-arr-l" class="cat-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
     <div id="cats"></div>
     <button id="cat-arr-r" class="cat-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
@@ -1198,6 +1205,13 @@ function updateStageVisibility(){
   $('cat-back-btn').style.display = (!catsScreenOpen && !searchQuery) ? 'inline-flex' : 'none';
   $('subcats').style.display = showCards ? 'none' : '';
   $('dish-grid').style.display = showCards ? 'none' : 'grid';
+  const titleEl = $('topbar-title');
+  if(searchQuery) titleEl.textContent = '';
+  else if(catsScreenOpen) titleEl.textContent = lang==='tk' ? 'Kategoriýany saýlaň' : lang==='en' ? 'Choose a category' : 'Выберите категорию';
+  else{
+    const c = cats.find(x => x.id === activeCat);
+    titleEl.textContent = c ? t(c.names) : '';
+  }
   updateGridArrows();
 }
 
@@ -1855,6 +1869,7 @@ function setLang(l){
   renderSubcats();
   renderGrid();
   renderCart();
+  updateStageVisibility();
 }
 
 // ── NAV
