@@ -810,9 +810,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
   </div>
   <div id="promo">
     <div class="scr-title">Акции</div>
-    <div class="promo-card"><div class="promo-tag">СКИДКА 15%</div><div class="promo-title">Счастливые часы</div><div class="promo-desc">Каждый день с 17:00 до 20:00 — скидка 15% на все напитки и закуски. Лучшее время для встречи с друзьями.</div></div>
-    <div class="promo-card"><div class="promo-tag">КОМПЛИМЕНТ</div><div class="promo-title">Бизнес-ланч</div><div class="promo-desc">Пн–Пт с 12:00 до 15:00. Суп + горячее + напиток. Комплимент от шефа — десерт дня.</div></div>
-    <div class="promo-card"><div class="promo-tag">НОВИНКА</div><div class="promo-title">Сезонное меню</div><div class="promo-desc">Шеф-повар обновляет меню каждый сезон, используя лучшие местные продукты.</div></div>
+    <div id="promo-list"></div>
   </div>
   <div id="about">
     <div class="scr-title">О ресторане</div>
@@ -888,6 +886,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
     <div id="stabs">
       <button class="stab on" data-t="dishes">БЛЮДА</button>
       <button class="stab" data-t="cats">КАТЕГОРИИ</button>
+      <button class="stab" data-t="promos">АКЦИИ</button>
       <button class="stab" data-t="general">НАСТРОЙКИ</button>
     </div>
     <div id="sbody"></div>
@@ -1094,13 +1093,16 @@ let cart = JSON.parse(localStorage.getItem('hs_cart') || '[]');
 let dishes = JSON.parse(localStorage.getItem('hs_dishes') || 'null') || JSON.parse(JSON.stringify(DD));
 DD.forEach(d => { if(!dishes.find(x => x.id === d.id)) dishes.push(JSON.parse(JSON.stringify(d))); });
 let cats = JSON.parse(localStorage.getItem('hs_cats') || 'null') || JSON.parse(JSON.stringify(DC));
+let promos = JSON.parse(localStorage.getItem('hs_promos') || 'null') || [];
 let adminOk = false;
 let adminTab = 'dishes';
 let editId = null;
 let editCatId = null;
+let editPromoId = null;
 let formSubs = [];
 let formCatName = {ru:'', en:'', tk:''};
 let formCatPhoto = '';
+let formPromo = {tag:{ru:'',en:'',tk:''}, title:{ru:'',en:'',tk:''}, desc:{ru:'',en:'',tk:''}};
 let navTab = 'menu';
 let modalDish = null;
 let searchQuery = '';
@@ -1137,6 +1139,7 @@ function save(){
   try{
     localStorage.setItem('hs_dishes', JSON.stringify(dishes));
     localStorage.setItem('hs_cats', JSON.stringify(cats));
+    localStorage.setItem('hs_promos', JSON.stringify(promos));
     localStorage.setItem('hs_cart', JSON.stringify(cart));
     localStorage.setItem('hs_lang', lang);
   }catch(e){
@@ -1152,7 +1155,7 @@ async function syncMenuToServer(){
     const res = await apiFetch('/api/menu', {
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body: JSON.stringify({dishes, cats})
+      body: JSON.stringify({dishes, cats, promos})
     });
     const data = await res.json();
     if(data && data.version) menuServerVersion = data.version;
@@ -1171,9 +1174,10 @@ async function loadMenuFromServer(){
     if(data && Array.isArray(data.dishes) && Array.isArray(data.cats)){
       dishes = data.dishes;
       cats = data.cats;
+      promos = Array.isArray(data.promos) ? data.promos : [];
       menuServerVersion = data.version || 0;
       ensureActiveCat();
-      renderCats(); renderSubcats(); renderGrid(); renderCart();
+      renderCats(); renderSubcats(); renderGrid(); renderCart(); renderPromo();
     }
   }catch(e){ console.warn('menu load failed, using local copy', e); }
 }
@@ -1187,10 +1191,11 @@ function startMenuPolling(){
         menuSyncing = true;
         dishes = data.dishes;
         cats = data.cats;
+        promos = Array.isArray(data.promos) ? data.promos : [];
         menuServerVersion = data.version;
         save();
         ensureActiveCat();
-        renderCats(); renderSubcats(); renderGrid(); renderCart();
+        renderCats(); renderSubcats(); renderGrid(); renderCart(); renderPromo();
         const editForm = document.getElementById('edit-form');
         const formActive = adminTab === 'cats' || (editForm && editForm.classList.contains('open'));
         if($('so').classList.contains('open') && !formActive) renderSettingsBody();
@@ -1706,6 +1711,109 @@ function renderSettingsBody(){
       editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; formCatPhoto = '';
       save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
     };
+  } else if(adminTab === 'promos'){
+    const editingPromo = editPromoId ? promos.find(p => p.id === editPromoId) : null;
+    body.innerHTML = `
+      <div style="font-size:13px;font-weight:300;color:rgba(245,240,232,.5);margin-bottom:20px">Акции и предложения</div>
+      ${promos.length ? promos.map((p,i) => `
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid rgba(201,168,76,.07)">
+          <span style="font-size:12px;color:var(--muted);width:20px;flex-shrink:0">${i+1}</span>
+          <div style="flex:1;min-width:0">
+            <div style="font-family:'Playfair Display',serif;font-size:15px;margin-bottom:2px">${p.title.ru || '(без названия)'}</div>
+            <div style="font-size:11px;color:var(--muted);letter-spacing:.5px">${p.tag.ru || ''}</div>
+          </div>
+          <button class="ib" data-promoup="${p.id}" title="Выше" style="margin-right:2px" ${i===0?'disabled':''}>
+            <svg width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+          </button>
+          <button class="ib" data-promodown="${p.id}" title="Ниже" style="margin-right:4px" ${i===promos.length-1?'disabled':''}>
+            <svg width="12" height="12" stroke="currentColor" stroke-width="2" fill="none" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <button class="ib" data-editpromo="${p.id}" title="Редактировать" style="margin-right:4px">
+            <svg width="12" height="12" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          </button>
+          <button class="ib d" data-delpromo="${p.id}" title="Удалить">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          </button>
+        </div>`).join('') : '<div style="font-size:12px;color:var(--muted);padding:12px 0">Пока нет акций</div>'}
+      <div class="edit-form open" style="margin-top:24px" id="promo-form">
+        <div class="ef-title">${editingPromo ? 'Редактировать акцию' : 'Новая акция'}</div>
+        <div class="fg"><label class="fl">МЕТКА (например «СКИДКА 15%», необязательно)</label>
+          <div class="fr">
+            <input class="fi" id="promo-tag-ru" placeholder="RU" value="${formPromo.tag.ru}">
+            <input class="fi" id="promo-tag-en" placeholder="EN" value="${formPromo.tag.en}">
+          </div>
+          <input class="fi" id="promo-tag-tk" placeholder="TK" style="margin-top:8px" value="${formPromo.tag.tk}">
+        </div>
+        <div class="fg"><label class="fl">ЗАГОЛОВОК</label>
+          <div class="fr">
+            <input class="fi" id="promo-title-ru" placeholder="RU" value="${formPromo.title.ru}">
+            <input class="fi" id="promo-title-en" placeholder="EN" value="${formPromo.title.en}">
+          </div>
+          <input class="fi" id="promo-title-tk" placeholder="TK" style="margin-top:8px" value="${formPromo.title.tk}">
+        </div>
+        <div class="fg"><label class="fl">ОПИСАНИЕ</label>
+          <textarea class="fta" id="promo-desc-ru" placeholder="RU">${formPromo.desc.ru}</textarea>
+          <textarea class="fta" id="promo-desc-en" placeholder="EN" style="margin-top:8px">${formPromo.desc.en}</textarea>
+          <textarea class="fta" id="promo-desc-tk" placeholder="TK" style="margin-top:8px">${formPromo.desc.tk}</textarea>
+        </div>
+        <div class="s-btns" style="margin-top:16px">
+          <button class="pri-btn" id="promo-save-btn">${editingPromo ? 'СОХРАНИТЬ' : 'ДОБАВИТЬ АКЦИЮ'}</button>
+          ${editingPromo ? '<button class="sec-btn" id="promo-cancel-btn">ОТМЕНА</button>' : ''}
+        </div>
+      </div>`;
+
+    body.querySelectorAll('[data-promoup]').forEach(btn => {
+      btn.onclick = () => {
+        const idx = promos.findIndex(p => p.id === btn.dataset.promoup);
+        if(idx <= 0) return;
+        [promos[idx-1], promos[idx]] = [promos[idx], promos[idx-1]];
+        save(); syncMenuToServer(); renderPromo(); renderSettingsBody();
+      };
+    });
+    body.querySelectorAll('[data-promodown]').forEach(btn => {
+      btn.onclick = () => {
+        const idx = promos.findIndex(p => p.id === btn.dataset.promodown);
+        if(idx < 0 || idx >= promos.length - 1) return;
+        [promos[idx+1], promos[idx]] = [promos[idx], promos[idx+1]];
+        save(); syncMenuToServer(); renderPromo(); renderSettingsBody();
+      };
+    });
+    body.querySelectorAll('[data-editpromo]').forEach(btn => {
+      btn.onclick = () => {
+        const p = promos.find(x => x.id === btn.dataset.editpromo);
+        editPromoId = p.id;
+        formPromo = {tag:{...p.tag}, title:{...p.title}, desc:{...p.desc}};
+        renderSettingsBody();
+        setTimeout(() => { const f = $('promo-form'); f && f.scrollIntoView({behavior:'smooth', block:'start'}); }, 10);
+      };
+    });
+    body.querySelectorAll('[data-delpromo]').forEach(btn => {
+      btn.onclick = () => {
+        promos = promos.filter(p => p.id !== btn.dataset.delpromo);
+        if(editPromoId === btn.dataset.delpromo){ editPromoId = null; formPromo = {tag:{ru:'',en:'',tk:''}, title:{ru:'',en:'',tk:''}, desc:{ru:'',en:'',tk:''}}; }
+        save(); syncMenuToServer(); renderPromo(); renderSettingsBody();
+        toast('Акция удалена');
+      };
+    });
+    const promoCancelBtn = $('promo-cancel-btn');
+    if(promoCancelBtn) promoCancelBtn.onclick = () => { editPromoId = null; formPromo = {tag:{ru:'',en:'',tk:''}, title:{ru:'',en:'',tk:''}, desc:{ru:'',en:'',tk:''}}; renderSettingsBody(); };
+    $('promo-save-btn').onclick = () => {
+      const titleRu = $('promo-title-ru').value.trim();
+      const descRu = $('promo-desc-ru').value.trim();
+      if(!titleRu){ toast('Введите заголовок на RU'); return; }
+      const tag = {ru:$('promo-tag-ru').value.trim(), en:$('promo-tag-en').value.trim(), tk:$('promo-tag-tk').value.trim()};
+      const title = {ru:titleRu, en:$('promo-title-en').value.trim()||titleRu, tk:$('promo-title-tk').value.trim()||titleRu};
+      const desc = {ru:descRu, en:$('promo-desc-en').value.trim()||descRu, tk:$('promo-desc-tk').value.trim()||descRu};
+      if(editPromoId){
+        Object.assign(promos.find(p => p.id === editPromoId), {tag, title, desc});
+        toast('Акция обновлена');
+      } else {
+        promos.push({id:'promo_'+Date.now(), tag, title, desc});
+        toast('Акция добавлена');
+      }
+      editPromoId = null; formPromo = {tag:{ru:'',en:'',tk:''}, title:{ru:'',en:'',tk:''}, desc:{ru:'',en:'',tk:''}};
+      save(); syncMenuToServer(); renderPromo(); renderSettingsBody();
+    };
   } else {
     body.innerHTML = `
       <div class="fg"><label class="fl">ЯЗЫК ПО УМОЛЧАНИЮ</label>
@@ -1732,7 +1840,7 @@ function renderSettingsBody(){
       </div>`;
     $('export-btn').onclick = () => {
       const out = $('export-out');
-      out.value = JSON.stringify({dishes, cats}, null, 2);
+      out.value = JSON.stringify({dishes, cats, promos}, null, 2);
       out.style.display = 'block';
       $('export-copy-btn').style.display = 'inline-block';
       out.select();
@@ -1750,7 +1858,8 @@ function renderSettingsBody(){
         if(!Array.isArray(data.dishes)) throw new Error('bad format');
         dishes = data.dishes;
         if(Array.isArray(data.cats)) cats = data.cats;
-        save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderSettingsBody();
+        if(Array.isArray(data.promos)) promos = data.promos;
+        save(); syncMenuToServer(); renderCats(); renderSubcats(); renderGrid(); renderPromo(); renderSettingsBody();
         toast('Данные загружены');
       }catch(e){ toast('Некорректный JSON'); }
     };
@@ -1901,7 +2010,24 @@ function setLang(l){
   renderSubcats();
   renderGrid();
   renderCart();
+  renderPromo();
   updateStageVisibility();
+}
+
+// ── PROMO
+function renderPromo(){
+  const wrap = $('promo-list');
+  if(!wrap) return;
+  if(!promos.length){
+    wrap.innerHTML = `<div style="text-align:center;padding:60px 0;font-size:13px;font-weight:300;color:rgba(245,240,232,.3)">${lang==='tk'?'Häzirlikçe aksiýa ýok':lang==='en'?'No active promotions right now':'Пока нет активных акций'}</div>`;
+    return;
+  }
+  wrap.innerHTML = promos.map(p => `
+    <div class="promo-card">
+      ${t(p.tag) ? `<div class="promo-tag">${t(p.tag)}</div>` : ''}
+      <div class="promo-title">${t(p.title)}</div>
+      <div class="promo-desc">${t(p.desc)}</div>
+    </div>`).join('');
 }
 
 // ── NAV
@@ -1975,6 +2101,7 @@ function init(){
   renderSubcats();
   renderGrid();
   renderCart();
+  renderPromo();
   updateStageVisibility();
   initSplash();
   loadMenuFromServer();
@@ -2012,6 +2139,7 @@ function init(){
   document.querySelectorAll('.stab').forEach(b => b.onclick = () => {
     adminTab = b.dataset.t;
     editCatId = null; formSubs = []; formCatName = {ru:'',en:'',tk:''}; formCatPhoto = '';
+    editPromoId = null; formPromo = {tag:{ru:'',en:'',tk:''}, title:{ru:'',en:'',tk:''}, desc:{ru:'',en:'',tk:''}};
     document.querySelectorAll('.stab').forEach(x => x.classList.remove('on'));
     b.classList.add('on');
     renderSettingsBody();

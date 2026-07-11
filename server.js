@@ -35,11 +35,11 @@ app.get('/api/menu', (req, res) => {
 });
 
 app.post('/api/menu', (req, res) => {
-  const { dishes, cats } = req.body || {};
+  const { dishes, cats, promos } = req.body || {};
   if (!Array.isArray(dishes) || !Array.isArray(cats)) {
     return res.status(400).json({ error: 'dishes and cats must be arrays' });
   }
-  cache = { dishes, cats, version: (cache.version || 0) + 1, updatedAt: Date.now() };
+  cache = { dishes, cats, promos: Array.isArray(promos) ? promos : [], version: (cache.version || 0) + 1, updatedAt: Date.now() };
   writeData(cache);
   res.json({ ok: true, version: cache.version });
 });
