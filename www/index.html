@@ -157,25 +157,51 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 #dish-grid.fade-out{opacity:0;transform:translateY(10px);pointer-events:none}
 
 /* CATEGORY CARDS (landing screen) */
-#cat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:24px}
+#cat-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:24px}
 .cat-card{
-  position:relative;aspect-ratio:1.35;border-radius:18px;overflow:hidden;cursor:pointer;
-  background:rgba(14,10,4,.52);border:1px solid var(--bd);
-  display:flex;align-items:flex-end;padding:16px;
-  background-size:cover;background-position:center;
-  animation:ct-in .5s cubic-bezier(.25,1,.35,1) both;
-  transition:transform .25s,border-color .25s;
+  position:relative;aspect-ratio:1.15;border-radius:20px;overflow:hidden;cursor:pointer;
+  background:linear-gradient(155deg,rgba(201,168,76,.1),#141414 65%);
+  border:1px solid var(--bd);
+  box-shadow:0 8px 22px rgba(0,0,0,.3);
+  animation:cat-card-in .65s cubic-bezier(.22,1,.36,1) both;
+  transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s,border-color .4s;
 }
-.cat-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,.4)}
+.cat-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(201,168,76,.5);
+  box-shadow:0 18px 38px rgba(0,0,0,.45),0 0 0 1px rgba(201,168,76,.12);
+}
+.cat-card-bg{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .7s cubic-bezier(.22,1,.36,1);
+}
+.cat-card:hover .cat-card-bg{transform:scale(1.1)}
 .cat-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(12,12,12,0) 30%,rgba(12,12,12,.88) 100%);
+  content:'';position:absolute;inset:0;z-index:1;
+  background:linear-gradient(180deg,rgba(12,12,12,.1) 25%,rgba(9,7,3,.55) 65%,rgba(7,5,2,.92) 100%);
+  transition:opacity .4s;
 }
+.cat-card:hover::before{opacity:.88}
+.cat-card-inner{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:18px}
+.cat-card-line{
+  width:20px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold),rgba(201,168,76,0));
+  margin-bottom:9px;transition:width .4s cubic-bezier(.22,1,.36,1);
+}
+.cat-card:hover .cat-card-line{width:38px}
 .cat-card-name{
-  position:relative;z-index:1;font-family:'Cormorant Garamond',serif;
-  font-size:17px;font-weight:600;letter-spacing:1px;color:var(--text);line-height:1.25;
+  font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:600;
+  letter-spacing:.5px;color:var(--text);line-height:1.2;
+  text-shadow:0 2px 14px rgba(0,0,0,.55);
 }
-.cat-card-count{position:relative;z-index:1;font-size:11px;color:rgba(245,240,232,.5);margin-top:2px}
+.cat-card-count{
+  display:inline-block;margin-top:7px;font-size:10px;font-weight:500;letter-spacing:1.8px;
+  text-transform:uppercase;color:var(--gol2);opacity:.7;
+}
+@keyframes cat-card-in{
+  from{opacity:0;transform:translateY(20px) scale(.94)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
 #cat-back-btn{
   display:none;align-items:center;gap:6px;margin:20px 24px 10px;padding:9px 16px;
   border-radius:20px;border:1px solid rgba(201,168,76,.25);background:transparent;
@@ -184,7 +210,7 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 #cat-back-btn:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.45)}
 @media (max-width:900px){#cat-cards{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:640px){#cat-cards{grid-template-columns:repeat(2,1fr);gap:10px;padding:14px}.cat-card{border-radius:14px;padding:12px}.cat-card-name{font-size:14px}}
+@media (max-width:640px){#cat-cards{grid-template-columns:repeat(2,1fr);gap:10px;padding:14px}.cat-card{border-radius:14px}.cat-card-inner{padding:13px}.cat-card-name{font-size:14px}}
 
 /* CARD — glassmorphic */
 .dc{
@@ -1223,9 +1249,14 @@ function renderCatCards(){
     const photo = c.photo || dishes.find(d => d.cat === c.id && d.photo)?.photo || '';
     const card = document.createElement('div');
     card.className = 'cat-card';
-    card.style.animationDelay = (i * 0.05) + 's';
-    if(photo) card.style.backgroundImage = `url('${photo}')`;
-    card.innerHTML = `<div><div class="cat-card-name">${t(c.names)}</div><div class="cat-card-count">${count} ${count===1?'блюдо':'блюд'}</div></div>`;
+    card.style.animationDelay = (i * 0.06) + 's';
+    card.innerHTML = `
+      ${photo ? `<div class="cat-card-bg" style="background-image:url('${photo}')"></div>` : ''}
+      <div class="cat-card-inner">
+        <div class="cat-card-line"></div>
+        <div class="cat-card-name">${t(c.names)}</div>
+        <div class="cat-card-count">${count} ${count===1?'блюдо':'блюд'}</div>
+      </div>`;
     card.onclick = () => enterCategory(c.id);
     wrap.appendChild(card);
   });
