@@ -36,11 +36,13 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 #cats-wrap{flex:1;overflow:hidden;display:flex;justify-content:center;padding:0 12px;position:relative}
 #cats,.cat-arrow{display:none!important}
 #topbar-title{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:1;
   font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600;letter-spacing:3px;
-  text-transform:uppercase;color:rgba(245,240,232,.55);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%;
+  text-transform:uppercase;color:rgba(245,240,232,.55);text-align:center;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:46%;
   pointer-events:none;transition:opacity .2s;
 }
+@media (max-width:640px){#topbar-title{font-size:11px;letter-spacing:2px;max-width:40%}}
 #search-bar{
   position:absolute;inset:0;display:flex;align-items:center;gap:12px;
   padding:0 16px;background:rgba(12,12,12,.98);
@@ -58,19 +60,6 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 .cat-arrow:hover{color:#fff;opacity:1}
 #cat-arr-l{left:0;background:linear-gradient(90deg,rgba(12,12,12,.95) 50%,transparent)}
 #cat-arr-r{right:0;background:linear-gradient(270deg,rgba(12,12,12,.95) 50%,transparent)}
-.grid-arrow{
-  position:fixed;top:50%;transform:translateY(-50%);z-index:6;
-  width:38px;height:38px;border-radius:50%;border:1px solid rgba(201,168,76,.25);
-  background:rgba(12,12,12,.7);color:var(--gol2);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;opacity:0;pointer-events:none;
-  transition:opacity .25s,color .2s,background .2s;
-}
-.grid-arrow.vis{opacity:.55;pointer-events:all}
-.grid-arrow.vis:hover{opacity:1;color:#fff;background:rgba(12,12,12,.9)}
-#grid-arr-l{left:14px}
-#grid-arr-r{right:14px}
-@media (max-width:640px){.grid-arrow{width:32px;height:32px}#grid-arr-l{left:8px}#grid-arr-r{right:8px}}
 #search-in{
   flex:1;background:transparent;border:none;
   border-bottom:1px solid rgba(201,168,76,.25);
@@ -778,8 +767,8 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 
 <header id="topbar">
   <div id="logo"><img src="hosnewlogo.jpg" alt="HOŞ Lounge"></div>
+  <div id="topbar-title"></div>
   <div id="cats-wrap">
-    <div id="topbar-title"></div>
     <button id="cat-arr-l" class="cat-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
     <div id="cats"></div>
     <button id="cat-arr-r" class="cat-arrow"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
@@ -827,11 +816,9 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
   </div>
   <div id="about">
     <div class="scr-title">О ресторане</div>
-    <div class="scr-sub">HOŞ Lounge — пространство для тех, кто ценит вкус, атмосферу и безупречный сервис. Мы сочетаем традиции восточного гостеприимства с современной авторской кухней.<br><br>Открыты ежедневно с 12:00 до 00:00.<br>Бронирование: +993 12 000 000</div>
+    <div class="scr-sub">HOŞ Lounge — пространство для тех, кто ценит вкус, атмосферу и безупречный сервис. Мы сочетаем традиции восточного гостеприимства с современной авторской кухней.<br><br>Открыты ежедневно с 8:00 до 23:00.<br>Бронирование: +993 71 66 77 77</div>
   </div>
 </main>
-<button id="grid-arr-l" class="grid-arrow" title="Предыдущая категория"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
-<button id="grid-arr-r" class="grid-arrow" title="Следующая категория"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
 
 <!-- MODAL -->
 <div id="mo">
@@ -1124,6 +1111,15 @@ let _totalRaf = null;
 const $ = id => document.getElementById(id);
 const t = obj => obj[lang] || obj.ru || Object.values(obj)[0];
 
+// ── NATIVE APP SUPPORT (offline-capable Android build) ──
+const IS_NATIVE_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
+const API_BASE = IS_NATIVE_APP ? 'https://hoscoffee.ru' : '';
+function apiUrl(path){ return API_BASE + path; }
+function photoUrl(p){
+  if(!p || !IS_NATIVE_APP || p.startsWith('http') || p.startsWith('data:')) return p;
+  return API_BASE + '/' + p.replace(/^\//,'');
+}
+
 function save(){
   try{
     localStorage.setItem('hs_dishes', JSON.stringify(dishes));
@@ -1140,7 +1136,7 @@ let menuServerVersion = 0;
 let menuSyncing = false;
 async function syncMenuToServer(){
   try{
-    const res = await fetch('/api/menu', {
+    const res = await fetch(apiUrl('/api/menu'), {
       method:'POST',
       headers:{'Content-Type':'application/json'},
       body: JSON.stringify({dishes, cats})
@@ -1157,7 +1153,7 @@ function ensureActiveCat(){
 }
 async function loadMenuFromServer(){
   try{
-    const res = await fetch('/api/menu');
+    const res = await fetch(apiUrl('/api/menu'));
     const data = await res.json();
     if(data && Array.isArray(data.dishes) && Array.isArray(data.cats)){
       dishes = data.dishes;
@@ -1172,7 +1168,7 @@ function startMenuPolling(){
   setInterval(async () => {
     if(menuSyncing) return;
     try{
-      const res = await fetch('/api/menu');
+      const res = await fetch(apiUrl('/api/menu'));
       const data = await res.json();
       if(data && data.version && data.version !== menuServerVersion){
         menuSyncing = true;
@@ -1205,12 +1201,6 @@ function updateCatArrows(){
   $('cat-arr-r').classList.toggle('vis', c.scrollLeft < c.scrollWidth - c.clientWidth - 8);
 }
 
-function updateGridArrows(){
-  const idx = cats.findIndex(c => c.id === activeCat);
-  $('grid-arr-l').classList.toggle('vis', !catsScreenOpen && idx > 0);
-  $('grid-arr-r').classList.toggle('vis', !catsScreenOpen && idx >= 0 && idx < cats.length - 1);
-}
-
 function enterCategory(id){
   activeCat = id;
   activeSub = null;
@@ -1238,7 +1228,6 @@ function updateStageVisibility(){
     const c = cats.find(x => x.id === activeCat);
     titleEl.textContent = c ? t(c.names) : '';
   }
-  updateGridArrows();
 }
 
 function renderCatCards(){
@@ -1251,7 +1240,7 @@ function renderCatCards(){
     card.className = 'cat-card';
     card.style.animationDelay = (i * 0.06) + 's';
     card.innerHTML = `
-      ${photo ? `<div class="cat-card-bg" style="background-image:url('${photo}')"></div>` : ''}
+      ${photo ? `<div class="cat-card-bg" style="background-image:url('${photoUrl(photo)}')"></div>` : ''}
       <div class="cat-card-inner">
         <div class="cat-card-line"></div>
         <div class="cat-card-name">${t(c.names)}</div>
@@ -1274,7 +1263,6 @@ function renderCats(){
     wrap.appendChild(btn);
   });
   renderCatCards();
-  updateGridArrows();
   setTimeout(updateCatArrows, 50);
 }
 
@@ -1318,7 +1306,7 @@ function renderGrid(){
       el.innerHTML = `
         <div class="cp">
           ${d.photo
-            ? `<img src="${d.photo}" alt="${t(d.names)}" loading="lazy"${d.port ? ' class="port"' : ''}>`
+            ? `<img src="${photoUrl(d.photo)}" alt="${t(d.names)}" loading="lazy"${d.port ? ' class="port"' : ''}>`
             : `<div class="cp-ph"><svg width="48" height="48" fill="none" stroke="rgba(201,168,76,0.2)" stroke-width="1" viewBox="0 0 48 48"><ellipse cx="24" cy="30" rx="18" ry="4"/><path d="M6 30c0-9.94 8.06-18 18-18s18 8.06 18 18"/><path d="M18 18c0-3.31 2.69-6 6-6s6 2.69 6 6"/><rect x="20" y="10" width="8" height="4" rx="1"/></svg></div>`}
           <div class="cpg"></div>
           ${d.badge ? `<div class="cbadge">${d.badge}</div>` : ''}
@@ -1354,9 +1342,9 @@ function updateCardQtys(){
 // ── MODAL
 function openModal(d){
   modalDish = d;
-  $('mphoto-img').src = d.photo || '';
+  $('mphoto-img').src = d.photo ? photoUrl(d.photo) : '';
   $('mphoto-img').style.display = d.photo ? '' : 'none';
-  $('mphoto-bg').style.backgroundImage = d.photo ? `url('${d.photo}')` : '';
+  $('mphoto-bg').style.backgroundImage = d.photo ? `url('${photoUrl(d.photo)}')` : '';
   if(d.badge){ $('mbadge').textContent = d.badge; $('mbadge').style.display = ''; }
   else $('mbadge').style.display = 'none';
   $('mname').textContent = t(d.names);
@@ -1445,7 +1433,7 @@ function renderCart(){
     el.className = 'ci';
     el.style.animation = `ci-in .38s cubic-bezier(.25,1,.35,1) ${idx * 0.06}s both`;
     el.innerHTML = `
-      <div class="ci-photo">${d.photo ? `<img src="${d.photo}" alt="">` : ''}</div>
+      <div class="ci-photo">${d.photo ? `<img src="${photoUrl(d.photo)}" alt="">` : ''}</div>
       <div class="ci-info">
         <div class="ci-name">${t(d.names)}</div>
         <div class="ci-price">${d.price * ci.qty} TMT</div>
@@ -1512,7 +1500,7 @@ function closeSettings(){ $('so').classList.remove('open'); }
 function dishRowsHtml(list){
   return list.map(d => `
       <tr>
-        <td>${d.photo ? `<img class="dth" src="${d.photo}" alt="">` : '<div class="dth"></div>'}</td>
+        <td>${d.photo ? `<img class="dth" src="${photoUrl(d.photo)}" alt="">` : '<div class="dth"></div>'}</td>
         <td><div class="dtn">${t(d.names)||'<span style=\"color:var(--muted)\">без названия #'+d.id+'</span>'}</div><div style="font-size:11px;color:var(--muted)">${cats.find(c=>c.id===d.cat)?.names.ru||d.cat||'—'}</div></td>
         <td style="font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--gold)">${d.price}</td>
         <td>${d.badge||''}</td>
@@ -1845,7 +1833,7 @@ function dishForm(id){
           Загрузить файл
         </div>
         <input type="file" id="ef-photo-in" accept="image/*" style="display:none">
-        <img class="upl-pre" id="ef-photo-pre" src="${d&&d.photo?d.photo:''}" ${d&&d.photo?'style="display:block;cursor:pointer"':''} title="Нажмите, чтобы заменить фото">
+        <img class="upl-pre" id="ef-photo-pre" src="${d&&d.photo?photoUrl(d.photo):''}" ${d&&d.photo?'style="display:block;cursor:pointer"':''} title="Нажмите, чтобы заменить фото">
       </div>
     </div>
     <div class="s-btns">
@@ -2044,17 +2032,6 @@ function init(){
   $('search-btn').onclick = openSearch;
   $('search-cls').onclick = closeSearch;
   searchIn.oninput = () => { searchQuery = searchIn.value.trim(); renderGrid(); updateStageVisibility(); };
-
-  // category arrows
-  $('grid-arr-l').onclick = () => {
-    const idx = cats.findIndex(c => c.id === activeCat);
-    if(idx > 0){ activeCat = cats[idx-1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); updateGridArrows(); }
-  };
-  $('grid-arr-r').onclick = () => {
-    const idx = cats.findIndex(c => c.id === activeCat);
-    if(idx < cats.length - 1){ activeCat = cats[idx+1].id; activeSub = null; renderCats(); renderSubcats(); renderGrid(); updateGridArrows(); }
-  };
-  updateGridArrows();
 
   // keyboard
   document.onkeydown = e => {
