@@ -193,9 +193,11 @@ button{cursor:pointer;font-family:'Inter',sans-serif}
 }
 #cat-back-btn{
   display:none;align-items:center;gap:6px;margin:20px 24px 10px;padding:9px 16px;
-  border-radius:20px;border:1px solid rgba(201,168,76,.25);background:transparent;
+  border-radius:20px;border:1px solid rgba(201,168,76,.25);background:rgba(12,12,12,.88);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
   color:var(--gol2);cursor:pointer;font-size:11px;letter-spacing:1.5px;
   transition:background .2s,border-color .2s;
+  position:sticky;top:10px;z-index:10;box-shadow:0 4px 16px rgba(0,0,0,.35);
 }
 #cat-back-btn:hover{background:rgba(201,168,76,.08);border-color:rgba(201,168,76,.45)}
 @media (max-width:900px){#cat-cards{grid-template-columns:repeat(2,1fr)}}
