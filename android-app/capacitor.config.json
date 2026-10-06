@@ -1,0 +1,8 @@
+{
+  "appId": "ru.hoscoffee.menu",
+  "appName": "HOŞ Lounge",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  }
+}

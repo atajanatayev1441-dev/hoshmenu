@@ -1,0 +1,1771 @@
+[
+  {
+    "name_ru": "Бар",
+    "items": [
+      {
+        "name_ru": "Имбирный чай",
+        "name_tk": "Имбирный чай",
+        "description_ru": "Зеленый чай, имбирь, лимон, мед",
+        "description_tk": "Täze limondan taýýarlanan salkyn limonad",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-2b.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Облепиховый чай",
+        "name_tk": "Pyrtykal Suwy",
+        "description_ru": "Облепиха, лимон, мед, имбирь",
+        "description_tk": "Täze sykylan pyrtykal suwy",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-7.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Ягодный чай",
+        "name_tk": "Ягодный чай",
+        "description_ru": "Ягоды, апельсин, лимон, мед",
+        "description_tk": "Täze miwelerden taýýarlanan öý şerbeti",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-8.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Клубничный милкшейк",
+        "name_tk": "Ýertudanaly Milkşeýk",
+        "description_ru": "Освежающий молочный коктейль с клубникой",
+        "description_tk": "Ýertudanaly salkyn milkşeýk",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-113.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Шоколадный милкшейк",
+        "name_tk": "Шоколадный милкшейк",
+        "description_tk": "Süýtli ýyly kakao içgisi",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-114.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Ванильный милкшейк",
+        "name_tk": "Ванильный милкшейк",
+        "description_tk": "Ysly darçynly ýyly süýt",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-115.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Эспрессо",
+        "name_tk": "Эспрессо",
+        "description_tk": "Salkyn hem-de ajymtyk gyzyl çaý",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-116.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Американо",
+        "name_tk": "Американо",
+        "description_tk": "Ýiti klassik espresso",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-117.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Эспрессо макиато",
+        "name_tk": "Эспрессо макиато",
+        "description_ru": "Эспрессо с молочной пенкой",
+        "description_tk": "Süýt köpükli makiato",
+        "price": 35,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-119.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Капучино",
+        "name_tk": "Kapuçino",
+        "description_ru": "Классический капучино с нежной молочной пенкой",
+        "description_tk": "Mylaýym süýt köpükli klassik kapuçino",
+        "price": 35,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-120.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Сырный латте",
+        "name_tk": "Сырный латте",
+        "description_ru": "Латте с карамелью, нежная ванильно сливочная пенка",
+        "description_tk": "Mylaýym gaýmakly kofe",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-123.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Флэт Уайт",
+        "name_tk": "Fleyt Waýt",
+        "description_ru": "Эспрессо с бархатистой молочной пенкой",
+        "description_tk": "Ýumşak süýt köpükli fleyt waýt",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-124.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Турецкий Чай",
+        "name_tk": "Turk Çaý",
+        "description_ru": "Крепкий турецкий чай в грушевидном стакане",
+        "description_tk": "Armyt görnüşli bulgurdaky ýiti türk çaýy",
+        "price": 10,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-130.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Горячий Шоколад",
+        "name_tk": "Gyzgyn Şokolad",
+        "description_ru": "Насыщенный горячий шоколад",
+        "description_tk": "Baý gyzgyn şokolad",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-139.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Латте",
+        "name_tk": "Latte",
+        "description_ru": "Эспрессо с молоком и нежной пенкой",
+        "description_tk": "Süýtli we mylaýym köpükli latte",
+        "price": 35,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-140.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Ванильный Раф",
+        "name_tk": "Wanil Raf",
+        "description_ru": "Кофе, ваниль, молоко, сливки",
+        "description_tk": "Wanil siroply we süýt köpükli kofe",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-141.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Матча Латте",
+        "name_tk": "Matça Latte",
+        "description_ru": "Японский зелёный чай матча с молоком",
+        "description_tk": "Süýtli ýaponiýa matça çaýy",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-142.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Лимонад Смородина Мята",
+        "name_tk": "Limonad Smorodina Narpyzly",
+        "description_ru": "Домашний лимонад со смородиной и мятой",
+        "description_tk": "Garagat we narpyzly öý limonady",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-181.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Лимонад Апельсин Лайм",
+        "name_tk": "Limonad Pyrtkal Laým",
+        "description_ru": "Освежающий лимонад с апельсином и лаймом",
+        "description_tk": "Pyrtykal we laýmly salkyn limonad",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-182.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Лимонад Манго Маракуйя",
+        "name_tk": "Limonad Mango Marakuya",
+        "description_ru": "Тропический лимонад с манго и маракуйей",
+        "description_tk": "Mango we marakuýaly tropiki limonad",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-183.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Ананасовый Джус",
+        "name_tk": "Ananas Juýs",
+        "description_tk": "Täze sykylan ananas suwy",
+        "price": 75,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-185.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Вишневый Джус",
+        "name_tk": "Ulje Juýs",
+        "description_tk": "Täze sykylan wişne suwy",
+        "price": 65,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-186.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Джус Киви",
+        "name_tk": "Kiwi Juýs",
+        "description_tk": "Ýeňil ajymtyk kiwi suwy",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-187.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Айс Матча",
+        "name_tk": "Buzly Matça",
+        "description_ru": "Кокосовое молоко, матча",
+        "description_tk": "Salkyn buzly matça içgisi",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-189.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Айс Клубичное Матча",
+        "name_tk": "Iced Strawberry Matcha Latte",
+        "description_ru": "Натуральное пюре клубники, кокосовое молоко, матча",
+        "description_tk": "Ýertudanaly gatlakly buzly matça",
+        "price": 65,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-191.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Айс Американо",
+        "name_tk": "Buzly Americano",
+        "description_ru": "Холодный кофейный напиток со льдом",
+        "description_tk": "Buzly amerikano",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-195.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Айс Латте",
+        "name_tk": "Buzly Latte",
+        "description_ru": "Классический латте со льдом",
+        "description_tk": "Buzly klassik latte",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-196.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Айс Испанский Латте",
+        "name_tk": "Buzly Spain Latte",
+        "description_ru": "Латте со сгущённым молоком и льдом",
+        "description_tk": "Gaýnadylan süýtli buzly latte",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-197.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Фраппучинно",
+        "name_tk": "Frappuccino",
+        "description_ru": "Холодный кофейный коктейль с мороженым",
+        "description_tk": "Doňdurmaly salkyn kofe koktily",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-202.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Глясе",
+        "name_tk": "Glisse",
+        "description_ru": "Кофе, мороженное, молоко",
+        "description_tk": "Gaýmakly sowuk kofe",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-203.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Апельсиновый Фрэш",
+        "name_tk": "Pyrtykal Freş",
+        "description_ru": "Свежевыжатый апельсиновый фреш",
+        "description_tk": "Täze sykylan pyrtykal freşi",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-204.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Морковный Фрэш",
+        "name_tk": "Käşir Freş",
+        "description_ru": "Свежевыжатый морковный фреш",
+        "description_tk": "Täze sykylan käşir freşi",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-206.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Яблочный Фрэш",
+        "name_tk": "Almaly Freş",
+        "description_ru": "Свежевыжатый яблочный фреш",
+        "description_tk": "Täze sykylan alma freşi",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-207.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Бамбл Матча",
+        "name_tk": "Bambl Maça",
+        "description_ru": "Бамбл — эспрессо со свежевыжатым апельсиновым соком.",
+        "description_tk": "Janlandyryjy buzly kofe koktili",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-208.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Монт Бланк",
+        "name_tk": "Mont blanc",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783765664011.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Эспрессо тоник",
+        "name_tk": "Эспрессо тоник",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783765672529.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Бамбл",
+        "name_tk": "Bambl",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783765686462.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Малина имбирь",
+        "name_tk": "Малина имбирь",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783765693379.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Бамбл матча",
+        "name_tk": "Бамбл матча",
+        "description_ru": "Апельсиновый фреш, маракуйя, матча",
+        "description_tk": "Апельсиновый фреш, маракуйя, матча",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783766386510.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Шиповник с медом",
+        "name_tk": "Shipovnikly bally çaỳ",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783766769125.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Coca-Cola (330ml)",
+        "name_tk": "Coca-Cola (330ml)",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783769337473.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Red-Bull(330ml)",
+        "name_tk": "Red-Bull(330ml)",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783769381653.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Питьевая вода Arçalyk",
+        "name_tk": "Arassa Agyz suwy Arçalyk",
+        "price": 10,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783769474405.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Минеральная вода Повризе",
+        "name_tk": "Gazly Suw Pöwrize",
+        "price": 10,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783770011655.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Гречишний Ку Цяо Мей",
+        "name_tk": "Gerçişni Ku Tsao Meý",
+        "description_ru": "Ку Цяо Мэй  — это целебный китайский напиток из прожаренных семян татарской (чёрной) гречихи.Имеется 4 вида таких как Персик-Апельсин,Корица-Имбирь,Манго,Черника.",
+        "description_tk": "Ку Цяо Мэй  — это целебный китайский напиток из прожаренных семян татарской (чёрной) гречихи.Имеется 4 вида таких как Персик-Апельсин,Корица-Имбирь,Манго,Черника.",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783874380894.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Клюквенный Чай",
+        "name_tk": "Кlyukwenyy Çaý",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783875375781.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Сок Добрый Яблочный",
+        "name_tk": "Sok Dobry Almaly",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783876238889.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Bar"
+  },
+  {
+    "name_ru": "Завтраки",
+    "items": [
+      {
+        "name_ru": "Пан-Пердью",
+        "name_tk": "Pan Perdýu",
+        "description_ru": "Нежное куриное филе под ароматным соусом",
+        "description_tk": "Ysly sously mylaýym towuk filesi",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-4.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Королевский завтрак",
+        "name_tk": "Patșa mynasyp ertirlik",
+        "description_ru": "Ассорти мясных деликатесов, сыров, оливок и соусов",
+        "description_tk": "Et lezzetleri, peýnir, zeýtun we souslaryň jemi",
+        "price": 265,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-87.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Куринный Сэндвич",
+        "name_tk": "Towukly Sendwiç",
+        "description_ru": "Сытный сэндвич с курицей, овощами и сыром",
+        "description_tk": "Towukly, gök önümli we peýnirli doýgun sendwiç",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-92.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Менемен",
+        "name_tk": "Menemen",
+        "description_ru": "Турецкая яичница с томатами и перцем",
+        "description_tk": "Pomidorly we burçly türk ýumurtgasy",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-94.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Клаб-Сэндвич",
+        "name_tk": "Klab Sendwiç",
+        "description_ru": "Многослойный сэндвич с курицей и овощами",
+        "description_tk": "Towukly we gök önümli köp gatly sendwiç",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-97.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Творожные блинчики",
+        "name_tk": "Tvorozhnyy blinchik",
+        "description_ru": "Нежные блинчики с творожной начинкой",
+        "description_tk": "Tworogly ýumşak blinçikler",
+        "price": 25,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-101.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Каша рисовая жареными яблоками и корица",
+        "name_tk": "Gowurlan almalar we darçynly tüwili Kaşa",
+        "description_ru": "Рисовая каша с жареными яблоками и корицей",
+        "description_tk": "Gowrulan almaly we darçynly tüwi kaşasy",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-103.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Каша манная с ягодами",
+        "name_tk": "Tokaý miweli Manny kaşa",
+        "description_ru": "Манная каша с ягодами",
+        "description_tk": "Miweli манны kaşa",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-104.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Блинчики с мясом",
+        "name_tk": "Etli pankekler",
+        "description_tk": "Darçynly ýyly süýtli griş",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-106.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Глазунья с ковурмой",
+        "name_tk": "Govurma bilen güneşli gapdal yumurtga",
+        "description_ru": "сытное традиционное блюдо турецкой и ближневосточной кухни",
+        "description_tk": "Täze miweli tebigy ýogurt",
+        "price": 65,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-107.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Шакшука с яйцом Пашот",
+        "name_tk": "Şakşuka Pașot Yumurtgaly",
+        "description_ru": "Турецкая яичница с курицей и оливками",
+        "description_tk": "Towukly we zeýtunly şakşuka",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-108.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Тост с яйцoм пашот",
+        "name_tk": "Poçirlenen Ýumurtgaly Tost",
+        "description_ru": "Тост с яйцом пашот и свежей зеленью",
+        "description_tk": "Poçirlenen ýumurtgaly we ýaşyl otly tost",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-110.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Сырники с ягодами",
+        "name_tk": "Miweli syrnik",
+        "description_tk": "Gaýmakly mylaýym tworog syrnikleri",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-111.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Омлет с Ветчиной",
+        "name_tk": "Vetçinaly Omlet",
+        "description_ru": "Пышный омлет с куриной ветчиной",
+        "description_tk": "Towuk şinkaly ýumşak omlet",
+        "price": 35,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-192.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Круассан с Ветчиной",
+        "name_tk": "Vetçinaly Kruassan",
+        "description_ru": "Слоёный круассан с куриной ветчиной и сыром",
+        "description_tk": "Towuk şinkaly we peýnirli gatlak kruassan",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-193.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Творожный Боул",
+        "name_tk": "Tvorogly Boul",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783864590754.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Блинчики с клубникой",
+        "name_tk": "Klubnikaly blinçik",
+        "price": 35,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783865804015.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Омлет в Грибном Соусе",
+        "name_tk": "Komelekli Sously Omlet",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783868436895.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Крок Мадам",
+        "name_tk": "Krok Madam",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783869833471.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Irdenlikler"
+  },
+  {
+    "name_ru": "Супы",
+    "items": [
+      {
+        "name_ru": "Рамён",
+        "name_tk": "Ramyon",
+        "description_ru": "Лапша с говядиной в ароматном бульоне терияки",
+        "description_tk": "Teriyaki bulýonynda sygyr etli lapşa",
+        "price": 65,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-3.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Эзогелин суп",
+        "name_tk": "Ezogelin çorba",
+        "description_ru": "Традиционный турецкий суп из чечевицы и булгура",
+        "description_tk": "Merjimekli we bulgurly türk çorbasy",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-70.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Томатный суп",
+        "name_tk": "Tomatny çorba",
+        "description_ru": "Насыщенный томатный суп с ароматными травами",
+        "description_tk": "Ysly otly baý tomat çorbasy",
+        "price": 35,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-72.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Мерджимек суп",
+        "name_tk": "Merjimek Çorba",
+        "description_ru": "Традиционный суп из красной чечевицы с лимоном",
+        "description_tk": "Limonly gyzyl merjimek çorbasy",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-74.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пельменный суп",
+        "name_tk": "Borekli çorba",
+        "description_ru": "Наваристый суп с говядиной и домашними пельменями",
+        "description_tk": "Sygyr etli we öý pelmenli baý çorba",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-79.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Куриный суп",
+        "name_tk": "Towukly çorba",
+        "description_ru": "Ароматный бульон с курицей, яйцом и лапшой",
+        "description_tk": "Towukly, ýumurtgaly we lapşaly ramyon",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-81.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Борщ",
+        "name_tk": "Borş",
+        "description_ru": "Классический борщ со сметаной",
+        "description_tk": "Gaýmakly klassik borş",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-83.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Харчо суп",
+        "name_tk": "Harço Çorba",
+        "description_ru": "Насыщенный грузинский суп харчо с говядиной",
+        "description_tk": "Sygyr etli baý gruzin harço çorbasy",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-84.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Том Ям",
+        "name_tk": "Tom Yam",
+        "description_ru": "Острый тайский суп с креветками и лемонграссом",
+        "description_tk": "Krewetkaly we limongrassly ýiti tailand çorbasy",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-105.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Тыквенный суп с семечками",
+        "name_tk": "Ergenli Kabak Çorbasy",
+        "description_ru": "Тыквенный суп с жареными семечками",
+        "description_tk": "Gowrulan ergenli kädi çorbasy",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-109.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Грибной крем-суп",
+        "name_tk": "Грибной крем-суп",
+        "description_ru": "Нежный грибной крем-суп",
+        "description_tk": "Mylaýym kömelekli krem-çorba",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783503624447.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Çorbalar"
+  },
+  {
+    "name_ru": "Салаты",
+    "items": [
+      {
+        "name_ru": "Греческий салат",
+        "name_tk": "Greçeskiy Salat",
+        "description_ru": "Свежие овощи, оливки и сыр фета с оливковым маслом",
+        "description_tk": "Zeýtun ýagly, feta peýnirli täze gök önümli salat",
+        "price": 55,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-2.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Теплый с говядиной",
+        "name_tk": "Teplyy s govyadinoy",
+        "description_ru": "Тёплый салат с говядиной и свежими овощами",
+        "description_tk": "Sygyr etli we täze gök önümli ýyly salat",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-46.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Хрустящие баклажаны",
+        "name_tk": "Çitir badamjan",
+        "description_ru": "Хрустящие баклажаны с ароматной заправкой",
+        "description_tk": "Ysly sously çitir badamjan",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-50.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Тайский салат",
+        "name_tk": "Tayskiy Salat",
+        "description_ru": "Пряный тайский салат с ярким вкусом",
+        "description_tk": "Ýiti we tagamly tailand salaty",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-57.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Салат от шефа",
+        "name_tk": "Şef Salady",
+        "description_ru": "Свежие овощи с кубиком сыра фета",
+        "description_tk": "Feta peýnirli täze gök önüm salaty",
+        "price": 120,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-59.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Теплый куриный",
+        "name_tk": "Teplyy towukly",
+        "description_ru": "Тёплый салат с курицей и свежими овощами",
+        "description_tk": "Towukly we täze gök önümli ýyly salat",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-61.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Цезарь",
+        "name_tk": "Sezar",
+        "description_ru": "Классический цезарь с сухариками и пармезаном",
+        "description_tk": "Krutonly we parmezanly klassik sezar",
+        "price": 75,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-63.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Цезарь с креветками",
+        "name_tk": "Krewatkaly \"Sezar\" salaty",
+        "description_ru": "Классический цезарь с креветками и пармезаном",
+        "description_tk": "Krewetkaly we parmezanly sezar salaty",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-65.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Мужской",
+        "name_tk": "Mujskoy Salat",
+        "description_ru": "Хрустящие сырные гренки со свежей зеленью",
+        "description_tk": "Täze ýaşyl otly çitir peýnirli krutonlar",
+        "price": 85,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-69.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Işdäaçarlar"
+  },
+  {
+    "name_ru": "Горячие блюда",
+    "items": [
+      {
+        "name_ru": "Голень ягнёнка с пюре",
+        "name_tk": "Pýureli Guzy Budy",
+        "description_ru": "Томлёная голень ягнёнка на картофельном пюре",
+        "description_tk": "Pýure bilen bişirilen guzy budy",
+        "price": 165,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-10.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Фахитoс с говядиной",
+        "name_tk": "Sygyr Etli Fajitas",
+        "description_ru": "Сочная говядина с болгарским перцем на раскалённой сковороде",
+        "description_tk": "Kelemçeli, gyzgyn tabakda hödürlenýän sygyr eti",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-13.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Чашушули по-грузински",
+        "name_tk": "Çașușuli",
+        "description_ru": "Томлёное мясо с овощами по-грузински",
+        "description_tk": "Gök önümli gruzin çaşuşulisi",
+        "price": 100,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-122.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Жульен",
+        "name_tk": "Julienne",
+        "description_ru": "Грибы в сливочном соусе под сырной корочкой",
+        "description_tk": "Peýnirli gatlak astynda kömelekli sous",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-126.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Картошка по домашнему",
+        "name_tk": "Kartoşka po domaşni",
+        "description_ru": "Жареный картофель с говядиной и овощами",
+        "description_tk": "Sygyr etli we gök önümli gowrulan kartoşka",
+        "price": 100,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-128.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Мясо по тайски",
+        "name_tk": "Taýland usulunda taýýarlanan et",
+        "description_ru": "Говядина с болгарским перцем и кунжутом на воке",
+        "description_tk": "Kelemçeli we küncüli wokda taýýarlanan sygyr eti",
+        "price": 145,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-129.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Куриный ролл с сыром",
+        "name_tk": "Peýnirli Towuk Roll",
+        "description_ru": "Куриный рулет с плавленым сыром",
+        "description_tk": "Ereýän peýnirli towuk roll",
+        "price": 115,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-163.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Куриный шницель",
+        "name_tk": "Towuk Şnitzel",
+        "description_ru": "Хрустящий куриный шницель со свежим салатом",
+        "description_tk": "Täze salatly çitir towuk şnitzeli",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-168.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Куриная грудка на гриле",
+        "name_tk": "Gril Towuk Döşi",
+        "description_ru": "Сочная куриная грудка на гриле со свежей зеленью",
+        "description_tk": "Täze ýaşyl otly şireli gril towuk döşi",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-174.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Куриная грудка в сливочном соусе",
+        "name_tk": "Gaýmakly sousda towuk döşi",
+        "description_ru": "Нежная курица с ароматным рисом",
+        "description_tk": "Ysly tüwili mylaýym towuk",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-177.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Рёбрышки",
+        "name_tk": "Gapyrga",
+        "description_ru": "Сочные говяжьи рёбрышки в пряном соусе",
+        "description_tk": "Ysly sously şireli sygyr gapyrgasy",
+        "price": 175,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-178.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Фрикасе в сливочном соусе",
+        "name_tk": "Frikase Slivoçny Sousda",
+        "description_ru": "Нежное куриное рагу в сливочном соусе",
+        "description_tk": "Gaýmakly sousda mylaýym towuk frikasesi",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-184.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Gyzgyn naharlar"
+  },
+  {
+    "name_ru": "Суши - Роллы",
+    "items": [
+      {
+        "name_ru": "Филадельфия с креветками",
+        "name_tk": "Kriwetkaly Filadelfiýa",
+        "description_ru": "Ролл с сочными креветками и сливочным сыром",
+        "description_tk": "Şireli krewetkaly we ýumşak peýnirli roll",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-143.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Запеченный ролл с угрем",
+        "name_tk": "Zapechenyy roll s ugrem",
+        "description_ru": "Ролл с угрём в хрустящей темпурной панировке",
+        "description_tk": "Ylançly, çitir tempura örtükli roll",
+        "price": 85,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-145.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Филадельфия с угрем",
+        "name_tk": "Filadel'fiya s ugrem",
+        "description_ru": "Ролл с угрём, авокадо и огурцом",
+        "description_tk": "Ylançly, awokadoly we hyýarly roll",
+        "price": 140,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-148.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Калифорния",
+        "name_tk": "Kaliforniýa",
+        "description_ru": "Острый ролл с пикантным соусом",
+        "description_tk": "Ýiti sously roll",
+        "price": 100,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-150.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Запеченный ролл с курицей",
+        "name_tk": "Zapechennyy roll s kuritsey",
+        "description_ru": "Ролл с курицей и сыром в темпурной панировке",
+        "description_tk": "Towukly we peýnirli tempura örtükli roll",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-154.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Ролл Филадельфия",
+        "name_tk": "Filadelfiýa Roll",
+        "description_ru": "Ролл с лососем и сливочным сыром",
+        "description_tk": "Losos we ýumşak peýnirli roll",
+        "price": 95,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-158.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Сет роллов ассорти",
+        "name_tk": "Görnüşli Roll Sety",
+        "description_ru": "Набор из разных видов роллов",
+        "description_tk": "Dürli görnüşli rollaryň topary",
+        "price": 350,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-159.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Аризона",
+        "name_tk": "Arizona",
+        "price": 75,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783774401324.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Ролл с ласосем",
+        "name_tk": "Lasosly Roll",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783774522973.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Запеченные роллы с креветкой",
+        "name_tk": "Zapecenny krevetkaly roll",
+        "price": 90,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783774648833.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Suşi - Rollar"
+  },
+  {
+    "name_ru": "Паста",
+    "items": [
+      {
+        "name_ru": "Спагетти Карбонара",
+        "name_tk": "Spagetti Karbonara",
+        "description_ru": "Спагетти в сливочно-сырном соусе с беконом из говядины",
+        "description_tk": "Gaýmakly-peýnirli sously spagetti",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-144.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Паста с креветками и песто",
+        "name_tk": "Krewetkaly Pesto Pasta",
+        "description_ru": "Паста с креветками в соусе песто",
+        "description_tk": "Pesto sously krewetkaly pasta",
+        "price": 115,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-146.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Спагетти Болоньезе",
+        "name_tk": "Spagetti Bolonyeze",
+        "description_ru": "Спагетти с насыщенным томатно-мясным соусом",
+        "description_tk": "Baý pomidor-etli sously spagetti",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-149.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Фетучини алфредо",
+        "name_tk": "Fettuccine Alfredo",
+        "description_ru": "Нежная паста альфредо со сливочным соусом",
+        "description_tk": "Gaýmakly alfredo pastasy",
+        "price": 95,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-151.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Pastalar"
+  },
+  {
+    "name_ru": "Пицца",
+    "items": [
+      {
+        "name_ru": "Пицца Пепперони",
+        "name_tk": "Pepperoni Pisssa",
+        "description_ru": "Классическая пицца с пикантной пепперони и сыром",
+        "description_tk": "Ýiti pepperoni we peýnirli klassik pissa",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-17.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пицца Маргарита",
+        "name_tk": "Margarita Pissa",
+        "description_ru": "Томаты черри, моцарелла и свежий базилик",
+        "description_tk": "Wişne pomidor, mosarella we täze reýhan",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-18.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Кальцоне",
+        "name_tk": "Kalsoni",
+        "description_ru": "Хрустящий пиццевый конверт с начинкой из сыра и ветчины",
+        "description_tk": "Peýnirli hem-de towuk şinkaly çitir pissa konwerti",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-19.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пицца куриная",
+        "name_tk": "Towukly pitsa",
+        "description_ru": "Пицца с курицей, грибами и моцареллой",
+        "description_tk": "Towukly, kömelekli we mosarellaly pissa",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-21.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пицца с овощами",
+        "name_tk": "Ovoşnoŷ Pizza",
+        "description_ru": "Нежная моцарелла и ароматный базилик",
+        "description_tk": "Mylaýym mosarella we ysly reýhan",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-22.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пицца Ассорти",
+        "name_tk": "Assorti Pizza",
+        "description_ru": "Пицца с салями, грибами и базиликом",
+        "description_tk": "Salamly, kömelekli we reýhanly pissa",
+        "price": 95,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-25.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Pizzalar"
+  },
+  {
+    "name_ru": "Мучное",
+    "items": [
+      {
+        "name_ru": "Хачапури классический",
+        "name_tk": "Klassik Haçapuri",
+        "description_ru": "Традиционное пиде с расплавленным сыром",
+        "description_tk": "Ereýän peýnirli asylly hatapury",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-20.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Хачапури по-аджарски",
+        "name_tk": "Khachopuri po-adzharskiy",
+        "description_ru": "Пиде с сыром и яйцом, запечённое в печи",
+        "description_tk": "Peýnirli we ýumurtgaly, tamdyrda bişirilen hatapury",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-23.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Лахманджун",
+        "name_tk": "Lamadjo",
+        "description_ru": "Тонкая турецкая лепёшка с мясной начинкой",
+        "description_tk": "Etli inçe türk lawaşy",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-40.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Лахманджун с сыром",
+        "name_tk": "Lahmanjun peynirli",
+        "description_ru": "Тонкий лахмаджун с расплавленным сыром",
+        "description_tk": "Ereýän peýnirli inçe lahmajun",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-31.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Хинкали",
+        "name_tk": "Hinkali",
+        "description_ru": "Грузинские паровые пельмени с сочной начинкой",
+        "description_tk": "Şireli etli gruzin hinkalisi",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-44.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Самбусики сет",
+        "name_tk": "Sambusiki set",
+        "description_ru": "Ассорти из разных видов самбусиков",
+        "description_tk": "Dürli görnüşli sambusalaryň jemi",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-48.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Самбусики с сыром",
+        "name_tk": "Peynirli sambusiki",
+        "description_ru": "Хрустящая выпечка с сыром внутри",
+        "description_tk": "Peýnirli çitir sambusiki",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-52.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Самбусики с картошкой",
+        "name_tk": "Karotoşkaly Sambusiki",
+        "description_ru": "Хрустящие пирожки с картофельной начинкой",
+        "description_tk": "Kartoşkaly çitir sambusiki",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-53.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Самбусики со шпинатом",
+        "name_tk": "Ysmanakly Somsa",
+        "description_ru": "Хрустящие пирожки со шпинатом",
+        "description_tk": "Ysmanakly çitir somsa",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-54.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Самбусики с мясом",
+        "name_tk": "Etli somsa",
+        "description_ru": "Хрустящие пирожки с сочной мясной начинкой",
+        "description_tk": "Şireli etli çitir somsa",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-55.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Самбусики с тыквой",
+        "name_tk": "Kädili Somsa",
+        "description_ru": "Хрустящие пирожки с нежной тыквой",
+        "description_tk": "Kädili çitir somsa",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-56.jpg",
+        "available": true,
+        "featured": true
+      }
+    ],
+    "name_tk": "Hamyrly Naharlar"
+  },
+  {
+    "name_ru": "Закуски",
+    "items": [
+      {
+        "name_ru": "Люкс брускет",
+        "name_tk": "Ỳokary hilli brusketta",
+        "description_ru": "Хрустящие тарталетки с томатом и свежей зеленью",
+        "description_tk": "Pomidorly we ýaşyl otly çitir tartaletkalar",
+        "price": 490,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-3b.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Ассорти маринованных овощей",
+        "name_tk": "Kislotly Gök Önümler Garnitury",
+        "description_ru": "Домашние маринованные овощи и грибы",
+        "description_tk": "Öýde taýýarlanan turşadylan gök önümler we kömelekler",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-4b.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Овощная нарезка",
+        "name_tk": "Gök Önüm Salaty",
+        "description_ru": "Свежие сезонные овощи с лёгкой заправкой",
+        "description_tk": "Ýeňil sously täze möwsümleýin gök önümler",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-6.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Брускетта ассорти",
+        "name_tk": "Görnüşli Bruşetta",
+        "description_ru": "Хрустящие тосты с томатами, сыром и соусом бальзамико",
+        "description_tk": "Pomidorly, peýnirli, balzamik souslы çitir tost",
+        "price": 210,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-12.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Сигара борек",
+        "name_tk": "Sigara börek",
+        "description_ru": "Хрустящие сырные палочки во фритюре",
+        "description_tk": "Ýagda gowrulan çitir peýnirli borek",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-131.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Мясная нарезка",
+        "name_tk": "Et Turşusy Tabagy",
+        "description_ru": "Ассорти из мясных деликатесов",
+        "description_tk": "Et lezzetleriniň jemi",
+        "price": 280,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-160.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Сырная тарелка",
+        "name_tk": "Peýnir Tabagy",
+        "description_ru": "Ассорти сыров с виноградом и мёдом",
+        "description_tk": "Üzüm we baly bilen peýnir tabagy",
+        "price": 290,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-161.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Оливки и цитрусовая нарезка",
+        "name_tk": "Zeýtun We Sitrus Tabagy",
+        "description_ru": "Маринованные оливки с цитрусовой нарезкой",
+        "description_tk": "Turşadylan zeýtun we sitrus tabagy",
+        "price": 60,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-162.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Хумус",
+        "name_tk": "Humus",
+        "description_ru": "Нежный хумус из нута с оливковым маслом",
+        "description_tk": "Zeýtun ýagly mylaýym nohut humusy",
+        "price": 35,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-165.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Фруктовая тарелка",
+        "name_tk": "Miwe Tabagy",
+        "description_ru": "Ассорти из свежих сезонных фруктов",
+        "description_tk": "Täze möwsümleýin miweleriň tabagy",
+        "price": 720,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-170.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Фруктовая тарелка мини",
+        "name_tk": "Kiçi Miwe Tabagy",
+        "description_ru": "Виноград, киви и клубника",
+        "description_tk": "Üzüm, kiwi we ýertudana",
+        "price": 130,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-120.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Япрак Сарма",
+        "name_tk": "Üzüm Ýapragynda Sarma",
+        "description_ru": "Виноградные листья с начинкой, подаются с йогуртом",
+        "description_tk": "Ýogurt sousy bilen hödürlenýän üzüm ýapragyndaky dolma",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-180.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Чесночные гренки",
+        "name_tk": "Sarymsakly Grenki",
+        "description_ru": "Хрустящие гренки с чесноком",
+        "description_tk": "Sarymsakly çitir grenkiler",
+        "price": 40,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-201.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Капрезе",
+        "name_tk": "Kapreze",
+        "description_ru": "Томаты, моцарелла и базилик — классика Италии",
+        "description_tk": "Pomidor, mosarella we reýhan — italýan klassikasy",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-209.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Zakuskalar"
+  },
+  {
+    "name_ru": "Фаст-фуд",
+    "items": [
+      {
+        "name_ru": "Мини сет бургеры",
+        "name_tk": "Mini-burger set",
+        "description_ru": "Два бургера с картофелем фри и соусами",
+        "description_tk": "Gowrulan kartoşka we souslar bilen iki burger",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-112.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Бургер классический",
+        "name_tk": "Burger Klasika",
+        "description_ru": "Сочный бургер с хрустящим картофелем фри",
+        "description_tk": "Çitir gowrulan kartoşkaly şireli burger",
+        "price": 90,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-118.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Наггетсы фри",
+        "name_tk": "Nagetsy fri",
+        "description_ru": "Хрустящие куриные стрипсы с соусами",
+        "description_tk": "Souslar bilen çitir towuk stripsi",
+        "price": 50,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-135.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Хош-Бургер",
+        "name_tk": "Hoş-Burger",
+        "description_ru": "Фирменный бургер нашего заведения",
+        "description_tk": "Фирменный бургер нашего заведения",
+        "price": 90,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783865698121.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Чикен Бургер",
+        "name_tk": "Çiken Burger",
+        "description_ru": "Чикенбургер - это обжаренная куриная котлета из сочного куриного мяса, панированная в сухарях, которая подается на карамелизованной булочке, заправленной свежим салатом и специальным соусом.",
+        "description_tk": "Чикенбургер - это обжаренная куриная котлета из сочного куриного мяса, панированная в сухарях, которая подается на карамелизованной булочке, заправленной свежим салатом и специальным соусом.",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1785500040403.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Fast-Food"
+  },
+  {
+    "name_ru": "Пиде",
+    "items": [
+      {
+        "name_ru": "Пиде  с нарезным мясом",
+        "name_tk": "Uwelen Etli Pide",
+        "description_ru": "Турецкое пиде с рубленой говядиной и специями",
+        "description_tk": "Bölünen sygyr etli we işdaaçarly türk pidesi",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-33.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пиде с курицей и сыром",
+        "name_tk": "Towukly Peýnirli Pide",
+        "description_ru": "Пиде с курицей, томатом и кубиками сыра",
+        "description_tk": "Towukly, pomidorly we peýnirli pide",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-34.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пиде с сыром и мясом",
+        "name_tk": "Etli  Peynirli Pide",
+        "description_ru": "Пиде с рубленым мясом и свежей зеленью",
+        "description_tk": "Bölünen etli we ýaşyl otly pide",
+        "price": 90,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-36.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Пиде Ассорти",
+        "name_tk": "Pide Assorti",
+        "description_ru": "Ассорти из разных видов пиде на одном подносе",
+        "description_tk": "Bir tabakda dürli görnüşli pideleriň jemi",
+        "price": 95,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-38.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Pideler"
+  },
+  {
+    "name_ru": "Гарниры",
+    "items": [
+      {
+        "name_ru": "Рис по-турецки",
+        "name_tk": "Türk Tüwüsi",
+        "description_ru": "Ароматный рис с маслом и специями",
+        "description_tk": "Ýagly we ysly türk tüwüsi",
+        "price": 25,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-133.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Картофель фри",
+        "name_tk": "Gowurylan Kartoşka",
+        "description_ru": "Хрустящий картофель фри с соусами",
+        "description_tk": "Souslar bilen çitir gowrulan kartoşka",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-134.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Картофельное пюре",
+        "name_tk": "Ezilen kartoşka",
+        "description_ru": "Нежное картофельное пюре со сливочным вкусом",
+        "description_tk": "Ýagly tagamly mylaýym kartoşka pýuresi",
+        "price": 30,
+        "imageUrl": "https://hoscoffee.ru/dishes/photo-137.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Garnirlar"
+  },
+  {
+    "name_ru": "Стейк",
+    "items": [
+      {
+        "name_ru": "Тибон",
+        "name_tk": "Tibon",
+        "price": 260,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783864846713.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Далас",
+        "name_tk": "Dallas",
+        "price": 240,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783872786178.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Бон Филе",
+        "name_tk": "Bon Fillet",
+        "price": 190,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783872907749.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Steýklar"
+  },
+  {
+    "name_ru": "Шарик Мороженого",
+    "items": [
+      {
+        "name_ru": "Ванильное",
+        "name_tk": "Wanil",
+        "description_ru": "3 шарика изумительно вкусного ванильного Итальянского мороженого",
+        "description_tk": "3 шарика изумительно вкусного ванильного Итальянского мороженого",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783769027546.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Шоколадное",
+        "name_tk": "Şokolatly",
+        "description_ru": "3 шарика изумительно вкусного шоколадного Итальянского мороженого",
+        "description_tk": "3 шарика изумительно вкусного шоколадного Итальянского мороженого",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783769077330.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Клубничное",
+        "name_tk": "Klubnikaly",
+        "description_ru": "3 шарика изумительно вкусного  Итальянского мороженого с клубникой",
+        "description_tk": "3 шарика изумительно вкусного  Итальянского мороженого с клубникой",
+        "price": 45,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783769159972.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Doňdurma"
+  },
+  {
+    "name_ru": "Алкогольные Напитки",
+    "items": [
+      {
+        "name_ru": "Chivas Regal 12 (50ml)",
+        "name_tk": "Chivas Regal 12 (50ml)",
+        "description_ru": "Шотландский виски 12 лет выдержки",
+        "description_tk": "12 ýyllyk şotland wiskisi",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783424700613.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Jameson (50ml)",
+        "name_tk": "Jameson (50ml)",
+        "description_ru": "Ирландский виски, порция 50 мл",
+        "description_tk": "Irland wiskisi, 50ml",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783425246553.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Whiskey Sour",
+        "name_tk": "Whiskey Sour",
+        "description_ru": "Классический коктейль на основе виски",
+        "description_tk": "Wiski esasly klassik koktil",
+        "price": 110,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783426124799.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Formidable You",
+        "name_tk": "Formidable You",
+        "description_ru": "Авторский коктейль от бара",
+        "description_tk": "Baryň awtorlyk koktili",
+        "price": 85,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783426972905.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Negroni",
+        "name_tk": "Negroni",
+        "description_ru": "Классический итальянский коктейль",
+        "description_tk": "Klassik italýan koktili",
+        "price": 120,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1783428965981.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Алазанская долина",
+        "name_tk": "Алазанская долина",
+        "price": 480,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045419011.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Бланк 460мл",
+        "name_tk": "Бланк 460мл",
+        "price": 120,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045489463.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Водка Русская 500мл",
+        "name_tk": "Водка Русская 500мл",
+        "price": 360,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045564309.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Джин Тоник",
+        "name_tk": "Джин Тоник",
+        "price": 100,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045639169.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Жатецкий Гусь 430мл",
+        "name_tk": "Жатецкий Гусь 430мл",
+        "price": 80,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045694613.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Карлсберг 430мл",
+        "name_tk": "Карлсберг 430мл",
+        "price": 85,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045793890.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Куантро апельсиновый 40мл",
+        "name_tk": "Куантро апельсиновый 40мл",
+        "price": 70,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045857512.jpg",
+        "available": true,
+        "featured": false
+      },
+      {
+        "name_ru": "Текила 40мл",
+        "name_tk": "Текила 40мл",
+        "price": 65,
+        "imageUrl": "https://hoscoffee.ru/dishes/upload-1784045898118.jpg",
+        "available": true,
+        "featured": false
+      }
+    ],
+    "name_tk": "Alkogolly Içgiler"
+  }
+]
