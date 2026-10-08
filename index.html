@@ -6,7 +6,7 @@
 <title>HOŞ Lounge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Prata&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#E3DACD;--card:#F5EFE6;--card2:#EBE3D7;
@@ -266,6 +266,8 @@ img{display:block}
 @keyframes ci-in{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:translateX(0)}}
 #chdr{padding:24px 24px 10px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 #ctitle{font-family:var(--serif);font-size:24px;color:var(--text)}
+#cclear{margin-left:auto;margin-right:8px;height:44px;padding:0 14px;border-radius:14px;border:none;background:transparent;color:var(--muted);font-size:14px;font-weight:600;display:none}
+body.has-cart #cclear{display:block}
 #cclose{width:44px;height:44px;border-radius:14px;border:none;background:rgba(245,239,230,.08);color:var(--text);display:flex;align-items:center;justify-content:center}
 #citems{flex:1;overflow-y:auto;padding:6px 24px;scrollbar-width:none}
 #citems::-webkit-scrollbar{display:none}
@@ -294,7 +296,8 @@ img{display:block}
 #csub-row{display:none}
 #csvc-badge{margin-left:6px;font-weight:700;color:var(--gold)}
 #cdivider{height:1px;background:rgba(245,239,230,.16);margin:10px 0 12px}
-#ctrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+#ctrow{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+#csubmit{margin-top:12px}
 #ctlbl{font-size:15px;color:var(--text)}
 #ctotal{font-family:var(--serif);font-size:28px;color:var(--gold)}
 #ctotal span{font-family:var(--sans);font-size:14px;font-weight:700;margin-left:6px}
@@ -319,6 +322,9 @@ img{display:block}
 .ab-tiles{margin-top:auto;display:flex;flex-direction:column;gap:12px}
 .ab-tile{border-radius:20px;background:var(--card);padding:18px 22px;display:flex;align-items:center;gap:16px;color:var(--brass)}
 .ab-tile small{display:block;font-size:13px;color:var(--ink2)}
+.ab-qr{align-items:center;padding:14px 18px 14px 14px}
+.ab-qr img{width:112px;height:112px;border-radius:12px;flex-shrink:0}
+.ab-qr span{display:block;font-size:13px;line-height:1.45;color:var(--ink2);margin-top:6px}
 .ab-tile b{display:block;font-family:var(--serif);font-weight:400;font-size:24px;color:var(--ink);margin-top:2px}
 .ab-photos{flex:1;min-width:0;display:flex;gap:14px}
 .ab-photos>img{flex:1.35 1 0;min-width:0;height:100%;object-fit:cover;object-position:45% center;border-radius:28px}
@@ -331,28 +337,41 @@ img{display:block}
 #toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
 /* ── ПРИВЕТСТВИЕ ── */
-#splash{position:fixed;inset:0;z-index:600;display:flex;background:var(--bg);transition:opacity .7s ease,transform .75s cubic-bezier(.4,0,.2,1)}
+#splash{position:fixed;inset:0;z-index:600;background:var(--esp);overflow:hidden;transition:opacity .7s ease,transform .75s cubic-bezier(.4,0,.2,1)}
 #splash.out{opacity:0;transform:scale(1.03);pointer-events:none}
-.sp-inner{
-  width:44%;min-width:440px;max-width:600px;flex-shrink:0;background:var(--esp);color:var(--text);
-  padding:48px 40px 40px 56px;display:flex;flex-direction:column;gap:20px;animation:sp-in .8s cubic-bezier(.4,0,.2,1) both;
-}
-.sp-logo-wrap{width:112px;height:112px;flex-shrink:0;position:relative}
-.sp-logo{width:100%;height:100%;object-fit:contain}
-.sp-spark{display:none}
-.sp-grow{flex:1;min-height:12px}
-.sp-brand{font-size:13px;font-weight:700;letter-spacing:.3em;color:var(--gold)}
-#sp-welcome{font-family:var(--serif);font-size:58px;line-height:1.06;color:var(--text)}
-#sp-sub{font-size:18px;line-height:1.55;color:var(--muted);max-width:400px}
-.sp-divider{display:none}
-.sp-langs{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-.sp-lb{height:56px;padding:0 20px;border-radius:16px;border:1px solid var(--bdh);background:transparent;color:var(--text);font-size:16px;font-weight:600;transition:all .2s}
-.sp-lb.on{border-color:var(--gold);background:rgba(217,182,112,.16);color:var(--gold);font-weight:700}
-#sp-enter{align-self:flex-start;height:64px;padding:0 32px;border-radius:20px;border:none;background:var(--gold);color:var(--gold-ink);font-size:17px;font-weight:700;display:inline-flex;align-items:center;gap:12px;transition:transform .15s,background .2s}
+.sp-photo{position:absolute;top:0;right:0;bottom:0;width:62.5%;overflow:hidden}
+.sp-kb{position:absolute;inset:0;transform-origin:70% 55%;animation:kb 22s ease-in-out infinite alternate}
+/* фото вписано «обложкой» вручную, чтобы пар всегда стоял точно над стаканом */
+.sp-ph{position:absolute;left:50%;top:30vh;width:max(100%,66.667vh);aspect-ratio:2/3;transform:translate(-50%,-30%)}
+.sp-ph img{width:100%;height:100%;object-fit:cover}
+.sp-steam{position:absolute;left:79.3%;top:48%;width:17.5%;transform:translate(-50%,-100%);filter:blur(5px);overflow:visible}
+.sp-steam path{transform-origin:50% 100%;animation:steam 5.2s ease-out infinite}
+.sp-steam path:nth-child(2){animation-delay:1.7s}
+.sp-steam path:nth-child(3){animation-delay:3.3s}
+.sp-fade{position:absolute;inset:0;background:linear-gradient(to right,var(--esp) 0%,rgba(42,32,27,.82) 14%,rgba(42,32,27,0) 46%)}
+.sp-inner{position:relative;height:100%;width:48.5%;min-width:440px;padding:0 40px 0 5.6vw;display:flex;flex-direction:column;justify-content:center;color:var(--text)}
+.sp-inner>*{animation:fiu .9s cubic-bezier(.2,.7,.2,1) both}
+.sp-inner>:nth-child(3){animation-delay:.4s}
+.sp-inner>:nth-child(4){animation-delay:.55s}
+.sp-inner>:nth-child(5){animation-delay:.7s}
+.sp-lock{display:flex;align-items:center;gap:18px}
+.sp-logo{width:92px;height:92px;border-radius:50%;object-fit:cover;animation:ring 3.2s ease-out infinite;flex-shrink:0}
+.sp-brand{font-size:22px;font-weight:800;letter-spacing:.16em}
+#sp-hello{font-size:14px;font-weight:600;color:var(--gold);letter-spacing:.06em;margin-top:4px}
+#sp-welcome{margin:44px 0 0;font-family:var(--sans);font-weight:800;font-size:clamp(46px,5.4vw,104px);line-height:1.04;letter-spacing:-.03em;color:var(--text);white-space:nowrap}
+.sp-ln{display:block;overflow:hidden;padding:.04em 0 .24em;margin-bottom:-.2em}
+.sp-ln>span{display:block}
+#sp-t2{color:var(--gold)}
+#splash.cyc #sp-t1,#splash.cyc #sp-t2{animation:lineCycle 3.4s cubic-bezier(.3,.7,.2,1) both}
+#splash.cyc #sp-t2{animation-delay:.08s}
+#sp-sub{margin-top:22px;max-width:min(400px,31vw + 20px);min-height:54px;font-size:clamp(16px,1.3vw,22px);line-height:1.55;color:var(--muted)}
+.sp-langs{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.sp-lb{height:50px;padding:0 20px;border-radius:14px;border:1px solid rgba(245,239,230,.28);background:transparent;color:var(--text);font-size:15px;font-weight:700;transition:background .35s,color .35s,border-color .35s}
+.sp-lb.on{border-color:var(--gold);background:rgba(217,182,112,.16);color:var(--gold)}
+#sp-enter{margin-top:18px;align-self:flex-start;height:68px;padding:0 8px 0 30px;border-radius:999px;border:none;background:var(--gold);color:var(--gold-ink);font-size:18px;font-weight:800;display:inline-flex;align-items:center;gap:22px;transition:transform .15s,background .2s}
 #sp-enter:active{transform:scale(.97);background:var(--gol2)}
-.sp-info{font-size:14px;color:var(--muted)}
-.sp-photo{flex:1;min-width:0;padding:24px}
-.sp-photo img{width:100%;height:100%;object-fit:cover;object-position:center 32%;border-radius:28px}
+.sp-arrow{width:52px;height:52px;border-radius:50%;background:var(--esp);color:var(--gold);display:flex;align-items:center;justify-content:center}
+.sp-arrow svg{animation:nudge 1.6s ease-in-out infinite}
 
 /* ── НАСТРОЙКИ (админ) ── */
 #so{position:fixed;inset:0;background:#221915;color:var(--text);z-index:400;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .3s}
@@ -402,6 +421,64 @@ img{display:block}
 
 @keyframes sp-in{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fiu{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── АНИМАЦИИ ── */
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.08)}}
+@keyframes steam{0%{opacity:0;transform:translateY(26px) scaleX(.8)}30%{opacity:.75}100%{opacity:0;transform:translateY(-70px) scaleX(1.25)}}
+@keyframes lineCycle{0%{transform:translateY(105%)}12%{transform:translateY(0)}86%{transform:translateY(0)}100%{transform:translateY(-105%)}}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(217,182,112,.5)}70%,100%{box-shadow:0 0 0 16px rgba(217,182,112,0)}}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(5px)}}
+@keyframes shine{0%{transform:translateX(-140%) skewX(-18deg)}55%,100%{transform:translateX(460%) skewX(-18deg)}}
+@keyframes chip-in{from{opacity:0;transform:translateX(18px)}to{opacity:1;transform:translateX(0)}}
+@keyframes pop{0%{transform:scale(.6);opacity:0}60%{transform:scale(1.12)}100%{transform:scale(1);opacity:1}}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
+@keyframes zoomin{from{transform:scale(1.12)}to{transform:scale(1)}}
+@keyframes reveal{from{clip-path:inset(100% 0 0 0 round 28px);transform:scale(1.06)}to{clip-path:inset(0 0 0 0 round 28px);transform:scale(1)}}
+/* блик на главных кнопках */
+.btn-gold,#csubmit,#madd,#sp-enter{position:relative;overflow:hidden}
+.btn-gold::after,#csubmit::after,#madd::after,#sp-enter::after{content:'';position:absolute;top:0;left:0;width:28%;height:100%;pointer-events:none;background:linear-gradient(to right,rgba(255,255,255,0),rgba(255,255,255,.5),rgba(255,255,255,0));animation:shine 4s ease-in-out 1.2s infinite}
+/* главная */
+.hero-img{transform-origin:70% 50%;animation:kb 18s ease-in-out infinite alternate}
+.hero-txt>*{animation:fiu .7s cubic-bezier(.2,.7,.2,1) both}
+.hero-txt>:nth-child(2){animation-delay:.1s}
+.hero-txt>:nth-child(3){animation-delay:.2s}
+.hero-txt>:nth-child(4){animation-delay:.3s}
+.side-card{animation:fiu .65s cubic-bezier(.2,.7,.2,1) .1s both}
+.side-card:nth-child(2){animation-delay:.2s}
+.side-card img,.cat-card-bg,.cp img{transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.side-card:active img{transform:scale(1.06)}
+.cat-card:active .cat-card-bg,.dc:active .cp img{transform:scale(1.07)}
+@media(hover:hover){.side-card:hover img{transform:scale(1.06)}.cat-card:hover .cat-card-bg,.dc:hover .cp img{transform:scale(1.07)}}
+.ct{animation:chip-in .45s cubic-bezier(.2,.7,.2,1) both}
+.ct:nth-child(2){animation-delay:.03s}.ct:nth-child(3){animation-delay:.06s}.ct:nth-child(4){animation-delay:.09s}.ct:nth-child(5){animation-delay:.12s}.ct:nth-child(6){animation-delay:.15s}.ct:nth-child(7){animation-delay:.18s}.ct:nth-child(8){animation-delay:.21s}.ct:nth-child(n+9){animation-delay:.24s}
+.sct{animation:chip-in .4s cubic-bezier(.2,.7,.2,1) both}
+.cbadge{animation:pop .5s cubic-bezier(.34,1.56,.64,1) .35s both}
+#topbar-title.tt-anim{animation:fiu .4s cubic-bezier(.2,.7,.2,1) both}
+.nt.on svg{animation:pop .4s cubic-bezier(.34,1.56,.64,1) both}
+/* корзина */
+.ci-new{animation:ci-in .45s cubic-bezier(.2,.7,.2,1) both}
+.cup{animation:fiu .5s cubic-bezier(.2,.7,.2,1) both}
+#cart-cnt.bump{animation:bump .45s cubic-bezier(.34,1.56,.64,1)}
+.fly{position:fixed;z-index:700;border-radius:50%;object-fit:cover;pointer-events:none;box-shadow:0 10px 30px rgba(0,0,0,.35);will-change:transform,opacity}
+/* карточка блюда */
+#mo.open #mphoto-img{animation:zoomin 1s cubic-bezier(.2,.7,.2,1) both}
+#mo.open #mbody>*{animation:fiu .55s cubic-bezier(.2,.7,.2,1) .1s both}
+#mo.open #mbody>:nth-child(2){animation-delay:.16s}
+#mo.open #mbody>:nth-child(4){animation-delay:.22s}
+#mo.open #mbody>:nth-child(n+5){animation-delay:.3s}
+#mo.open .pair{animation:fiu .5s cubic-bezier(.2,.7,.2,1) .3s both}
+#mo.open .pair:nth-child(2){animation-delay:.38s}
+#mo.open .pair:nth-child(3){animation-delay:.46s}
+/* акции и «о нас» */
+#promo.v .promo-card{animation:fiu .5s cubic-bezier(.2,.7,.2,1) both}
+#about.v .ab-text>*{animation:fiu .6s cubic-bezier(.2,.7,.2,1) both}
+#about.v .ab-text>:nth-child(2){animation-delay:.08s}
+#about.v .ab-text>:nth-child(3){animation-delay:.16s}
+#about.v .ab-text>:nth-child(4){animation-delay:.28s}
+#about.v .ab-photos img{animation:reveal 1s cubic-bezier(.2,.7,.2,1) .1s both}
+#about.v .ab-col img:first-child{animation-delay:.25s}
+#about.v .ab-col img:last-child{animation-delay:.4s}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 
 *{-webkit-tap-highlight-color:transparent;-webkit-touch-callout:none}
 #main,#citems,#sbody,#cats,#mbody{-webkit-overflow-scrolling:touch}
@@ -472,15 +549,20 @@ img{display:block}
   #mname{font-size:28px}
   #mprice{font-size:38px}
   /* приветствие */
-  #splash{flex-direction:column-reverse}
-  .sp-inner{width:auto;min-width:0;max-width:none;flex:1;padding:24px 22px 26px;gap:14px}
-  .sp-logo-wrap{width:72px;height:72px}
-  .sp-photo{flex:none;height:30vh;padding:0}
-  .sp-photo img{border-radius:0}
-  #sp-welcome{font-size:38px}
-  #sp-sub{font-size:15px}
-  .sp-lb{height:48px;padding:0 16px;font-size:14px}
-  #sp-enter{height:56px;align-self:stretch;justify-content:center}
+  .sp-photo{width:100%;height:42vh;bottom:auto}
+  .sp-ph{position:static;width:100%;height:100%;aspect-ratio:auto;transform:none}
+  .sp-ph img{object-position:center 30%}
+  .sp-steam{display:none}
+  .sp-fade{background:linear-gradient(to top,var(--esp) 0%,rgba(42,32,27,0) 55%)}
+  .sp-inner{width:auto;min-width:0;max-width:none;padding:38vh 22px 24px;justify-content:flex-end}
+  .sp-logo{width:64px;height:64px}
+  .sp-brand{font-size:17px}
+  #sp-welcome{font-size:min(44px,11.5vw);margin-top:22px}
+  #sp-sub{font-size:15px;margin-top:12px;min-height:0;max-width:none}
+  .sp-langs{margin-top:18px}
+  .sp-lb{height:46px;padding:0 14px;font-size:14px}
+  #sp-enter{height:60px;align-self:stretch;justify-content:space-between}
+  .sp-arrow{width:44px;height:44px}
   #sbody{padding:10px 14px 24px}
   #shdr,#stabs{padding-left:14px;padding-right:14px}
 }
@@ -508,32 +590,43 @@ img{display:block}
 
 <!-- SPLASH -->
 <div id="splash">
-  <div class="sp-inner">
-    <div class="sp-logo-wrap">
-      <img class="sp-logo" src="hosnewlogo.jpg" alt="HOŞ Lounge">
+  <div class="sp-photo">
+    <div class="sp-kb">
+      <div class="sp-ph">
+        <img src="img/relief.jpg" alt="">
+        <svg class="sp-steam" viewBox="0 0 140 170" fill="none" aria-hidden="true">
+          <path d="M50 165 C 30 135, 68 115, 48 85 S 62 35, 46 8" stroke="rgba(255,255,255,.75)" stroke-width="9" stroke-linecap="round"/>
+          <path d="M74 165 C 96 130, 58 110, 80 78 S 66 30, 84 4" stroke="rgba(255,255,255,.7)" stroke-width="8" stroke-linecap="round"/>
+          <path d="M96 165 C 78 140, 112 118, 94 90 S 108 48, 96 20" stroke="rgba(255,255,255,.6)" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
     </div>
-    <div class="sp-grow"></div>
-    <div class="sp-brand">HOŞ LOUNGE</div>
-    <div id="sp-welcome">Добро пожаловать</div>
+    <div class="sp-fade"></div>
+  </div>
+  <div class="sp-inner">
+    <div class="sp-lock">
+      <img class="sp-logo" src="hosnewlogo.jpg" alt="">
+      <div>
+        <div class="sp-brand">HOŞ LOUNGE</div>
+        <div id="sp-hello"></div>
+      </div>
+    </div>
+    <h1 id="sp-welcome"><span class="sp-ln"><span id="sp-t1">Добро</span></span><span class="sp-ln"><span id="sp-t2">пожаловать</span></span></h1>
     <div id="sp-sub">Откройте мир авторской кухни и изысканной атмосферы</div>
-
     <div class="sp-langs">
       <button class="sp-lb" data-sl="ru">Русский</button>
       <button class="sp-lb" data-sl="tk">Türkmençe</button>
       <button class="sp-lb" data-sl="en">English</button>
     </div>
-
-    <button id="sp-enter">Перейти в меню</button>
-    <div class="sp-info" id="sp-info">Ежедневно 8:00–23:00 · Бронирование: +993 71 66 77 77</div>
+    <button id="sp-enter"><span id="sp-enter-lbl">Перейти в меню</span><span class="sp-arrow" aria-hidden="true"><svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
   </div>
-  <div class="sp-photo"><img src="img/relief.jpg" alt=""></div>
 </div>
 
 <header id="topbar">
   <div id="logo"><img src="hosnewlogo.jpg" alt="HOŞ Lounge"></div>
   <button id="cat-back-btn" aria-label="Все категории"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg><span id="cat-back-lbl">Все категории</span></button>
   <div id="tb-head">
-    <div id="tb-kicker">HOŞ Lounge · 8:00–23:00</div>
+    <div id="tb-kicker">HOŞ Lounge · +993 71 66 77 77</div>
     <div id="topbar-title"></div>
   </div>
   <div id="search-bar">
@@ -582,6 +675,10 @@ img{display:block}
         <div class="scr-title" style="margin-bottom:0">HOŞ Lounge</div>
         <div class="scr-sub" id="ab-sub">Пространство для тех, кто ценит вкус, атмосферу и безупречный сервис. Мы сочетаем традиции восточного гостеприимства с современной авторской кухней.</div>
         <div class="ab-tiles">
+          <div class="ab-tile ab-qr">
+            <img src="img/qr-site.png" alt="QR-код сайта hoslounge.online">
+            <div><small id="ab-qr-k">Онлайн-заказ</small><b>hoslounge.online</b><span id="ab-qr-s">Наведите камеру телефона на код и оформите заказ на нашем сайте</span></div>
+          </div>
           <div class="ab-tile">
             <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>
             <div><small id="ab-hours-l">Открыты ежедневно</small><b>8:00 – 23:00</b></div>
@@ -646,6 +743,7 @@ img{display:block}
   <div id="cpanel">
     <div id="chdr">
       <div id="ctitle">Корзина</div>
+      <button id="cclear">Очистить</button>
       <button id="cclose" aria-label="Закрыть корзину"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
     </div>
     <div id="citems"></div>
@@ -899,7 +997,7 @@ const DD = [
 
 
 // State
-const DD_VERSION = '5';
+const DD_VERSION = '6';
 if(localStorage.getItem('hs_dd_version') !== DD_VERSION){
   localStorage.removeItem('hs_dishes');
   localStorage.removeItem('hs_cats');
@@ -950,9 +1048,22 @@ async function apiFetch(path, opts){
   }
   throw lastErr;
 }
+// В приложении (APK) фото по относительному пути лежат внутри пакета и открываются без сети.
+// Фото, добавленных через админку после сборки, в пакете нет — тогда <img> один раз
+// перезапрашивает его с сервера (обработчик ошибок ниже).
 function photoUrl(p){
-  if(!p || !IS_NATIVE_APP || p.startsWith('http') || p.startsWith('data:')) return p;
-  return activeApiBase + '/' + p.replace(/^\//,'');
+  if(!p || p.startsWith('http') || p.startsWith('data:')) return p;
+  return p.replace(/^\//,'');
+}
+if(IS_NATIVE_APP){
+  document.addEventListener('error', e => {
+    const img = e.target;
+    if(!img || img.tagName !== 'IMG' || img.dataset.rf) return;
+    const src = img.getAttribute('src') || '';
+    if(!src || /^(https?:|data:|blob:)/.test(src)) return;
+    img.dataset.rf = '1';
+    img.src = activeApiBase + '/' + src.replace(/^\//,'');
+  }, true);
 }
 
 function save(){
@@ -1067,7 +1178,9 @@ function applyI18n(){
     'A place for those who value taste, atmosphere and impeccable service. We combine the traditions of Eastern hospitality with modern signature cuisine.');
   $('ab-hours-l').textContent = L3('Открыты ежедневно', 'Her gün açyk', 'Open daily');
   $('ab-book-l').textContent = L3('Бронирование', 'Bronlamak', 'Reservations');
-  $('sp-info').textContent = L3('Ежедневно 8:00–23:00 · Бронирование: +993 71 66 77 77', 'Her gün 8:00–23:00 · Bronlamak: +993 71 66 77 77', 'Daily 8:00–23:00 · Reservations: +993 71 66 77 77');
+  $('ab-qr-k').textContent = L3('Онлайн-заказ', 'Onlaýn sargyt', 'Order online');
+  $('ab-qr-s').textContent = L3('Наведите камеру телефона на код и оформите заказ на нашем сайте', 'Telefonyňyzyň kamerasyny koda gönükdiriň we saýtymyzda sargyt ediň', 'Point your phone camera at the code and place an order on our website');
+  $('cclear').textContent = L3('Очистить', 'Arassala', 'Clear');
 }
 
 // ── CATS
@@ -1088,6 +1201,7 @@ function exitToCategories(){
   $('main').scrollTop = 0;
 }
 
+let _lastTitle = '';
 function updateStageVisibility(){
   const menuTab = navTab === 'menu';
   const showHome = catsScreenOpen && !searchQuery;
@@ -1107,6 +1221,10 @@ function updateStageVisibility(){
   else{
     const c = cats.find(x => x.id === activeCat);
     titleEl.textContent = c ? t(c.names) : '';
+  }
+  if(titleEl.textContent !== _lastTitle){
+    _lastTitle = titleEl.textContent;
+    titleEl.classList.remove('tt-anim'); void titleEl.offsetWidth; titleEl.classList.add('tt-anim');
   }
 }
 
@@ -1172,7 +1290,7 @@ function renderHome(){
           <button class="hero-more">${L3('Подробнее', 'Giňişleýin', 'Details')}</button>
         </div>
       </div>`;
-    heroEl.onclick = e => { if(e.target.closest('[data-hadd]')) addToCart(hero.id); else openModal(hero); };
+    heroEl.onclick = e => { if(e.target.closest('[data-hadd]')) addToCart(hero.id, 1, heroEl.querySelector('.hero-img')); else openModal(hero); };
   } else heroEl.style.display = 'none';
 
   const side = $('hero-side');
@@ -1256,7 +1374,7 @@ function bindCards(root){
       }
       const b = e.target.closest('button');
       if(!b) return;
-      if(b.classList.contains('abtn')) addToCart(id);
+      if(b.classList.contains('abtn')) addToCart(id, 1, el.querySelector('.cp img'));
       else changeQty(id, +b.dataset.d);
     };
   });
@@ -1302,7 +1420,10 @@ function softDrinks(bar){
   const list = dishes.filter(x => x.cat === bar.id && subs.includes(x.sub));
   return list.length ? list : dishes.filter(x => x.cat === bar.id);
 }
-function pairingsFor(d){
+// Подобранные вручную сочетания: id блюда → три id того, что к нему подходит.
+// Для новых блюд, которых здесь нет, работает автоподбор ниже (autoPairings).
+const PAIRS = {"2":[74,40,120],"8":[65,74,120],"9":[1783865804015,74,65],"1783765693379":[74,1783865804015,120],"1783766769125":[65,67,40],"1783874380894":[1783864590754,120,65],"1783875375781":[74,65,40],"91":[60,30,36],"76":[1783865804015,74,95],"77":[65,95,94],"78":[74,1783865804015,95],"79":[1783769027546,74,65],"80":[74,62,65],"82":[65,74,1783769077330],"83":[74,1783865804015,59],"86":[74,135,65],"98":[1783865804015,74,62],"85":[74,65,1783769027546],"99":[74,1783865804015,65],"97":[1783865804015,65,1783769027546],"100":[1783864590754,74,120],"137":[62,74,1783769027546],"138":[74,59,1783865804015],"139":[65,74,1783769077330],"141":[1783865804015,74,65],"142":[74,65,1783865804015],"1783765664011":[74,65,1783769077330],"1783765672529":[120,62,115],"1783765686462":[74,120,62],"125":[44,18,95],"126":[111,45,1783865698121],"127":[41,68,107],"129":[120,1783864590754,74],"130":[65,74,1783769077330],"131":[120,1783864590754,1783769027546],"132":[1783864590754,120,74],"134":[1783865804015,74,120],"1783766386510":[120,1783864590754,74],"146":[120,1783864590754,74],"143":[135,74,1783864590754],"144":[1783864590754,66,74],"145":[66,65,135],"1783769337473":[81,14,95],"1783769381653":[95,94,62],"1783769474405":[1,121,120],"1783770011655":[33,32,115],"58":[91,143,83],"59":[94,83,126],"60":[91,36,143],"62":[94,80,125],"65":[83,9,1783769159972],"66":[98,145,74],"67":[83,9,143],"69":[91,54,2],"74":[83,9,1783769027546],"135":[80,143,36],"1783864590754":[100,143,120],"1783865804015":[98,99,1783769027546],"1783868436895":[86,143,36],"3":[35,109,2],"48":[30,25,91],"49":[36,15,125],"50":[30,39,91],"53":[39,1,9],"54":[38,43,2],"55":[39,37,1783875375781],"68":[93,41,127],"1783503624447":[36,44,125],"1":[121,26,126],"33":[50,30,1783875375781],"35":[90,93,127],"41":[68,90,127],"42":[1783872907749,104,126],"43":[1783503624447,36,125],"44":[1783503624447,102,125],"45":[104,49,126],"10":[1,50,1783875375781],"12":[93,1,125],"84":[93,20,1783875375781],"89":[1,35,9],"90":[93,41,127],"116":[96,44,125],"121":[93,1,126],"122":[1,1783503624447,125],"123":[94,35,1783875375781],"128":[96,1,126],"101":[68,41,2],"103":[3,35,132],"105":[68,41,2],"107":[3,35,127],"109":[3,41,126],"111":[68,35,2],"112":[68,41,126],"1783774522973":[3,111,2],"1783774648833":[68,35,132],"102":[44,1783503624447,125],"104":[45,49,126],"106":[1,49,125],"108":[44,1783503624447,126],"14":[1,94,1783769337473],"15":[44,49,126],"16":[1,49,125],"18":[44,94,1783769337473],"19":[1,1783503624447,127],"21":[44,95,1783769337473],"20":[1,84,91],"30":[50,1,91],"31":[48,1,91],"32":[84,1,1783875375781],"34":[50,91,1],"36":[49,91,1],"37":[55,91,1],"38":[54,91,1],"39":[50,91,1],"40":[50,2,91],"113":[114,115,126],"114":[120,115,9],"115":[113,114,1783765672529],"120":[114,1783769027546,9],"75":[95,1783769337473,78],"81":[95,1783769337473,77],"95":[1783769337473,76,15],"1783865698121":[94,1783769337473,125],"1785500040403":[94,126,78],"25":[50,1,91],"26":[54,1,126],"27":[48,1,91],"29":[50,1,91],"1783864846713":[94,1,1783875375781],"1783872786178":[96,35,125],"1783872907749":[96,42,9],"93":[12,90,121],"94":[81,95,1783769337473],"96":[128,116,123],"1783769027546":[79,1783865804015,120],"1783769077330":[83,65,130],"1783769159972":[1783865804015,98,120],"1783424700613":[113,114,115],"1783425246553":[113,114,115],"1783426124799":[115,95,114],"1783426972905":[120,114,115],"1783428965981":[115,113,114],"1784045419011":[114,120,113],"1784045489463":[95,94,113],"1784045564309":[113,115,32],"1784045639169":[115,120,95],"1784045694613":[95,94,123],"1784045793890":[81,95,94],"1784045857512":[120,1783769077330,114],"1784045898118":[115,95,113]};
+function autoPairings(d){
   const bar = findCat(/^бар|\bbar\b/i), gar = findCat(/гарнир|side/i), sal = findCat(/салат|salad/i);
   const des = findCat(/морожен|десерт|ice cream|dessert/i), bak = findCat(/мучн|завтрак|breakfast/i);
   const dc = cats.find(c => c.id === d.cat);
@@ -1315,6 +1436,11 @@ function pairingsFor(d){
     const list = (c === bar ? softDrinks(c) : dishes.filter(x => x.cat === c.id)).filter(x => x.id !== d.id && !out.includes(x));
     if(list.length) out.push(list[(seed + i * 7) % list.length]);
   });
+  return out;
+}
+function pairingsFor(d){
+  const out = (PAIRS[d.id] || []).map(id => dishes.find(x => x.id === id)).filter(Boolean);
+  if(out.length < 3) autoPairings(d).forEach(x => { if(out.length < 3 && !out.includes(x)) out.push(x); });
   return out;
 }
 
@@ -1352,7 +1478,7 @@ function openModal(d){
     el.onclick = e => {
       const p = dishes.find(x => x.id === +el.dataset.pid);
       if(!p) return;
-      if(e.target.closest('.abtn')) addToCart(p.id);
+      if(e.target.closest('.abtn')) addToCart(p.id, 1, el.querySelector('img'));
       else openModal(p);
     };
   });
@@ -1367,15 +1493,41 @@ function closeModal(){
 }
 
 // ── CART
-function addToCart(id, qty){
+// Фото блюда «улетает» в корзину при добавлении
+function flyToCart(img){
+  try{
+    if(!img || !img.animate || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const docked = document.body.classList.contains('has-cart') && innerWidth >= 1100;
+    const target = docked ? $('ctitle') : $('cart-btn');
+    const a = img.getBoundingClientRect(), b = target.getBoundingClientRect();
+    if(!a.width || !b.width) return;
+    const size = Math.min(a.width, a.height, 120);
+    const g = document.createElement('img');
+    g.src = img.currentSrc || img.src;
+    g.className = 'fly';
+    g.style.cssText = `left:${a.left + a.width / 2 - size / 2}px;top:${a.top + a.height / 2 - size / 2}px;width:${size}px;height:${size}px`;
+    document.body.appendChild(g);
+    const dx = b.left + b.width / 2 - (a.left + a.width / 2), dy = b.top + b.height / 2 - (a.top + a.height / 2);
+    g.animate([
+      {transform:'translate(0,0) scale(1)', opacity:1},
+      {transform:`translate(${dx * 0.6}px,${dy * 0.2 - 60}px) scale(.7)`, opacity:1, offset:.5},
+      {transform:`translate(${dx}px,${dy}px) scale(.15)`, opacity:.2}
+    ], {duration:650, easing:'cubic-bezier(.4,0,.2,1)'}).onfinish = () => g.remove();
+  }catch(e){}
+}
+let _lastAdded = null;
+function addToCart(id, qty, fromEl){
   qty = qty || 1;
   const d = dishes.find(x => x.id === id);
   if(!d) return;
+  flyToCart(fromEl);
   const ex = cart.find(x => x.id === id);
   if(ex) ex.qty += qty;
-  else cart.push({id, qty});
+  else { cart.push({id, qty}); _lastAdded = id; }
   save();
   renderCart();
+  const cc = $('cart-cnt');
+  cc.classList.remove('bump'); void cc.offsetWidth; cc.classList.add('bump');
   toast(t(d.names) + ' — ' + L3('добавлено', 'goşuldy', 'added'));
 }
 function removeFromCart(id){
@@ -1404,18 +1556,20 @@ function renderUpsell(){
   const el = $('cupsell');
   el.innerHTML = '';
   if(!cart.length) return;
-  const catInCart = c => cart.some(x => { const d = dishes.find(dd => dd.id === x.id); return d && d.cat === c.id; });
+  const inCart = id => cart.some(x => x.id === id);
+  const cartDishes = cart.map(x => dishes.find(dd => dd.id === x.id)).filter(Boolean);
   const bar = findCat(/^бар|\bbar\b/i), des = findCat(/морожен|десерт|ice cream|dessert/i);
-  let pick = null, label = '';
-  if(bar && !catInCart(bar)){
-    const list = softDrinks(bar);
-    pick = list.find(x => x.badge) || list[0];
-    label = L3('Добавить напиток?', 'Içgi goşmalymy?', 'Add a drink?');
-  } else if(des && !catInCart(des)){
-    pick = dishes.find(x => x.cat === des.id);
-    label = L3('На десерт?', 'Desert üçin?', 'Something sweet?');
-  }
+  const hasCat = c => c && cartDishes.some(d => d.cat === c.id);
+  // кандидаты — сочетания к блюдам из корзины, начиная с последнего добавленного
+  const cand = [];
+  cartDishes.slice().reverse().forEach(d => pairingsFor(d).forEach(p => { if(!inCart(p.id) && !cand.includes(p)) cand.push(p); }));
+  let pick = null;
+  if(bar && !hasCat(bar)) pick = cand.find(p => p.cat === bar.id) || softDrinks(bar).find(x => !inCart(x.id));
+  if(!pick) pick = cand.find(p => !cartDishes.some(d => d.cat === p.cat)) || cand[0];
   if(!pick) return;
+  const label = (bar && pick.cat === bar.id) ? L3('Добавить напиток?', 'Içgi goşmalymy?', 'Add a drink?')
+    : (des && pick.cat === des.id) ? L3('На десерт?', 'Desert üçin?', 'Something sweet?')
+    : L3('С этим заказывают', 'Munuň bilen sargyt edýärler', 'Goes well with your order');
   el.innerHTML = `
     <div class="cup">
       <div class="kick">${label}</div>
@@ -1457,7 +1611,8 @@ function renderCart(){
   $('csvc-row').style.display = 'flex';
   $('cdivider').style.display = '';
   $('ctrow').style.display = 'flex';
-  $('csubmit').style.display = '';
+  // Кнопка «Отправить заказ» скрыта: заказ принимает официант. Чтобы вернуть её, раскомментируйте строку ниже.
+  // $('csubmit').style.display = '';
   $('csub-val').textContent = sub + ' TMT';
   $('csvc-val').textContent = svc + ' TMT';
   animateTotal(prevCartTotal, total);
@@ -1468,7 +1623,7 @@ function renderCart(){
     const d = dishes.find(dd => dd.id === ci.id);
     if(!d) return;
     const el = document.createElement('div');
-    el.className = 'ci';
+    el.className = 'ci' + (ci.id === _lastAdded ? ' ci-new' : '');
     el.innerHTML = `
       <div class="ci-photo">${d.photo ? `<img src="${photoUrl(d.photo)}" alt="">` : ''}</div>
       <div class="ci-info">
@@ -1485,6 +1640,7 @@ function renderCart(){
       </div>`;
     items.appendChild(el);
   });
+  _lastAdded = null;
   items.querySelectorAll('.qbtn').forEach(b => b.onclick = () => changeQty(+b.dataset.id, +b.dataset.d));
   items.querySelectorAll('.cdel').forEach(b => b.onclick = () => removeFromCart(+b.dataset.id));
   updateCardQtys();
@@ -2125,24 +2281,38 @@ function initSplashSparkles(){
 
 // ── SPLASH
 const SPLASH_TEXT = {
-  ru:{ welcome:'Добро пожаловать', sub:'Откройте мир авторской кухни и изысканной атмосферы', btn:'Перейти в меню' },
-  tk:{ welcome:'Hoş geldiňiz',     sub:'Awtorly tagamyň we saýlama atmosferanyň dünýäsine hoş geldiňiz', btn:'Menýuny aç' },
-  en:{ welcome:'Welcome',          sub:'Discover the world of signature cuisine and refined atmosphere', btn:'View menu' },
+  ru:{ t1:'Добро',   t2:'пожаловать', sub:'Откройте мир авторской кухни и изысканной атмосферы', btn:'Перейти в меню', hello:['Доброе утро','Добрый день','Добрый вечер'] },
+  tk:{ t1:'Hoş',     t2:'geldiňiz',   sub:'Awtorly tagamyň we saýlama atmosferanyň dünýäsine hoş geldiňiz', btn:'Menýuny aç', hello:['Ertiriňiz haýyrly','Gündiziňiz haýyrly','Agşamyňyz haýyrly'] },
+  en:{ t1:'Welcome', t2:'to HOŞ',     sub:'Discover the world of signature cuisine and refined atmosphere', btn:'View menu', hello:['Good morning','Good afternoon','Good evening'] },
 };
+let _spCycle = null;
 function initSplash(){
   const sp = $('splash');
-  const applyLang = l => {
+  const order = ['ru','tk','en'];
+  // показать приветствие на языке l; restart — заново проиграть «выезд» строк
+  const show = (l, restart) => {
     const tx = SPLASH_TEXT[l] || SPLASH_TEXT.ru;
-    $('sp-welcome').textContent = tx.welcome;
+    const h = new Date().getHours();
+    $('sp-t1').textContent = tx.t1;
+    $('sp-t2').textContent = tx.t2;
     $('sp-sub').textContent = tx.sub;
-    $('sp-enter').textContent = tx.btn;
+    $('sp-enter-lbl').textContent = tx.btn;
+    $('sp-hello').textContent = tx.hello[h < 12 ? 0 : h < 18 ? 1 : 2];
     document.querySelectorAll('.sp-lb').forEach(b => b.classList.toggle('on', b.dataset.sl === l));
+    if(restart) ['sp-t1','sp-t2'].forEach(id => { const e = $(id); e.style.animation = 'none'; void e.offsetHeight; e.style.animation = ''; });
   };
-  applyLang(lang);
+  const stopCycle = () => { clearInterval(_spCycle); _spCycle = null; sp.classList.remove('cyc'); };
+  stopCycle();
+  show(lang, false);
+  // пока гость не выбрал язык, приветствие по очереди показывается на трёх языках
+  let i = Math.max(0, order.indexOf(lang));
+  sp.classList.add('cyc');
+  _spCycle = setInterval(() => { i = (i + 1) % order.length; show(order[i], true); }, 3400);
   document.querySelectorAll('.sp-lb').forEach(b => {
     b.onclick = () => {
+      stopCycle();
       lang = b.dataset.sl;
-      applyLang(lang);
+      show(lang, false);
       document.querySelectorAll('.lb').forEach(x => x.classList.toggle('on', x.dataset.l === lang));
       save();
       applyI18n();
@@ -2155,8 +2325,9 @@ function initSplash(){
     };
   });
   $('sp-enter').onclick = () => {
+    stopCycle();
     sp.classList.add('out');
-    setTimeout(() => { sp.style.display = 'none'; }, 850);
+    setTimeout(() => { sp.style.display = 'none'; show(lang, false); }, 850);
   };
 }
 
@@ -2182,6 +2353,12 @@ function init(){
   $('cclose').onclick = closeCart;
   $('cobg').onclick = closeCart;
   $('csubmit').onclick = submitOrder;
+  $('cclear').onclick = () => {
+    if(!cart.length || !confirm(L3('Очистить корзину?', 'Sebedi arassalamalymy?', 'Clear the cart?'))) return;
+    cart = [];
+    save();
+    renderCart();
+  };
 
   // home / reset
   $('home-btn').onclick = resetToHome;
@@ -2189,7 +2366,7 @@ function init(){
   // modal
   $('mclose').onclick = closeModal;
   $('mo').onclick = e => { if(e.target === $('mo')) closeModal(); };
-  $('madd').onclick = () => { if(modalDish){ addToCart(modalDish.id, modalQty); closeModal(); } };
+  $('madd').onclick = () => { if(modalDish){ addToCart(modalDish.id, modalQty, $('mphoto-img')); closeModal(); } };
   $('mq-minus').onclick = () => { modalQty = Math.max(1, modalQty - 1); $('mqn').textContent = modalQty; };
   $('mq-plus').onclick = () => { modalQty = Math.min(20, modalQty + 1); $('mqn').textContent = modalQty; };
 
