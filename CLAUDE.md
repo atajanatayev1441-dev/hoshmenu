@@ -53,5 +53,15 @@
 - 31.10.2026: новый `menu-import.json` (версия 599, 137 блюд), выложены 47 фото из админки.
 
 ## Незавершённое на момент переноса (16.11.2026)
-- Не закоммичено: `android-app/android/app/build.gradle` (версия 2.0), `android-app/www/index.html` (синхронизирован с `www/index.html`), `android-app/www/img/`, новые `android-app/www/dishes/*`, `Claude outputs/*.png`. Видимо, шла сборка APK v2.0 с новым дизайном — уточнить у пользователя.
+- Не закоммичено: `android-app/android/app/build.gradle` (версия 2.0), `android-app/www/index.html` (синхронизирован с `www/index.html`), `android-app/www/img/`, новые `android-app/www/dishes/*`, `Claude outputs/*.png`. Пользователь (22.11.2026): APK уже собран и установлен на планшетах — пересобирать не нужно без просьбы. Файла `hoslounge-menu-v2.0.apk` в папке нет (есть только v1.1, v1.2).
+
+## iPad (.ipa, с 22.11.2026)
+- iOS-проект Capacitor в `android-app/ios/` (SPM, без CocoaPods), то же меню из `android-app/www/`. Иконка/заставка — из `hosnewlogo.jpg` (круг на тёмном фоне).
+- Mac нет: .ipa собирается на GitHub Actions (`.github/workflows/ios-ipa.yml`, macOS, без подписи) при пуше в `android-app/**` или вручную; результат — artifact `hoslounge-menu-ipad`.
+- У пользователя iPad на iOS 16.7.8 (TrollStore не подходит) → ставит через **AltStore** с бесплатным Apple ID: продление раз в 7 дней через AltServer на ПК по Wi‑Fi.
+
+## Новый ПК (с 22.11.2026)
+- Путь: `C:\Users\Admin\Desktop\hs_menu`. Диалоги/память восстановлены `restore.ps1`, `npm install` сделан во всех трёх папках.
+- JDK 21 и Android SDK на этом ПК **не установлены** — сборка APK пока невозможна.
+- Планшеты (APK) берут меню из интернета: `hoscoffee.ru` → запасной `hoshmenu-production.up.railway.app`. Локальный сервер на ПК им не нужен. На этом ПК hs_menu-сервер не запущен (порты 4300/8795 заняты другими проектами — Hasap, YAKUT).
 - Живое меню ушло вперёд (v607 против 599 в последнем `menu-import.json`) — при следующем экспорте перезапустить скрипт.
