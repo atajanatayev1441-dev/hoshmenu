@@ -1,0 +1,56 @@
+# Собирает НЕподписанный APK меню. Ключ подписи в GitHub не загружается:
+# APK скачивается на ПК и подписывается там (scripts/sign-apk.js).
+# Запуск: пуш в ветку apk-build или вручную во вкладке Actions.
+name: Android APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [apk-build]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: android-app
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Copy menu into Android project
+        run: npx cap sync android
+
+      - name: Build unsigned release
+        working-directory: android-app/android
+        run: |
+          chmod +x gradlew
+          ./gradlew --no-daemon assembleRelease
+
+      - name: Show APK info
+        working-directory: android-app/android
+        run: |
+          ls -l app/build/outputs/apk/release
+          BT=$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)
+          "$BT/aapt2" dump badging app/build/outputs/apk/release/*.apk | head -5
+          "$BT/zipalign" -c -P 16 4 app/build/outputs/apk/release/*.apk && echo ALIGNED
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: hoslounge-menu-apk-unsigned
+          path: android-app/android/app/build/outputs/apk/release/*.apk
+          retention-days: 14
