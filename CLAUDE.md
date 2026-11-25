@@ -68,6 +68,10 @@
 - Меню кэшируется в IndexedDB; раз в 15 с опрашивается лёгкий `/api/menu/version` ({version, theme, build}), полное меню качается только при смене версии.
 - Новогодняя тема: класс `body.ny`, режим auto (20.11–20.01)/on/off в админке → `POST /api/theme`, хранится в `/data/settings.json`.
 
+## Сборка APK без Java на ПК (25.11.2026)
+- Ветка `apk-build` → workflow `android-apk.yml` собирает НЕподписанный APK (artifact `hoslounge-menu-apk-unsigned`); ключ в GitHub не загружать. Подпись на ПК: `node scripts/sign-apk.js sign <in> <out>` (схема v2, Android 7+), проверка: `verify`.
+- Готов `android-app/hoslounge-menu-v2.1.apk` (versionCode 4, тот же ключ, что у v1.1/v1.2). Сборки перед выпуском: увеличить versionCode/versionName.
+
 ## Новый ПК (с 22.11.2026)
 - Путь: `C:\Users\Admin\Desktop\hs_menu`. Диалоги/память восстановлены `restore.ps1`, `npm install` сделан во всех трёх папках.
 - JDK 21 и Android SDK на этом ПК **не установлены** — сборка APK пока невозможна.
