@@ -46,6 +46,12 @@ jobs:
         run: |
           mkdir -p Payload
           cp -R build/Build/Products/Release-iphoneos/App.app Payload/
+          # Apple отклоняет Ş в основном имени при регистрации App ID, поэтому Ş только в локализации
+          for l in en ru; do
+            mkdir -p "Payload/App.app/$l.lproj"
+            echo '"CFBundleDisplayName" = "HOŞ Lounge";' > "Payload/App.app/$l.lproj/InfoPlist.strings"
+            plutil -lint "Payload/App.app/$l.lproj/InfoPlist.strings"
+          done
           zip -qr hoslounge-menu-ipad.ipa Payload
           ls -lh hoslounge-menu-ipad.ipa
 

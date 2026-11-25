@@ -34,6 +34,32 @@ app.get('/api/menu', (req, res) => {
   res.json(cache);
 });
 
+// ── Оформление и версия приложения (планшеты опрашивают это вместо полного меню)
+const SETTINGS_FILE = path.join(DATA_DIR, 'settings.json');
+let settings = { theme: 'auto' };
+try { settings = Object.assign(settings, JSON.parse(fs.readFileSync(SETTINGS_FILE, 'utf8'))); } catch (e) {}
+
+const APP_HTML = path.join(__dirname, 'www', 'index.html');
+const APP_BUILD = Number((fs.readFileSync(APP_HTML, 'utf8').match(/name="app-build" content="(\d+)"/) || [])[1]) || 0;
+
+app.get('/api/menu/version', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.json({ version: cache.version || 0, theme: settings.theme, build: APP_BUILD });
+});
+
+app.post('/api/theme', (req, res) => {
+  const { theme } = req.body || {};
+  if (!['auto', 'on', 'off'].includes(theme)) return res.status(400).json({ error: 'bad theme' });
+  settings.theme = theme;
+  fs.writeFileSync(SETTINGS_FILE, JSON.stringify(settings));
+  res.json({ ok: true, theme });
+});
+
+app.get('/api/app/html', (req, res) => {
+  res.setHeader('Cache-Control', 'no-store');
+  res.sendFile(APP_HTML, { cacheControl: false });
+});
+
 app.post('/api/menu', (req, res) => {
   const { dishes, cats, promos } = req.body || {};
   if (!Array.isArray(dishes) || !Array.isArray(cats)) {

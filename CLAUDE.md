@@ -60,6 +60,14 @@
 - Mac нет: .ipa собирается на GitHub Actions (`.github/workflows/ios-ipa.yml`, macOS, без подписи) при пуше в `android-app/**` или вручную; результат — artifact `hoslounge-menu-ipad`.
 - У пользователя iPad на iOS 16.7.8 (TrollStore не подходит) → ставит через **AltStore** с бесплатным Apple ID: продление раз в 7 дней через AltServer на ПК по Wi‑Fi.
 
+- Имя в Info.plist — `HOS Lounge` (Apple не принимает Ş при регистрации App ID), «HOŞ Lounge» — через InfoPlist.strings. На iOS 16 не использовать `aspect-ratio` в сетках (высота через padding).
+
+## Обновление и Новый год (25.11.2026)
+- **Номер сборки** — в `index.html` два места: `<meta name="app-build">` и `var BUILD`. При каждой правке страницы увеличивать оба одинаково (ГГГГММДДNN), иначе кнопка «Обновить» в приложениях не увидит новую версию.
+- Кнопка «Обновить» (админка): приложение скачивает `/api/app/html` с сервера, хранит в localStorage (`hs_ota`) и запускает вместо встроенной страницы; если дважды не запустилась — откат. Работает в iPad-версии v5+; APK 1.x/2.0 этого не умеют.
+- Меню кэшируется в IndexedDB; раз в 15 с опрашивается лёгкий `/api/menu/version` ({version, theme, build}), полное меню качается только при смене версии.
+- Новогодняя тема: класс `body.ny`, режим auto (20.11–20.01)/on/off в админке → `POST /api/theme`, хранится в `/data/settings.json`.
+
 ## Новый ПК (с 22.11.2026)
 - Путь: `C:\Users\Admin\Desktop\hs_menu`. Диалоги/память восстановлены `restore.ps1`, `npm install` сделан во всех трёх папках.
 - JDK 21 и Android SDK на этом ПК **не установлены** — сборка APK пока невозможна.
